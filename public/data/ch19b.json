@@ -1,0 +1,37 @@
+{
+  "chapter": "ch19b",
+  "chapter_title": "Chapter 19b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "adiuuō, -āre, adiūuī, adiūtum",
+          "definition": "I help"
+        },
+        {
+          "term": "dubitō, -āre",
+          "definition": "I doubt, hesitate"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Noun",
+      "cards": [
+        {
+          "term": "cursus, -ūs, m.",
+          "definition": "course"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "certus,-a,-um",
+          "definition": "certain, resolved"
+        }
+      ]
+    }
+  }
+}

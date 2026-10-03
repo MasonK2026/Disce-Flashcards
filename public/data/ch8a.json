@@ -1,0 +1,135 @@
+{
+  "chapter": "ch8a",
+  "chapter_title": "Chapter 8a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "teneō, -ēre",
+          "definition": "I hold"
+        },
+        {
+          "term": "cognōscō, -ere",
+          "definition": "I get to know, learn"
+        },
+        {
+          "term": "ferō, ferre",
+          "definition": "I bear"
+        },
+        {
+          "term": "occurrō, - ere + dat.",
+          "definition": "I meet"
+        },
+        {
+          "term": "succurrō, -ere + dat.",
+          "definition": "I help"
+        },
+        {
+          "term": "uādō, -ere",
+          "definition": "I go"
+        },
+        {
+          "term": "ēripiō, -ere",
+          "definition": "I snatch away, rescue"
+        },
+        {
+          "term": "respiciō, -ere",
+          "definition": "I look back at"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "rēgīna, -ae, f.",
+          "definition": "queen"
+        },
+        {
+          "term": "animus, -ī, m.",
+          "definition": "mind"
+        },
+        {
+          "term": "uentus, -ī, m.",
+          "definition": "wind"
+        },
+        {
+          "term": "amōr, amōris, m.",
+          "definition": "love"
+        },
+        {
+          "term": "ignis, -is, m.",
+          "definition": "fire"
+        },
+        {
+          "term": "salūs, salūtis, f.",
+          "definition": "safety"
+        },
+        {
+          "term": "tempestās, -ātis, f.",
+          "definition": "storm"
+        },
+        {
+          "term": "cursus, -ūs, m.",
+          "definition": "course"
+        },
+        {
+          "term": "portus, -ūs, m.",
+          "definition": "harbor"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "ignōtus, -a, -um",
+          "definition": "unknown"
+        },
+        {
+          "term": "magnus, -a, -um",
+          "definition": "great"
+        },
+        {
+          "term": "medius, -a, -um",
+          "definition": "middle"
+        },
+        {
+          "term": "nōtus, -a, -um",
+          "definition": "known"
+        },
+        {
+          "term": "tantus, -a, -um",
+          "definition": "so great"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "etiam",
+          "definition": "also"
+        },
+        {
+          "term": "frūstrā",
+          "definition": "in vain"
+        },
+        {
+          "term": "semper",
+          "definition": "always"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "dum",
+          "definition": "while"
+        }
+      ]
+    }
+  }
+}

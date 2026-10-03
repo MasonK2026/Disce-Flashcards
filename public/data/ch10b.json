@@ -1,0 +1,58 @@
+{
+  "chapter": "ch10b",
+  "chapter_title": "Chapter 10b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "superō, -āre, superāuī",
+          "definition": "I overcome"
+        },
+        {
+          "term": "temptō, -āre, temptāuī",
+          "definition": "I try"
+        },
+        {
+          "term": "addō, -ere, addidī",
+          "definition": "I add"
+        },
+        {
+          "term": "legō, -ere, lēgī",
+          "definition": "I read"
+        },
+        {
+          "term": "supersum, -esse, -fuī",
+          "definition": "I am left, survive"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Noun",
+      "cards": [
+        {
+          "term": "numerus, -ī, m.",
+          "definition": "number"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "facilis, facile",
+          "definition": "easy"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "tandem",
+          "definition": "at last"
+        }
+      ]
+    }
+  }
+}

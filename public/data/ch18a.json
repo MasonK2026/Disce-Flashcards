@@ -1,0 +1,98 @@
+{
+  "chapter": "ch18a",
+  "chapter_title": "Chapter 18a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "comparō, -āre, comparāuī, comparātum",
+          "definition": "I prepare, acquire, raise (an army)"
+        },
+        {
+          "term": "immineō, -ēre, imminuī + dat.",
+          "definition": "I overhang, threaten"
+        },
+        {
+          "term": "cōgō, -ere, coēgī, coāctum",
+          "definition": "I compel"
+        },
+        {
+          "term": "praecīdō, -ere, praecīdī, praecīsum",
+          "definition": "I cut off"
+        },
+        {
+          "term": "corripiō, -ere, corripuī, corrreptum",
+          "definition": "I seize, steal"
+        },
+        {
+          "term": "praeficiō, -ere, praefēcī, praefectum + acc. & dat.",
+          "definition": "I put X in command of Y"
+        },
+        {
+          "term": "praesum, praeesse, praefuī + dat.",
+          "definition": "I am in command of"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "cōpiae, -ārum, f. pl.",
+          "definition": "forces"
+        },
+        {
+          "term": "inimīcus, -ī, m.",
+          "definition": "enemy"
+        },
+        {
+          "term": "lēgātus, -ī, m.",
+          "definition": "envoy, deputy, commander"
+        },
+        {
+          "term": "nūntius, -ī, m.",
+          "definition": "message; messenger"
+        },
+        {
+          "term": "bona, -ōrum, n. pl.",
+          "definition": "goods, property"
+        },
+        {
+          "term": "ferrum, -ī, n.",
+          "definition": "iron, steel, sword"
+        },
+        {
+          "term": "foedus, foederis, n.",
+          "definition": "treaty"
+        },
+        {
+          "term": "dux, ducis, c.",
+          "definition": "leader"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "dēnique",
+          "definition": "finally"
+        },
+        {
+          "term": "intereā",
+          "definition": "meanwhile"
+        }
+      ]
+    },
+    "con": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "atque/ac",
+          "definition": "and"
+        }
+      ]
+    }
+  }
+}

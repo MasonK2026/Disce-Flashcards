@@ -1,0 +1,163 @@
+{
+  "chapter": "ch5a",
+  "chapter_title": "Chapter 5a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "conuocō, -āre",
+          "definition": "I call together"
+        },
+        {
+          "term": "nāuigō, -āre",
+          "definition": "I sail"
+        },
+        {
+          "term": "oppugnō, -āre",
+          "definition": "I attack"
+        },
+        {
+          "term": "pugnō, -āre",
+          "definition": "I fight"
+        },
+        {
+          "term": "incendō, -ere",
+          "definition": "I burn"
+        },
+        {
+          "term": "occīdō, -ere",
+          "definition": "I kill"
+        },
+        {
+          "term": "resistō, -ere",
+          "definition": "I resist"
+        },
+        {
+          "term": "uincō,-ere",
+          "definition": "I conquer"
+        },
+        {
+          "term": "capiō, capere",
+          "definition": "I take"
+        },
+        {
+          "term": "fugiō, fugere",
+          "definition": "I flee"
+        },
+        {
+          "term": "conueniō, -īre",
+          "definition": "I gather together"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "hasta, -ae, f.",
+          "definition": "spear"
+        },
+        {
+          "term": "īra, -ae, f.",
+          "definition": "anger"
+        },
+        {
+          "term": "pugna, -ae, f.",
+          "definition": "fight"
+        },
+        {
+          "term": "annus, -ī, m.",
+          "definition": "year"
+        },
+        {
+          "term": "bellum, -ī, n.",
+          "definition": "war"
+        },
+        {
+          "term": "perīculum, -ī, n.",
+          "definition": "danger"
+        },
+        {
+          "term": "arma, -ōrum, n. pl.",
+          "definition": "arms"
+        },
+        {
+          "term": "comes, comitis, m.",
+          "definition": "companion"
+        },
+        {
+          "term": "frāter, frātris, m.",
+          "definition": "brother"
+        },
+        {
+          "term": "māter, mātris, f.",
+          "definition": "mother"
+        },
+        {
+          "term": "pater, patris, m.",
+          "definition": "father"
+        },
+        {
+          "term": "nāuis, nāuis, f.",
+          "definition": "ship"
+        },
+        {
+          "term": "pars, partis, f.",
+          "definition": "part"
+        },
+        {
+          "term": "prīnceps, prīncipis, m.",
+          "definition": "chief"
+        },
+        {
+          "term": "rēx, rēgis, m.",
+          "definition": "king"
+        },
+        {
+          "term": "urbs, urbis, f.",
+          "definition": "city"
+        },
+        {
+          "term": "exercitus, exercitūs, m.",
+          "definition": "army"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "cārus, -a, -um",
+          "definition": "dear"
+        },
+        {
+          "term": "fortis, fortis, forte",
+          "definition": "brave"
+        },
+        {
+          "term": "omnis, omnis, omne",
+          "definition": "all"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "fortiter",
+          "definition": "bravely"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "-que",
+          "definition": "and"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "chapter": "ch27",
+  "chapter_title": "Chapter 27",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "cōnsōlor, -ārī",
+          "definition": "I console, comfort"
+        },
+        {
+          "term": "incitō, -āre",
+          "definition": "I urge on, incite, arouse"
+        },
+        {
+          "term": "memorō, -āre",
+          "definition": "I remind of, mention"
+        },
+        {
+          "term": "careō, -ēre + abl.",
+          "definition": "I lack"
+        },
+        {
+          "term": "foueō, -ēre, fōuī, fōtum",
+          "definition": "I support, assist"
+        },
+        {
+          "term": "recēdō, -ere, recessī, recessum",
+          "definition": "I go back, retire"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "doctrīna, -ae, f.",
+          "definition": "teaching, doctrine"
+        },
+        {
+          "term": "praeceptum, -ī, n.",
+          "definition": "advice, precept"
+        },
+        {
+          "term": "timor, timōris, m.",
+          "definition": "fear"
+        },
+        {
+          "term": "uoluptās, uoluptātis, f.",
+          "definition": "pleasure"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "aureus, -a, -um",
+          "definition": "golden"
+        },
+        {
+          "term": "hodiernus, -a, -um",
+          "definition": "today's"
+        },
+        {
+          "term": "siccus, -a, -um",
+          "definition": "dry"
+        },
+        {
+          "term": "suprēmus, -a, -um",
+          "definition": "last"
+        },
+        {
+          "term": "tūtus, -a, -um",
+          "definition": "safe"
+        },
+        {
+          "term": "mollis, -e",
+          "definition": "soft"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "quasi",
+          "definition": "as if"
+        },
+        {
+          "term": "nōnnumquam",
+          "definition": "sometimes"
+        },
+        {
+          "term": "semel",
+          "definition": "once, twice, three times"
+        }
+      ]
+    },
+    "pronouns": {
+      "display_name": "Pronoun",
+      "cards": [
+        {
+          "term": "quisquis, quidquid",
+          "definition": "whoever, whatever"
+        }
+      ]
+    }
+  }
+}

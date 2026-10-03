@@ -1,0 +1,88 @@
+{
+  "chapter": "ch17a",
+  "chapter_title": "Chapter 17a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "soluō, -ere, soluī, solūtum",
+          "definition": "I loose, cast off"
+        },
+        {
+          "term": "ēuādō, ere, ēuāsī, ēuāsum",
+          "definition": "I escape"
+        },
+        {
+          "term": "pellō, pellere, pepulī, pulsum",
+          "definition": "I drive"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "signum, -ī, n.",
+          "definition": "sign, signal"
+        },
+        {
+          "term": "uēla, -ōrum, n. pl.",
+          "definition": "sails"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "incolumis, -e",
+          "definition": "unharmed"
+        },
+        {
+          "term": "nōbilis, -e",
+          "definition": "famous, noble"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "anteā",
+          "definition": "before"
+        },
+        {
+          "term": "deinde",
+          "definition": "then, next"
+        },
+        {
+          "term": "hodiē",
+          "definition": "today"
+        },
+        {
+          "term": "umquam",
+          "definition": "ever"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Preposition",
+      "cards": [
+        {
+          "term": "ante + acc.",
+          "definition": "before"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "antequam",
+          "definition": "before"
+        }
+      ]
+    }
+  }
+}

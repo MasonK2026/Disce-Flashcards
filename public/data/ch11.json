@@ -1,0 +1,132 @@
+{
+  "chapter": "ch11",
+  "chapter_title": "Chapter 11",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "excitō, -ēre, excitēuī",
+          "definition": "I rouse, wake up"
+        },
+        {
+          "term": "iaceō, iacēre, iacuī",
+          "definition": "I lie (down)"
+        },
+        {
+          "term": "contendō, -ere, contendī",
+          "definition": "I march, go"
+        },
+        {
+          "term": "emō, emere, ēmī",
+          "definition": "I buy"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "flūmen, flūminis, n.",
+          "definition": "river"
+        },
+        {
+          "term": "populus, -ī, m.",
+          "definition": "people"
+        },
+        {
+          "term": "uestīmenta, -ōrum, n. pl.",
+          "definition": "clothes"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "aeternus, -a, -um",
+          "definition": "eternal"
+        },
+        {
+          "term": "altus, -a, -um",
+          "definition": "high"
+        },
+        {
+          "term": "apertus, -a -um",
+          "definition": "open"
+        },
+        {
+          "term": "longus, -a, -um",
+          "definition": "long"
+        },
+        {
+          "term": "pulcher, pulchra, pulchrum",
+          "definition": "beautiful"
+        },
+        {
+          "term": "sacer, sacra, sacrum",
+          "definition": "sacred"
+        },
+        {
+          "term": "uacuus, -a, -um",
+          "definition": "empty"
+        },
+        {
+          "term": "difficilis, -e",
+          "definition": "difficult"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "continuō",
+          "definition": "straight away"
+        },
+        {
+          "term": "longē",
+          "definition": "far"
+        },
+        {
+          "term": "numquam",
+          "definition": "never"
+        },
+        {
+          "term": "tam",
+          "definition": "so"
+        },
+        {
+          "term": "hīc . . . illīc",
+          "definition": "here . . . there"
+        },
+        {
+          "term": "hūc . . . illūc",
+          "definition": "this way . . . that way"
+        },
+        {
+          "term": "ubīque",
+          "definition": "everywhere"
+        }
+      ]
+    },
+    "pronouns": {
+      "display_name": "Pronoun",
+      "cards": [
+        {
+          "term": "aliquis, aliquid",
+          "definition": "someone, something"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "ubi",
+          "definition": "when; where"
+        }
+      ]
+    }
+  }
+}

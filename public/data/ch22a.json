@@ -1,0 +1,99 @@
+{
+  "chapter": "ch22a",
+  "chapter_title": "Chapter 22a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "cēlō, cēlāre",
+          "definition": "I hide"
+        },
+        {
+          "term": "cubō, -āre, cubuī, cubitum",
+          "definition": "I lie down"
+        },
+        {
+          "term": "complector, -ī, complexus sum",
+          "definition": "I embrace"
+        },
+        {
+          "term": "prōdō, -ere, prōdidī, prōditum",
+          "definition": "I betray"
+        },
+        {
+          "term": "contendō, -ere, contendī, contentum",
+          "definition": "I walk, march"
+        },
+        {
+          "term": "dēserō, -ere, dēseruī, dēsertum",
+          "definition": "I desert"
+        },
+        {
+          "term": "reprehendō, -ere, reprehendī, reprehēsum",
+          "definition": "I censure, blame"
+        },
+        {
+          "term": "accidit, -ere, accidit",
+          "definition": "it happens"
+        },
+        {
+          "term": "orior, orīrī, ortus sum",
+          "definition": "I rise"
+        },
+        {
+          "term": "aliquem certiōrem faciō",
+          "definition": "I inform someone"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "caput, capitis, n.",
+          "definition": "head; life"
+        },
+        {
+          "term": "cāsus, cāsūs, m.",
+          "definition": "fate, mishap, misfortune"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "fēlīx, fēlīcis",
+          "definition": "happy"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "noctū",
+          "definition": "by night"
+        },
+        {
+          "term": "ōlim",
+          "definition": "once (in the past), sometime (in the future)"
+        },
+        {
+          "term": "saltem",
+          "definition": "at least"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "num",
+          "definition": "whether; surely it can't be that?"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "chapter": "ch20",
+  "chapter_title": "Chapter 20",
+  "categories": {
+    "verbs": {
+      "display_name": "Deponent Verbs",
+      "cards": [
+        {
+          "term": "cōnor, cōnārī, cōnātus sum",
+          "definition": "I try"
+        },
+        {
+          "term": "moror, morārī, morātus sum",
+          "definition": "I delay"
+        },
+        {
+          "term": "uideor, uidērī, uīsus sum",
+          "definition": "I seem"
+        },
+        {
+          "term": "ingredior, ingredī, ingressus sum",
+          "definition": "I go into, enter"
+        },
+        {
+          "term": "loquor, loquī, locūtus sum",
+          "definition": "I speak"
+        },
+        {
+          "term": "morior, morī, mortuus sum",
+          "definition": "I die"
+        },
+        {
+          "term": "nāscor, nāscī, nātus sum",
+          "definition": "I am born"
+        },
+        {
+          "term": "patior, patī, passus sum",
+          "definition": "I suffer"
+        },
+        {
+          "term": "proficīscor, proficīscī, profectus sum",
+          "definition": "I set out"
+        },
+        {
+          "term": "sequor, sequī, secūtus sum",
+          "definition": "I follow"
+        }
+      ]
+    },
+    "verbs1": {
+      "display_name": "Other Verbs",
+      "cards": [
+        {
+          "term": "postulō, -āre",
+          "definition": "I demand"
+        },
+        {
+          "term": "praebeō, -ēre, praebuī, praebitum",
+          "definition": "I offer, give"
+        },
+        {
+          "term": "mē praebeō",
+          "definition": "I show myself"
+        },
+        {
+          "term": "gerō, -ere, gessī, gestum",
+          "definition": "I carry, wear"
+        },
+        {
+          "term": "mē gerō",
+          "definition": "I conduct myself, behave"
+        },
+        {
+          "term": "perficiō, -ere, perfēcī, perfectum",
+          "definition": "I carry out, complete"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "tēlum, -ī, n.",
+          "definition": "missile, javelin"
+        },
+        {
+          "term": "tergum, -ī, n.",
+          "definition": "back"
+        },
+        {
+          "term": "mōs, mōris, m.",
+          "definition": "custom"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "trepidus, -a, -um",
+          "definition": "anxious"
+        },
+        {
+          "term": "inūtilis, -e",
+          "definition": "useless"
+        },
+        {
+          "term": "rūrsus",
+          "definition": "again"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "aliquamdiū",
+          "definition": "for some time"
+        },
+        {
+          "term": "omnīnō",
+          "definition": "altogether"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Preposition",
+      "cards": [
+        {
+          "term": "pro + abl.",
+          "definition": "in front of, on behalf of"
+        }
+      ]
+    }
+  }
+}

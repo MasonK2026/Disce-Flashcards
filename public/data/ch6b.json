@@ -1,0 +1,71 @@
+{
+  "chapter": "ch6b",
+  "chapter_title": "Chapter 6b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "errō, -āre",
+          "definition": "I wander, I err"
+        },
+        {
+          "term": "condō, -ere",
+          "definition": "I found"
+        },
+        {
+          "term": "cōnscendō, -ere",
+          "definition": "I board (a ship)"
+        },
+        {
+          "term": "inueniō, -īre",
+          "definition": "I find"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "labor, labōris, m.",
+          "definition": "work, suffering"
+        },
+        {
+          "term": "mōns, montis, m.",
+          "definition": "mountain"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "paruus, -a, -um",
+          "definition": "little"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "mox",
+          "definition": "soon"
+        },
+        {
+          "term": "tamen (2nd word)",
+          "definition": "however"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Preposition",
+      "cards": [
+        {
+          "term": "inter + acc.",
+          "definition": "between, among"
+        }
+      ]
+    }
+  }
+}

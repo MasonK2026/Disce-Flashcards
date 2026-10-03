@@ -1,0 +1,49 @@
+{
+  "chapter": "ch30a",
+  "chapter_title": "Chapter 30a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "mūtō, -āre",
+          "definition": "I change"
+        },
+        {
+          "term": "dūcō, dūcere, dūxī, ductum",
+          "definition": "I lead; I think"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "epistola, -ae, f.",
+          "definition": "letter"
+        },
+        {
+          "term": "rīsus, -ūs, m.",
+          "definition": "laughter"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "idōneus, -a, -um",
+          "definition": "suitable"
+        },
+        {
+          "term": "praesēns, praesentis",
+          "definition": "present"
+        },
+        {
+          "term": "prūdēns, prūdentis",
+          "definition": "sensible, wise"
+        }
+      ]
+    }
+  }
+}

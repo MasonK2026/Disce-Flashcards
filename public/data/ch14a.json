@@ -1,0 +1,102 @@
+{
+  "chapter": "ch14a",
+  "chapter_title": "Chapter 14a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "nūntiō, -āre, nūntiāuī",
+          "definition": "I announce"
+        },
+        {
+          "term": "prōnūntiō",
+          "definition": "I proclaim"
+        },
+        {
+          "term": "ēdō, -ere, ēdidī",
+          "definition": "I give out, proclaim"
+        },
+        {
+          "term": "fīo, fi erī",
+          "definition": "I become, am made"
+        },
+        {
+          "term": "praetereō, -īre, praeteriī",
+          "definition": "I go past, pass"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "mora, -ae, f.",
+          "definition": "delay"
+        },
+        {
+          "term": "spectāculum, -ī, n.",
+          "definition": "spectacle, show"
+        },
+        {
+          "term": "caput, capitis, n.",
+          "definition": "head"
+        },
+        {
+          "term": "genus, generis, n.",
+          "definition": "kind, type, race, birth"
+        },
+        {
+          "term": "legiō, legiōins, f.",
+          "definition": "legion"
+        },
+        {
+          "term": "mulier, mulieris, f.",
+          "definition": "woman"
+        },
+        {
+          "term": "multitūdō, multitūdinis, f.",
+          "definition": "multitude, crowd"
+        },
+        {
+          "term": "ōrdō, ōridings, m.",
+          "definition": "rank, order"
+        },
+        {
+          "term": "pēs, pedis, m.",
+          "definition": "foot"
+        },
+        {
+          "term": "currus, -ūs, m.",
+          "definition": "chariot"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "dēnique",
+          "definition": "finally, at last"
+        },
+        {
+          "term": "interdum",
+          "definition": "from time to time"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Prepositions",
+      "cards": [
+        {
+          "term": "inter + acc.",
+          "definition": "among, between"
+        },
+        {
+          "term": "ob + acc.",
+          "definition": "on account of"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "chapter": "ch28a",
+  "chapter_title": "Chapter 28a",
+  "categories": {
+    "verbs": {
+      "display_name": "Impersonal Verbs",
+      "cards": [
+        {
+          "term": "mē iuuat, -āre + inf.",
+          "definition": "it pleases me to"
+        },
+        {
+          "term": "mihi licet, -ēre + inf.",
+          "definition": "it is lawful for me, I am allowed, I may"
+        },
+        {
+          "term": "mē oportet, -ēre + inf.",
+          "definition": "I ought"
+        },
+        {
+          "term": "mē paenitet, -ēre + gen.",
+          "definition": "I regret, repent"
+        },
+        {
+          "term": "mihi placet, -ēre + inf.",
+          "definition": "it pleases me to, I decide to"
+        },
+        {
+          "term": "mē taedet, -ēre + gen.",
+          "definition": "I am tired of"
+        }
+      ]
+    },
+    "verbs1": {
+      "display_name": "Other Verbs",
+      "cards": [
+        {
+          "term": "dōnō, -āre",
+          "definition": "I give, donate"
+        },
+        {
+          "term": "optō, -āre",
+          "definition": "I wish for, pray for"
+        },
+        {
+          "term": "referō, referre, rettulī, relātum",
+          "definition": "I carry back, report"
+        },
+        {
+          "term": "mē referō",
+          "definition": "I go back"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "fūmus, -ī, m.",
+          "definition": "smoke"
+        },
+        {
+          "term": "fundus, -ī, m.",
+          "definition": "farm"
+        },
+        {
+          "term": "lectus, -ī, m.",
+          "definition": "bed"
+        },
+        {
+          "term": "dōnum, -ī",
+          "definition": "gift"
+        },
+        {
+          "term": "uōtum, -ī, n.",
+          "definition": "prayer, wish"
+        },
+        {
+          "term": "aestās, aestātis, f.",
+          "definition": "summer"
+        },
+        {
+          "term": "calor, calōris, m.",
+          "definition": "heat"
+        },
+        {
+          "term": "opēs, opum, f. pl.",
+          "definition": "wealth"
+        },
+        {
+          "term": "opus, operis, n.",
+          "definition": "work; military work, fortification"
+        },
+        {
+          "term": "opus est mihi + abl.",
+          "definition": "I have need of"
+        },
+        {
+          "term": "rūs, rūris, n.",
+          "definition": "country, estate"
+        },
+        {
+          "term": "sors, sortis, f.",
+          "definition": "lot, fate"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "gelidus, -a, -um",
+          "definition": "cold"
+        },
+        {
+          "term": "uīcīnus, -a, -um",
+          "definition": "neighboring, near"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "quōcumque",
+          "definition": "(to) wherever"
+        },
+        {
+          "term": "utinam",
+          "definition": "if only . . . , would that . . . (expressing a wish)"
+        }
+      ]
+    }
+  }
+}

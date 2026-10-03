@@ -1,0 +1,79 @@
+{
+  "chapter": "ch10c",
+  "chapter_title": "Chapter 10c",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "habeō, habēre, habuī",
+          "definition": "I have"
+        },
+        {
+          "term": "uīuō, uīere, uīxī",
+          "definition": "I live"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "hōra, -ae, f.",
+          "definition": "hour"
+        },
+        {
+          "term": "lacrima, -ae, f.",
+          "definition": "tear"
+        },
+        {
+          "term": "hiems, hiemis, f.",
+          "definition": "winter"
+        },
+        {
+          "term": "iter, itineris, n.",
+          "definition": "journey"
+        },
+        {
+          "term": "tempus, temporis, n.",
+          "definition": "time"
+        },
+        {
+          "term": "uēr, uēris, n.",
+          "definition": "spring"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "posterus, -a, -um",
+          "definition": "next"
+        },
+        {
+          "term": "domī (locative)",
+          "definition": "at home"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "satis",
+          "definition": "enough (+ gen., e.g. satis argentī = enough money)"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Preposition",
+      "cards": [
+        {
+          "term": "sine + abl.",
+          "definition": "without"
+        }
+      ]
+    }
+  }
+}

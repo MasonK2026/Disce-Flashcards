@@ -1,0 +1,81 @@
+{
+  "chapter": "ch26",
+  "chapter_title": "Chapter 26",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "cantō, -āre",
+          "definition": "I sing"
+        },
+        {
+          "term": "comitor, -ārī, comitātus",
+          "definition": "I accompany"
+        },
+        {
+          "term": "uereor, uerērī, ueritus sum",
+          "definition": "I fear"
+        },
+        {
+          "term": "arcessō, -ere, arcessīuī, arcessītum",
+          "definition": "I summon"
+        },
+        {
+          "term": "diffundō, -ere, diffūdī, diffūsum",
+          "definition": "I scatter"
+        },
+        {
+          "term": "sentiō, -īre, sēnsī, sēnsum",
+          "definition": "I feel, realize"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "umbra, -ae, f.",
+          "definition": "shadow"
+        },
+        {
+          "term": "imber, imbris, m.",
+          "definition": "rain"
+        },
+        {
+          "term": "auctōritās, auctōritātis, f.",
+          "definition": "authority"
+        },
+        {
+          "term": "ars, artis, f.",
+          "definition": "art, skill"
+        },
+        {
+          "term": "nīl",
+          "definition": "nihil, nothing"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "inde",
+          "definition": "from there, then"
+        },
+        {
+          "term": "sērō",
+          "definition": "late, too late"
+        },
+        {
+          "term": "tum dēmum",
+          "definition": "then at last"
+        },
+        {
+          "term": "quidem",
+          "definition": "indeed (emphasizing previous word)"
+        }
+      ]
+    }
+  }
+}

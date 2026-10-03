@@ -1,0 +1,95 @@
+{
+  "chapter": "ch31",
+  "chapter_title": "Chapter 31",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "dēsīderō, -āre",
+          "definition": "I long for, miss"
+        },
+        {
+          "term": "īnstō, -āre, īnstitī",
+          "definition": "I stand on, press on, threaten"
+        },
+        {
+          "term": "intereō, -īre, interiī, interitum",
+          "definition": "I perish"
+        },
+        {
+          "term": "oblīuīscor, -ī, oblītus sum + gen.",
+          "definition": "I forget"
+        }
+      ]
+    },
+    "verbs1": {
+      "display_name": "Defective Verbs",
+      "cards": [
+        {
+          "term": "coepī, coepisse",
+          "definition": "I begin"
+        },
+        {
+          "term": "meminī, meminisse + gen.",
+          "definition": "I remember"
+        },
+        {
+          "term": "ōdī, ōdisse",
+          "definition": "I hate"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "senecta, -ae, f.",
+          "definition": "old age"
+        },
+        {
+          "term": "tenebrae, -ārum, f. pl.",
+          "definition": "darkness"
+        },
+        {
+          "term": "pietās, pietātis, f.",
+          "definition": "piety, loyalty"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "cūnctus, -a, -um",
+          "definition": "all"
+        },
+        {
+          "term": "praeteritus, -a, -um",
+          "definition": "past"
+        },
+        {
+          "term": "uīuus, -a, -um",
+          "definition": "living, alive"
+        },
+        {
+          "term": "ūniuersī, -ae, -a",
+          "definition": "all"
+        },
+        {
+          "term": "līberālis, -e",
+          "definition": "generous"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Prepositions",
+      "cards": [
+        {
+          "term": "super + acc.",
+          "definition": "above, over"
+        }
+      ]
+    }
+  }
+}

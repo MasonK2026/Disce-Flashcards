@@ -1,0 +1,100 @@
+{
+  "chapter": "ch15a",
+  "chapter_title": "Chapter 15a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "dēlectō, -āre, dēlectāuī",
+          "definition": "I please, delight"
+        },
+        {
+          "term": "placeō, -ēre, placuī + dat.",
+          "definition": "I please"
+        },
+        {
+          "term": "mālō, mālle, māluī",
+          "definition": "I prefer"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "uīta, -ae, f.",
+          "definition": "life"
+        },
+        {
+          "term": "campus, -ī, m.",
+          "definition": "plain, field"
+        },
+        {
+          "term": "iūs, iūris, n.",
+          "definition": "right"
+        },
+        {
+          "term": "lēx, lēgis, f.",
+          "definition": "law"
+        },
+        {
+          "term": "carmen, carminis, n.",
+          "definition": "poem, song"
+        },
+        {
+          "term": "rhētor, rhetoris, m.",
+          "definition": "teacher of"
+        },
+        {
+          "term": "rhetoric (ars) rhētorica, -ae, f.",
+          "definition": "(the art of) rhetoric"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "uetus, ueteris",
+          "definition": "old"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "nōn iam",
+          "definition": "no longer"
+        },
+        {
+          "term": "paene",
+          "definition": "almost"
+        },
+        {
+          "term": "nē . . . quidem",
+          "definition": "not even"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Preposition",
+      "cards": [
+        {
+          "term": "apud + acc.",
+          "definition": "at the house of, with"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "dum",
+          "definition": "while"
+        }
+      ]
+    }
+  }
+}

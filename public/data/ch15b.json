@@ -1,0 +1,80 @@
+{
+  "chapter": "ch15b",
+  "chapter_title": "Chapter 15b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "lūceō, -ēre, lūxī",
+          "definition": "I shine"
+        },
+        {
+          "term": "feriō, ferīre, percussī",
+          "definition": "I strike"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Noun",
+      "cards": [
+        {
+          "term": "sōl, sōlis, m.",
+          "definition": "sun"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "īnsignis, insigne",
+          "definition": "distinguished, outstanding"
+        },
+        {
+          "term": "tot (indeclinable)",
+          "definition": "so many"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "eō",
+          "definition": "to there, thither"
+        },
+        {
+          "term": "libenter",
+          "definition": "gladly"
+        },
+        {
+          "term": "unde",
+          "definition": "whence, from where"
+        },
+        {
+          "term": "undique",
+          "definition": "from all sides"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Preposition",
+      "cards": [
+        {
+          "term": "prō + abl.",
+          "definition": "in front of, on behalf of"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "dum",
+          "definition": "while"
+        }
+      ]
+    }
+  }
+}

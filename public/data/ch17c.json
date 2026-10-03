@@ -1,0 +1,40 @@
+{
+  "chapter": "ch17c",
+  "chapter_title": "Chapter 17c",
+  "categories": {
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "uērum, -ī, n.",
+          "definition": "truth"
+        },
+        {
+          "term": "rē uērā",
+          "definition": "in truth"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "dubius, -a, -um",
+          "definition": "doubtful"
+        },
+        {
+          "term": "sine dubiō",
+          "definition": "without doubt"
+        },
+        {
+          "term": "uērus, -a, -um",
+          "definition": "true"
+        },
+        {
+          "term": "hilaris, -e",
+          "definition": "cheerful"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "chapter": "ch9",
+  "chapter_title": "Chapter 9",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "amō, amāre",
+          "definition": "I love"
+        },
+        {
+          "term": "imperō, -āre + dat.",
+          "definition": "I command"
+        },
+        {
+          "term": "uolō, uolāre",
+          "definition": "I fly"
+        },
+        {
+          "term": "pāreō, -ēre + dat.",
+          "definition": "I obey"
+        },
+        {
+          "term": "crēscō, -ere",
+          "definition": "I increase"
+        },
+        {
+          "term": "dēmittō, -ere",
+          "definition": "I send down"
+        },
+        {
+          "term": "dēserō, -ere",
+          "definition": "I desert"
+        },
+        {
+          "term": "dīmittō, -ere",
+          "definition": "I send away, dismiss"
+        },
+        {
+          "term": "discēdo, -ere",
+          "definition": "I depart"
+        },
+        {
+          "term": "exstruō, -ere",
+          "definition": "I build"
+        },
+        {
+          "term": "incipiō, -ere",
+          "definition": "I begin"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "poena, -ae, f.",
+          "definition": "punishment"
+        },
+        {
+          "term": "fūmus, -ī, m.",
+          "definition": "smoke"
+        },
+        {
+          "term": "gladius, -ī, m.",
+          "definition": "sword"
+        },
+        {
+          "term": "nūntius, -ī, m.",
+          "definition": "messenger"
+        },
+        {
+          "term": "oculus, -ī, m.",
+          "definition": "eye"
+        },
+        {
+          "term": "imperium, -ī, n.",
+          "definition": "order, command"
+        },
+        {
+          "term": "fīnis, -is, m.",
+          "definition": "end"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "aureus, -a, -um",
+          "definition": "golden"
+        },
+        {
+          "term": "dīrus, -a, -um",
+          "definition": "terrible"
+        },
+        {
+          "term": "trīstis, -e",
+          "definition": "sad"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "statim",
+          "definition": "at once"
+        },
+        {
+          "term": "ualdē",
+          "definition": "very"
+        },
+        {
+          "term": "intereā",
+          "definition": "meanwhile"
+        },
+        {
+          "term": "etiam",
+          "definition": "even"
+        },
+        {
+          "term": "ibi",
+          "definition": "there"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Prepositions",
+      "cards": [
+        {
+          "term": "post + acc.",
+          "definition": "after"
+        },
+        {
+          "term": "suprā + acc.",
+          "definition": "above"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "aut . . . aut",
+          "definition": "either . . . or"
+        }
+      ]
+    }
+  }
+}

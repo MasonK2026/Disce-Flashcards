@@ -1,0 +1,93 @@
+{
+  "chapter": "ch5b",
+  "chapter_title": "Chapter 5b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "exspectō, -āre",
+          "definition": "I wait for"
+        },
+        {
+          "term": "ōrō, -āre",
+          "definition": "I beg, pray"
+        },
+        {
+          "term": "seruō, -āre",
+          "definition": "I save"
+        },
+        {
+          "term": "reddō, -ere",
+          "definition": "I give back"
+        },
+        {
+          "term": "trahō, -ere",
+          "definition": "I drag"
+        },
+        {
+          "term": "uertō, -ere",
+          "definition": "I turn"
+        },
+        {
+          "term": "coniciō, conicere",
+          "definition": "I hurl"
+        },
+        {
+          "term": "iaciō, iacere",
+          "definition": "I throw"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "deus, deī, m.",
+          "definition": "god"
+        },
+        {
+          "term": "fīlius, fīliī, m.",
+          "definition": "son"
+        },
+        {
+          "term": "mūrus, -ī, m.",
+          "definition": "wall"
+        },
+        {
+          "term": "corpus, corporis, n.",
+          "definition": "body"
+        },
+        {
+          "term": "mors, mortis, f.",
+          "definition": "death"
+        },
+        {
+          "term": "nox, noctis, f.",
+          "definition": "night"
+        },
+        {
+          "term": "uxor, uxōris, f.",
+          "definition": "wife"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "mortuus, -a, -um",
+          "definition": "dead"
+        },
+        {
+          "term": "sōlus, -a, -um",
+          "definition": "alone"
+        },
+        {
+          "term": "territus, -a, -um",
+          "definition": "terrified"
+        }
+      ]
+    }
+  }
+}

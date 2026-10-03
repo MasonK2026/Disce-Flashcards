@@ -1,0 +1,44 @@
+{
+  "chapter": "ch18b",
+  "chapter_title": "Chapter 18b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "coniungō, -ere, coniūnxī, coniūnctum",
+          "definition": "I join"
+        },
+        {
+          "term": "expellō, -ere, expulī, expulsum",
+          "definition": "I drive out"
+        },
+        {
+          "term": "opprimō, -ere, oppressī, oppressum",
+          "definition": "I oppress, overpower"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "annus, -ī, m.",
+          "definition": "year"
+        },
+        {
+          "term": "exemplum, -ī, n.",
+          "definition": "example"
+        },
+        {
+          "term": "officium, -ī, n.",
+          "definition": "duty"
+        },
+        {
+          "term": "caedēs, caedis, f.",
+          "definition": "slaughter, murder"
+        }
+      ]
+    }
+  }
+}

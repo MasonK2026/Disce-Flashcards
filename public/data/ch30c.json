@@ -1,0 +1,70 @@
+{
+  "chapter": "ch30c",
+  "chapter_title": "Chapter 30c",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "inuideō, -ēre, inuīdī, inuīsum + dat.",
+          "definition": "I envy"
+        },
+        {
+          "term": "carpō, -ere, carpsī, carptum",
+          "definition": "I pluck, pick"
+        },
+        {
+          "term": "condō, -ere, condidī, conditum",
+          "definition": "I build, found; I store"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "lētum, -ī, n.",
+          "definition": "death"
+        },
+        {
+          "term": "oblīuium, oblīuiī, n.",
+          "definition": "forgetfulness"
+        },
+        {
+          "term": "moenia, moenium, n. pl.",
+          "definition": "walls, fortifications"
+        },
+        {
+          "term": "cor, cordis, n.",
+          "definition": "heart"
+        },
+        {
+          "term": "hospes, hospitis, c.",
+          "definition": "guest, host"
+        },
+        {
+          "term": "seges, segetis, f.",
+          "definition": "crop"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "leuis, -e",
+          "definition": "light"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "nimium",
+          "definition": "too much"
+        }
+      ]
+    }
+  }
+}

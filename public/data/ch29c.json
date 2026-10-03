@@ -1,0 +1,77 @@
+{
+  "chapter": "ch29c",
+  "chapter_title": "Chapter 29c",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "cēnseō, -ēre, cēnsuī",
+          "definition": "I vote, decree"
+        },
+        {
+          "term": "dēleō, -ēre, dēlēuī, dēlētum",
+          "definition": "I destroy"
+        },
+        {
+          "term": "lābor, lābī, lāpsus sum",
+          "definition": "I slip, slide"
+        },
+        {
+          "term": "parcō, -ere, pepercī, parsum + dat.",
+          "definition": "I spare"
+        },
+        {
+          "term": "potior, potīrī, potītus sum + gen.",
+          "definition": "I obtain, possess"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "īnsidiae, -ārum, f. pl.",
+          "definition": "ambush"
+        },
+        {
+          "term": "praesidium, praesidiī, n.",
+          "definition": "garrison"
+        },
+        {
+          "term": "saeculum, -ī, n.",
+          "definition": "generation, age"
+        },
+        {
+          "term": "testāmentum, -ī, n.",
+          "definition": "will"
+        },
+        {
+          "term": "aetās, aetātis, f.",
+          "definition": "age"
+        },
+        {
+          "term": "fīnis, fīnis, m.",
+          "definition": "end"
+        },
+        {
+          "term": "fīnēs, fīnium, m. pl.",
+          "definition": "boundaries"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "aureus, -a, -um",
+          "definition": "golden"
+        },
+        {
+          "term": "externus, -a, -um",
+          "definition": "external, foreign"
+        }
+      ]
+    }
+  }
+}

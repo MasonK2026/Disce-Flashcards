@@ -1,0 +1,115 @@
+{
+  "chapter": "ch25",
+  "chapter_title": "Chapter 25",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "putō, -āre",
+          "definition": "I think"
+        },
+        {
+          "term": "for, fārī, fātus sum",
+          "definition": "I speak"
+        },
+        {
+          "term": "doleō, -ēre, doluī, dolitum",
+          "definition": "I feel pain, grieve"
+        },
+        {
+          "term": "prohibeō, -ēre, prohibuī, prohibitum",
+          "definition": "I prevent"
+        },
+        {
+          "term": "cōnsulō, -ere, cōnsuluī, cōnsultum",
+          "definition": "I consult"
+        },
+        {
+          "term": "contemnō, -ere, contempsī, contemptum",
+          "definition": "I despise"
+        },
+        {
+          "term": "dīligō, -ere, dīlēxī, dīlēctum",
+          "definition": "I esteem, love"
+        },
+        {
+          "term": "dūcō, -ere, dūxī, ductum",
+          "definition": "I lead; I think, consider"
+        },
+        {
+          "term": "neglegō, -ere, neglēxī, neglēctum",
+          "definition": "I neglect"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "litterae, -ārum, f. pl.",
+          "definition": "letters, literature"
+        },
+        {
+          "term": "eques, equitis, m.",
+          "definition": "horseman, knight"
+        },
+        {
+          "term": "familiāris, -is, c.",
+          "definition": "friend"
+        },
+        {
+          "term": "honor, honōris, m.",
+          "definition": "honor, office"
+        },
+        {
+          "term": "pectus, pectoris, n.",
+          "definition": "breast, heart, soul"
+        },
+        {
+          "term": "pudor, pudōris, m.",
+          "definition": "shame, modesty"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "dignus, -a, -um + abl.",
+          "definition": "worthy (of)"
+        },
+        {
+          "term": "indignus, -a, -um",
+          "definition": "unworthy (of)"
+        },
+        {
+          "term": "dīues, dīutis",
+          "definition": "rich"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "aliquandō",
+          "definition": "some time, sometimes"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunctions",
+      "cards": [
+        {
+          "term": "quamquam",
+          "definition": "although"
+        },
+        {
+          "term": "quia",
+          "definition": "because"
+        }
+      ]
+    }
+  }
+}

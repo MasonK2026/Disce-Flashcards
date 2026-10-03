@@ -1,0 +1,41 @@
+{
+  "chapter": "ch16b",
+  "chapter_title": "Chapter 16b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verb",
+      "cards": [
+        {
+          "term": "grātiās agō, agere, ēgī, āctum",
+          "definition": "I give thanks"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "seruus, -ī, m.",
+          "definition": "slave"
+        },
+        {
+          "term": "uesper, uesperis, m.",
+          "definition": "evening"
+        },
+        {
+          "term": "salūs, salūtis, f.",
+          "definition": "safety, greetings"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "crās",
+          "definition": "tomorrow"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "chapter": "ch21",
+  "chapter_title": "Chapter 21",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "cōgō,-ere, coēgī, coāctum",
+          "definition": "I compel"
+        },
+        {
+          "term": "committō, -ere, commīsī, commissum",
+          "definition": "I join, commit, entrust"
+        },
+        {
+          "term": "perrumpō, -ere, perrūpī, perruptum",
+          "definition": "I break through"
+        },
+        {
+          "term": "restituō, restituere, restituī, restitūtum",
+          "definition": "I restore"
+        },
+        {
+          "term": "perueniō, -īre, peruēnī, peruentum",
+          "definition": "I arrive, reach"
+        },
+        {
+          "term": "obuiam eō, īre, iī, itum + dat.",
+          "definition": "I go to meet"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "castra, castrōrum, n. pl.",
+          "definition": "camp"
+        },
+        {
+          "term": "scūtum, -ī, n.",
+          "definition": "shield"
+        },
+        {
+          "term": "tergum, -ī, n.",
+          "definition": "back"
+        },
+        {
+          "term": "uāllum, -ī, n.",
+          "definition": "rampart"
+        },
+        {
+          "term": "clādēs, -is, f.",
+          "definition": "disaster"
+        },
+        {
+          "term": "uīs, acc. uim, abl. uī, f.",
+          "definition": "force"
+        },
+        {
+          "term": "cornū, -ūs, n.",
+          "definition": "horn, wing of an army"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "memor, memoris",
+          "definition": "mindful of, remembering"
+        },
+        {
+          "term": "immemor, immemoris",
+          "definition": "forgetful of"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "necesse est",
+          "definition": "it is necessary"
+        },
+        {
+          "term": "quam prīmum",
+          "definition": "as soon as possible"
+        }
+      ]
+    }
+  }
+}

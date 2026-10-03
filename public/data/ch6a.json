@@ -1,0 +1,131 @@
+{
+  "chapter": "ch6a",
+  "chapter_title": "Chapter 6a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "dēspērō, -āre",
+          "definition": "I give up hope, despair"
+        },
+        {
+          "term": "dō, dare",
+          "definition": "I give"
+        },
+        {
+          "term": "gaudeō, -ēre",
+          "definition": "I rejoice"
+        },
+        {
+          "term": "timeō, -ēre",
+          "definition": "I fear, am afraid of"
+        },
+        {
+          "term": "cōnstituō, -ere",
+          "definition": "I decide"
+        },
+        {
+          "term": "crēdō, -ere + dative",
+          "definition": "I believe, I trust"
+        },
+        {
+          "term": "petō, -ere",
+          "definition": "I seek, make for"
+        },
+        {
+          "term": "relinquō, -ere",
+          "definition": "I leave"
+        },
+        {
+          "term": "accipiō, -ere",
+          "definition": "I receive"
+        },
+        {
+          "term": "dormiō, -īre",
+          "definition": "I sleep"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "īnsula, -ae, f.",
+          "definition": "island"
+        },
+        {
+          "term": "lūna, -ae, f.",
+          "definition": "moon"
+        },
+        {
+          "term": "nauta, -ae, m.",
+          "definition": "sailor"
+        },
+        {
+          "term": "unda, -ae, f.",
+          "definition": "wave"
+        },
+        {
+          "term": "equus, -ī, m.",
+          "definition": "horse"
+        },
+        {
+          "term": "cōnsilium, cōnsiliī, n.",
+          "definition": "plan"
+        },
+        {
+          "term": "uerbum, -ī, n.",
+          "definition": "word"
+        },
+        {
+          "term": "lītus, lītoris, n.",
+          "definition": "shore"
+        },
+        {
+          "term": "nihil, n.",
+          "definition": "nothing"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "nouus, -a, -um",
+          "definition": "new"
+        },
+        {
+          "term": "paucī, -ae, -a",
+          "definition": "few"
+        },
+        {
+          "term": "tōtus, -a, -um",
+          "definition": "whole"
+        },
+        {
+          "term": "ingēns, ingentis",
+          "definition": "huge"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "saepe",
+          "definition": "often"
+        }
+      ]
+    },
+    "pronouns": {
+      "display_name": "Pronoun",
+      "cards": [
+        {
+          "term": "quis? quid?",
+          "definition": "who? what?"
+        }
+      ]
+    }
+  }
+}

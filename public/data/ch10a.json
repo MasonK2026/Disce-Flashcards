@@ -1,0 +1,127 @@
+{
+  "chapter": "ch10a",
+  "chapter_title": "Chapter 10a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "creō, creāre, creāuī",
+          "definition": "I make, elect"
+        },
+        {
+          "term": "ferō, ferre, tulī",
+          "definition": "I carry, bear"
+        },
+        {
+          "term": "prōmittō, -ere, prōmīsī",
+          "definition": "I promise"
+        },
+        {
+          "term": "sum, esse, fuī",
+          "definition": "I am"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "aura, -ae, f.",
+          "definition": "breeze, air"
+        },
+        {
+          "term": "colōnia, -ae, f.",
+          "definition": "colony, country town"
+        },
+        {
+          "term": "turba, -ae, f.",
+          "definition": "crowd"
+        },
+        {
+          "term": "dīuitiae, -ārum, f. pl.",
+          "definition": "riches"
+        },
+        {
+          "term": "nūntius, -ī, m.",
+          "definition": "message"
+        },
+        {
+          "term": "argentum, -ī, n.",
+          "definition": "silver, money"
+        },
+        {
+          "term": "arbor, arboris, f.",
+          "definition": "tree"
+        },
+        {
+          "term": "ōrātiō, -iōnis, f.",
+          "definition": "speech"
+        },
+        {
+          "term": "tumultus, -ūs, m.",
+          "definition": "tumult, riot"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "candidus, -a, -um",
+          "definition": "white"
+        },
+        {
+          "term": "optimus, -a, -um",
+          "definition": "very good, best"
+        },
+        {
+          "term": "pessimus, -a, -um",
+          "definition": "very bad, worst"
+        },
+        {
+          "term": "grauis, graue",
+          "definition": "heavy, weighty"
+        },
+        {
+          "term": "pauper, pauperis",
+          "definition": "poor"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "nunc",
+          "definition": "now"
+        },
+        {
+          "term": "enim",
+          "definition": "for"
+        },
+        {
+          "term": "tamen",
+          "definition": "however, but"
+        },
+        {
+          "term": "igitur",
+          "definition": "and so"
+        }
+      ]
+    },
+    "pronouns": {
+      "display_name": "Pronouns",
+      "cards": [
+        {
+          "term": "alter, altera, alterum",
+          "definition": "another, the other"
+        },
+        {
+          "term": "quīdam, quaedam, quoddam",
+          "definition": "a certain"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "chapter": "ch22b",
+  "chapter_title": "Chapter 22b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "intueor, -ērī, intuitus sum",
+          "definition": "I gaze at"
+        },
+        {
+          "term": "colō, -ere, coluī, cultum",
+          "definition": "I cultivate; I care for"
+        },
+        {
+          "term": "perdō, -ere, perdidī, perditum",
+          "definition": "I lose, waste, destroy"
+        },
+        {
+          "term": "agnōscō, -ere, agnōuī, agnitum",
+          "definition": "I recognize"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "cīuis, cīuis, m.",
+          "definition": "citizen"
+        },
+        {
+          "term": "cīuitēs, cīuitātis, f.",
+          "definition": "citizenship; state"
+        },
+        {
+          "term": "senex, senis, m.",
+          "definition": "old man"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "alibī",
+          "definition": "elsewhere"
+        }
+      ]
+    }
+  }
+}

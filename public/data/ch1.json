@@ -1,0 +1,132 @@
+{
+  "chapter": "ch1",
+  "chapter_title": "Chapter 1",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "ambulō, ambulāre, ambulāuī, ambulātum",
+          "definition": "I walk"
+        },
+        {
+          "term": "intrō, intrāre, intrāuī, intrātum",
+          "definition": "I enter"
+        },
+        {
+          "term": "iuuō, iuuāre, iūuī, iūtum",
+          "definition": "I help"
+        },
+        {
+          "term": "labōrō, labōrāre, labōrāuī, labōrātum",
+          "definition": "I work"
+        },
+        {
+          "term": "laudō, laudāre, laudāuī, laudātum",
+          "definition": "I praise"
+        },
+        {
+          "term": "parō, parāre, parāuī, parātum",
+          "definition": "I prepare"
+        },
+        {
+          "term": "portō, portāre, portāuī, portātum",
+          "definition": "I carry"
+        },
+        {
+          "term": "salūtō, salūtāre, salūtāuī, salūtātum",
+          "definition": "I greet"
+        },
+        {
+          "term": "spectō, spectāre, spectāuī, spectātum",
+          "definition": "I look at"
+        },
+        {
+          "term": "uocō, uocāre, uocāuī, uocātum",
+          "definition": "I call"
+        },
+        {
+          "term": "est",
+          "definition": "he/she is"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "aqua, aquae, f.",
+          "definition": "water"
+        },
+        {
+          "term": "casa, casae, f.",
+          "definition": "house"
+        },
+        {
+          "term": "cēna, cēnae, f.",
+          "definition": "meal, dinner"
+        },
+        {
+          "term": "fīlia, fīliae, f.",
+          "definition": "daughter"
+        },
+        {
+          "term": "puella, puellae, f.",
+          "definition": "girl"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "īrātus, īrāta, īrātum",
+          "definition": "angry"
+        },
+        {
+          "term": "laetus, laeta, laetum",
+          "definition": "happy"
+        },
+        {
+          "term": "parātus, parāta, parātum",
+          "definition": "ready"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "nōn",
+          "definition": "not"
+        },
+        {
+          "term": "mox",
+          "definition": "soon"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Prepositions",
+      "cards": [
+        {
+          "term": "in",
+          "definition": "in, into"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunctions",
+      "cards": [
+        {
+          "term": "et",
+          "definition": "and"
+        },
+        {
+          "term": "sed",
+          "definition": "but"
+        }
+      ]
+    }
+  }
+}

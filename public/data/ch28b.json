@@ -1,0 +1,32 @@
+{
+  "chapter": "ch28b",
+  "chapter_title": "Chapter 28b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verb",
+      "cards": [
+        {
+          "term": "dōnō, -āre",
+          "definition": "I donate, give"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "rīuus, -ī, m.",
+          "definition": "stream"
+        },
+        {
+          "term": "taurus, -ī, m.",
+          "definition": "bull"
+        },
+        {
+          "term": "sanguis, sanguinis, m.",
+          "definition": "blood"
+        }
+      ]
+    }
+  }
+}

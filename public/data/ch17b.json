@@ -1,0 +1,121 @@
+{
+  "chapter": "ch17b",
+  "chapter_title": "Chapter 17b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "moneō, -ēre, monuī, monitum",
+          "definition": "I warn, advise"
+        },
+        {
+          "term": "ualeō, -ēre, ualuī, ualitum",
+          "definition": "I am strong, am well"
+        },
+        {
+          "term": "cōnfīdō, -ere, cōnfīsus sum + dat.",
+          "definition": "I trust"
+        },
+        {
+          "term": "incido, -ere, incidī, incāsum",
+          "definition": "I fall into"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "fāma, -ae, f.",
+          "definition": "report, reputation, rumor"
+        },
+        {
+          "term": "mēnsa, -ae, f.",
+          "definition": "table"
+        },
+        {
+          "term": "gaudium, gaudiī, n.",
+          "definition": "joy"
+        },
+        {
+          "term": "discrīmen, discrīminis, n.",
+          "definition": "crisis"
+        },
+        {
+          "term": "dolor, dolōris, m.",
+          "definition": "pain, grief"
+        },
+        {
+          "term": "aduentus, -ūs, m.",
+          "definition": "arrival"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "grātus, -a, -um",
+          "definition": "pleasing"
+        },
+        {
+          "term": "iūcundus, -a, -um",
+          "definition": "pleasant, delightful"
+        },
+        {
+          "term": "reliquus, -a, -um",
+          "definition": "remaining, left"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "nōn sōlum . . . sed etiam",
+          "definition": "not only . . . but also"
+        },
+        {
+          "term": "praetereā",
+          "definition": "moreover"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Preposition",
+      "cards": [
+        {
+          "term": "propter + acc.",
+          "definition": "on account of"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunctions",
+      "cards": [
+        {
+          "term": "ut",
+          "definition": "as, when"
+        },
+        {
+          "term": "utrum . . . an",
+          "definition": "whether . . . or?"
+        }
+      ]
+    },
+    "pronouns": {
+      "display_name": "Pronouns",
+      "cards": [
+        {
+          "term": "alius, alia, aliud",
+          "definition": "other, another"
+        },
+        {
+          "term": "alter, altera, alterum",
+          "definition": "one or the other of two, the second"
+        }
+      ]
+    }
+  }
+}
