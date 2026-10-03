@@ -1,0 +1,140 @@
+{
+  "chapter": "ch16a",
+  "chapter_title": "Chapter 16a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "uindicō, -āre, uindicāuī, uindicātum",
+          "definition": "I avenge"
+        },
+        {
+          "term": "ardeō, ardēre, arsī",
+          "definition": "I am on fire"
+        },
+        {
+          "term": "augeō, augēre, auxī, auctum",
+          "definition": "I increase"
+        },
+        {
+          "term": "prōuideō, -ēre, prōuīdī, prōuīsum",
+          "definition": "I foresee"
+        },
+        {
+          "term": "terreō, -ēre, terruī, territum",
+          "definition": "I terrify"
+        },
+        {
+          "term": "claudō, -ere, clausī, clausum",
+          "definition": "I shut"
+        },
+        {
+          "term": "furō, -ere",
+          "definition": "I run mad"
+        },
+        {
+          "term": "rapiō, -ere, rapuī, raptum",
+          "definition": "I seize"
+        },
+        {
+          "term": "regō, -ere, rēxī, rēctum",
+          "definition": "I rule, I steer"
+        },
+        {
+          "term": "ruō, -ere, ruī, -rutum",
+          "definition": "I rush"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "exitium, exitiī, n.",
+          "definition": "destruction"
+        },
+        {
+          "term": "ōtium, ōtiī, n.",
+          "definition": "leisure, ease, peace"
+        },
+        {
+          "term": "proelium, proeliī, n.",
+          "definition": "battle"
+        },
+        {
+          "term": "furor, furōris, m.",
+          "definition": "madness, fury"
+        },
+        {
+          "term": "pāx, pācis, f.",
+          "definition": "peace"
+        },
+        {
+          "term": "potestās, potestātis, f.",
+          "definition": "power"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "plēnus, -a, -um",
+          "definition": "full"
+        },
+        {
+          "term": "uērus, -a, -um",
+          "definition": "true"
+        },
+        {
+          "term": "ultimus, -a, -um",
+          "definition": "furthest, last"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "ergō",
+          "definition": "and so"
+        },
+        {
+          "term": "māne",
+          "definition": "early in the morning"
+        },
+        {
+          "term": "paulīsper",
+          "definition": "for a little while"
+        },
+        {
+          "term": "posteā",
+          "definition": "afterwards"
+        },
+        {
+          "term": "uehementer",
+          "definition": "violently"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Preposition",
+      "cards": [
+        {
+          "term": "post + acc.",
+          "definition": "after, behind"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "postquam",
+          "definition": "after"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "chapter": "ch4",
+  "chapter_title": "Chapter 4",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "ambulō, ambulāre",
+          "definition": "I walk"
+        },
+        {
+          "term": "nārrō, nārrāre",
+          "definition": "I tell"
+        },
+        {
+          "term": "dēbeō, dēbēre",
+          "definition": "I must, I ought"
+        },
+        {
+          "term": "doceō, docēre",
+          "definition": "I teach somebody"
+        },
+        {
+          "term": "iubeō, iubēre",
+          "definition": "I order"
+        },
+        {
+          "term": "maneō, manēre",
+          "definition": "I remain, I stay"
+        },
+        {
+          "term": "uideō, uidēre",
+          "definition": "I see"
+        },
+        {
+          "term": "discō, discere",
+          "definition": "I learn"
+        },
+        {
+          "term": "scrībō, scrībere",
+          "definition": "I write"
+        },
+        {
+          "term": "cupiō, cupere",
+          "definition": "I desire, I want"
+        },
+        {
+          "term": "audiō, audīre",
+          "definition": "I hear, I listen"
+        },
+        {
+          "term": "eō, īre",
+          "definition": "I go"
+        },
+        {
+          "term": "possum, posse",
+          "definition": "I can"
+        },
+        {
+          "term": "nōlī, nōlīte",
+          "definition": "+ infinitive don't"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "fābula, -ae, f.",
+          "definition": "story"
+        },
+        {
+          "term": "littera, -ae, f.",
+          "definition": "letter (of alphabet)"
+        },
+        {
+          "term": "magister, magistrī, m.",
+          "definition": "master"
+        },
+        {
+          "term": "puer, puerī, m. & f.",
+          "definition": "boy, child"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "cēterī, -ae, -a",
+          "definition": "the rest"
+        },
+        {
+          "term": "tacitus, -a, -um",
+          "definition": "silent"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "lentē",
+          "definition": "slowly"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Preposition",
+      "cards": [
+        {
+          "term": "prope + acc.",
+          "definition": "near"
+        }
+      ]
+    },
+    "pronouns": {
+      "display_name": "Pronouns",
+      "cards": [
+        {
+          "term": "is, ea, id (acc. eum, eam, id)",
+          "definition": "he, she, it"
+        },
+        {
+          "term": "nec/neque",
+          "definition": "and not"
+        },
+        {
+          "term": "nec/neque . . . nec/neque",
+          "definition": "neither . . . nor"
+        }
+      ]
+    }
+  }
+}

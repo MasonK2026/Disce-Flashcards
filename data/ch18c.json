@@ -1,0 +1,46 @@
+{
+  "chapter": "ch18c",
+  "chapter_title": "Chapter 18c",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "commoueō, -ēre, commōuī, commōtum",
+          "definition": "I move deeply"
+        },
+        {
+          "term": "obeo, obīre, obiī, obitum",
+          "definition": "I go to meet"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Noun",
+      "cards": [
+        {
+          "term": "patria, -ae, f.",
+          "definition": "fatherland"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "aduersus, -a, -um",
+          "definition": "adverse, contrary"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "penitus",
+          "definition": "deeply"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "chapter": "ch2c",
+  "chapter_title": "Chapter 2c",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "ueniō, uenīre, uēnī, uentum",
+          "definition": "I come"
+        },
+        {
+          "term": "adueniō, aduenīre, aduēnī, aduentum",
+          "definition": "I arrive"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "aliī . . . aliī",
+          "definition": "some . . . others"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "cūr ?",
+          "definition": "why?"
+        }
+      ]
+    },
+    "pronoun": {
+      "display_name": "Pronoun",
+      "cards": [
+        {
+          "term": "ille, illa, illud",
+          "definition": "he, she, that"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Preposition",
+      "cards": [
+        {
+          "term": "cum",
+          "definition": "with"
+        }
+      ]
+    }
+  }
+}

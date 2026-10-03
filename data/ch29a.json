@@ -1,0 +1,107 @@
+{
+  "chapter": "ch29a",
+  "chapter_title": "Chapter 29a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "administrō, -āre",
+          "definition": "I administer, manage"
+        },
+        {
+          "term": "aestimō, -āre (minōris)",
+          "definition": "I value (at less)"
+        },
+        {
+          "term": "iūrō, -āre",
+          "definition": "I swear"
+        },
+        {
+          "term": "tractō, -āre",
+          "definition": "I handle, treat"
+        },
+        {
+          "term": "obsideō, -ēre, obsēdī, obsessum",
+          "definition": "I besiege"
+        },
+        {
+          "term": "dēdō, -ere, dēdidī, dēditum",
+          "definition": "I surrender, give up"
+        },
+        {
+          "term": "poscō, -ere, poposcī",
+          "definition": "I demand"
+        },
+        {
+          "term": "concipiō, -ere, concēpī, conceptum",
+          "definition": "I take hold of, conceive"
+        },
+        {
+          "term": "ōdī, ōdisse",
+          "definition": "I hate"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "odium, odiī, n.",
+          "definition": "hatred"
+        },
+        {
+          "term": "causa, -ae, f.",
+          "definition": "cause, reason"
+        },
+        {
+          "term": "causā + gen.",
+          "definition": "for the sake of"
+        },
+        {
+          "term": "clēmentia, -ae, f.",
+          "definition": "mercy"
+        },
+        {
+          "term": "scelus, sceleris, n.",
+          "definition": "crime"
+        },
+        {
+          "term": "classis, classis, f.",
+          "definition": "fleet"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "aequus, -a, -um",
+          "definition": "equal, fair"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "haud",
+          "definition": "not"
+        },
+        {
+          "term": "iterum",
+          "definition": "again"
+        }
+      ]
+    },
+    "pronouns": {
+      "display_name": "Pronoun",
+      "cards": [
+        {
+          "term": "uterque, utraque, utrumque",
+          "definition": "each (of two)"
+        }
+      ]
+    }
+  }
+}

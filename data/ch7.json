@@ -1,0 +1,127 @@
+{
+  "chapter": "ch7",
+  "chapter_title": "Chapter 7",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "caedō, -ere",
+          "definition": "I cut, beat, kill"
+        },
+        {
+          "term": "quaerō, -ere",
+          "definition": "I search for, ask"
+        },
+        {
+          "term": "tollō, -ere",
+          "definition": "I raise, lift"
+        },
+        {
+          "term": "subeō, -īre",
+          "definition": "I undergo"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "silua, -ae, f.",
+          "definition": "wood"
+        },
+        {
+          "term": "caelum, ī, n.",
+          "definition": "sky"
+        },
+        {
+          "term": "saxum, -ī, n.",
+          "definition": "rock"
+        },
+        {
+          "term": "aequor, aequoris, n.",
+          "definition": "sea"
+        },
+        {
+          "term": "clāmor, clāmōris, m.",
+          "definition": "shout"
+        },
+        {
+          "term": "homō, hominis, c.",
+          "definition": "man, human being"
+        },
+        {
+          "term": "lūx, lūcis, f.",
+          "definition": "light"
+        },
+        {
+          "term": "nūbes, nūbis, f.",
+          "definition": "cloud"
+        },
+        {
+          "term": "precēs, precum, f. pl.",
+          "definition": "prayers"
+        },
+        {
+          "term": "fluctus, -ūs, m.",
+          "definition": "wave"
+        },
+        {
+          "term": "manus, -ūs, f.",
+          "definition": "hand"
+        },
+        {
+          "term": "diēs, diēī, m.",
+          "definition": "day"
+        },
+        {
+          "term": "spēs, speī, f.",
+          "definition": "hope"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "prīmus, -a, -um",
+          "definition": "first"
+        },
+        {
+          "term": "summus, -a, -um",
+          "definition": "highest, top"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "hīc",
+          "definition": "here"
+        },
+        {
+          "term": "hūc",
+          "definition": "to there, hither"
+        },
+        {
+          "term": "uix",
+          "definition": "scarcely"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Prepositions",
+      "cards": [
+        {
+          "term": "dē + abl.",
+          "definition": "down from; about, concerning"
+        },
+        {
+          "term": "sub + abl.",
+          "definition": "under"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "chapter": "ch24b",
+  "chapter_title": "Chapter 24b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "prōbō, -āre",
+          "definition": "I approve"
+        },
+        {
+          "term": "admīror, -ārī",
+          "definition": "I admire, wonder at"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "uīta, -ae, f.",
+          "definition": "life"
+        },
+        {
+          "term": "rūs, rūris, n.",
+          "definition": "the country; pl. estates"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunctions",
+      "cards": [
+        {
+          "term": "an?",
+          "definition": "or?"
+        },
+        {
+          "term": "dōnec",
+          "definition": "until"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "tam",
+          "definition": "so (e.g. tam fortis so brave)"
+        },
+        {
+          "term": "tantopere",
+          "definition": "so greatly"
+        },
+        {
+          "term": "totiēns",
+          "definition": "so often"
+        },
+        {
+          "term": "adeō",
+          "definition": "so much"
+        },
+        {
+          "term": "paulātim",
+          "definition": "little by little"
+        },
+        {
+          "term": "modo . . . modo",
+          "definition": "now . . . now"
+        }
+      ]
+    }
+  }
+}

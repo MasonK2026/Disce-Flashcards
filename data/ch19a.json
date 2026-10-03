@@ -1,0 +1,115 @@
+{
+  "chapter": "ch19a",
+  "chapter_title": "Chapter 19a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "dēspiciō, -ere, dēspexī, dēspectum",
+          "definition": "I look down on"
+        },
+        {
+          "term": "prōspiciō, -ere, prōspexī, prōspectum",
+          "definition": "I look out at"
+        },
+        {
+          "term": "occīdō, -ere, occīdī, occīsum",
+          "definition": "I kill"
+        },
+        {
+          "term": "dēsinō, -ere, dēsīuī/dēsiī, dēsitum",
+          "definition": "I cease"
+        },
+        {
+          "term": "sciō, scīre, scīuī/sciī, scītum",
+          "definition": "I know"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "causa, -ae, f.",
+          "definition": "cause, reason"
+        },
+        {
+          "term": "ōrāculum, -ī, n.",
+          "definition": "oracle"
+        },
+        {
+          "term": "uestis, uestis, f.",
+          "definition": "dress, clothes"
+        },
+        {
+          "term": "pāstor, pāstōris, m.",
+          "definition": "shepherd"
+        },
+        {
+          "term": "uiātor, uiātōris, m.",
+          "definition": "traveler"
+        },
+        {
+          "term": "sacerdōs, sacerdōtis, m.",
+          "definition": "priest"
+        },
+        {
+          "term": "latus, lateris, n.",
+          "definition": "side"
+        },
+        {
+          "term": "lūmen, lūminis, n.",
+          "definition": "light"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "dexter, dextra, dextrum",
+          "definition": "right"
+        },
+        {
+          "term": "ā dextrā (manū)",
+          "definition": "on the right"
+        },
+        {
+          "term": "sinister, sinistra, sinistrum",
+          "definition": "left"
+        },
+        {
+          "term": "ā sinistrā",
+          "definition": "on the left"
+        },
+        {
+          "term": "nōnnūllī, -ae, -a",
+          "definition": "some"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "paulīsper",
+          "definition": "for a little (time)"
+        },
+        {
+          "term": "procul",
+          "definition": "at a distance, far off"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Preposition",
+      "cards": [
+        {
+          "term": "pro + abl.",
+          "definition": "in front of, on behalf of"
+        }
+      ]
+    }
+  }
+}

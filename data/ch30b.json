@@ -1,0 +1,58 @@
+{
+  "chapter": "ch30b",
+  "chapter_title": "Chapter 30b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "aegrōtō, -āre",
+          "definition": "I am ill"
+        },
+        {
+          "term": "maereō, -ēre, maeruī",
+          "definition": "I grieve for"
+        },
+        {
+          "term": "sepeliō, -īre, sepelīuī, sepultum",
+          "definition": "I bury"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "anima, -ae, f.",
+          "definition": "soul"
+        },
+        {
+          "term": "dīmidium, dīmidiī, n.",
+          "definition": "half"
+        },
+        {
+          "term": "morbus, -ī, m.",
+          "definition": "disease, sickness"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "senior, seniōris",
+          "definition": "older"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "ut + indicative",
+          "definition": "as, when"
+        }
+      ]
+    }
+  }
+}

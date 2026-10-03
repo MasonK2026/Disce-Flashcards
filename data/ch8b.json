@@ -1,0 +1,70 @@
+{
+  "chapter": "ch8b",
+  "chapter_title": "Chapter 8b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "stō, stāre",
+          "definition": "I stand"
+        },
+        {
+          "term": "referō, referre",
+          "definition": "I carry back"
+        },
+        {
+          "term": "mē referō",
+          "definition": "I return"
+        },
+        {
+          "term": "uoluō, -ere",
+          "definition": "I roll"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "somnus, -ī, m.",
+          "definition": "sleep"
+        },
+        {
+          "term": "hostis, hostis, m.",
+          "definition": "enemy"
+        },
+        {
+          "term": "iuuenis, iuuenis, m.",
+          "definition": "young man"
+        },
+        {
+          "term": "mēns, mentis, f.",
+          "definition": "mind"
+        },
+        {
+          "term": "uulnus, uulneris, n.",
+          "definition": "wound"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "nūllus, -a, -um",
+          "definition": "no, not any"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "frūstrā",
+          "definition": "in vain"
+        }
+      ]
+    }
+  }
+}

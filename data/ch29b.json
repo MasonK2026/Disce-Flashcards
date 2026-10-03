@@ -1,0 +1,69 @@
+{
+  "chapter": "ch29b",
+  "chapter_title": "Chapter 29b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "suspicor, -ārī, suspicātus sum",
+          "definition": "I suspect"
+        },
+        {
+          "term": "lateō, -ēre, latuī",
+          "definition": "I hide, am hidden"
+        },
+        {
+          "term": "inclūdō, -ere, inclūsī, inclūsum",
+          "definition": "I shut in"
+        },
+        {
+          "term": "stringō, -ere, strīnxī, strictum",
+          "definition": "I draw (a sword)"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "fōrma, -ae, f.",
+          "definition": "shape, beauty"
+        },
+        {
+          "term": "dolus, -ī, m.",
+          "definition": "trick"
+        },
+        {
+          "term": "gremium, gremiī, n.",
+          "definition": "lap"
+        },
+        {
+          "term": "uenēnum, -ī, n.",
+          "definition": "poison"
+        },
+        {
+          "term": "dēdecus, dēdecoris, n.",
+          "definition": "disgrace"
+        },
+        {
+          "term": "carcer, carceris, m.",
+          "definition": "prison"
+        },
+        {
+          "term": "turris, turris, f.",
+          "definition": "tower"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjective",
+      "cards": [
+        {
+          "term": "fidēlis, -e",
+          "definition": "faithful"
+        }
+      ]
+    }
+  }
+}

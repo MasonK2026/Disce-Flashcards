@@ -1,0 +1,139 @@
+{
+  "chapter": "ch12",
+  "chapter_title": "Chapter 12",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "appellō, -āre, appellāuī",
+          "definition": "I call"
+        },
+        {
+          "term": "lauō, -āre, lāuī",
+          "definition": "I wash"
+        },
+        {
+          "term": "recitō, -āre, recitāuī",
+          "definition": "I recite"
+        },
+        {
+          "term": "rīdeō, -ēre, rīsī",
+          "definition": "I laugh"
+        },
+        {
+          "term": "studeō, -ēre, studuī + dat.",
+          "definition": "I study (something)"
+        },
+        {
+          "term": "agō, agere, ēgī",
+          "definition": "I do, manage; I drive"
+        },
+        {
+          "term": "induō, -ere, induī",
+          "definition": "I put on"
+        },
+        {
+          "term": "intellegō, -ere, intellēxī",
+          "definition": "I understand"
+        },
+        {
+          "term": "trādō, -ere, trādidī",
+          "definition": "I hand over"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "poēta, -ae, m.",
+          "definition": "poet"
+        },
+        {
+          "term": "grātiae, -ārum, f. pl.",
+          "definition": "thanks"
+        },
+        {
+          "term": "schola, -ae, f.",
+          "definition": "lecture, school, schoolroom"
+        },
+        {
+          "term": "discipulus, -ī, m.",
+          "definition": "pupil"
+        },
+        {
+          "term": "liber, librī, m.",
+          "definition": "book"
+        },
+        {
+          "term": "uōx, uōcis, f.",
+          "definition": "voice"
+        },
+        {
+          "term": "gradus, -ūs, m.",
+          "definition": "step"
+        },
+        {
+          "term": "uultus, -ūs, m.",
+          "definition": "face, expression"
+        },
+        {
+          "term": "diēs, diēī, m.",
+          "definition": "day"
+        },
+        {
+          "term": "merīdiēs, merīdiēī, m.",
+          "definition": "midday"
+        },
+        {
+          "term": "rēs, reī, f.",
+          "definition": "thing, affair"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "rēctus, -a, -um",
+          "definition": "straight, right"
+        },
+        {
+          "term": "seuērus, -a, -um",
+          "definition": "strict, severe"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "cotīdiē",
+          "definition": "every day"
+        },
+        {
+          "term": "quoque",
+          "definition": "also"
+        },
+        {
+          "term": "quandō?",
+          "definition": "when?"
+        }
+      ]
+    },
+    "pronouns": {
+      "display_name": "Pronouns",
+      "cards": [
+        {
+          "term": "nēmō, (gen.) nūllīus, (dat.) nēminī, (acc.) nēminem, (abl.) nūllō, c.",
+          "definition": "no one"
+        },
+        {
+          "term": "quisquam, quicquam",
+          "definition": "anyone, anything (after a negative)"
+        }
+      ]
+    }
+  }
+}

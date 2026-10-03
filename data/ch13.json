@@ -1,0 +1,115 @@
+{
+  "chapter": "ch13",
+  "chapter_title": "Chapter 13",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "aperiō, -īre, aperuī",
+          "definition": "I open"
+        },
+        {
+          "term": "cōnficiō, -ere, cōnfēcī",
+          "definition": "I finish"
+        },
+        {
+          "term": "gerō, gerere, gessī",
+          "definition": "I carry, carry on, wear"
+        },
+        {
+          "term": "pereō, perīre, periī",
+          "definition": "I perish"
+        },
+        {
+          "term": "stō, stāre, stetī",
+          "definition": "I stand"
+        },
+        {
+          "term": "uīsō, -ere, uīsī",
+          "definition": "I visit"
+        },
+        {
+          "term": "uendō, -ere, uendidī",
+          "definition": "I sell"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "epistola, -ae, f.",
+          "definition": "letter"
+        },
+        {
+          "term": "ātrium, -iī, n.",
+          "definition": "hall"
+        },
+        {
+          "term": "ingenium, -iī, n.",
+          "definition": "nature, character, talent"
+        },
+        {
+          "term": "aedēs, aedium, f. pl.",
+          "definition": "house"
+        },
+        {
+          "term": "latus, lateris, n.",
+          "definition": "side"
+        },
+        {
+          "term": "soror, sorōris, f.",
+          "definition": "sister"
+        },
+        {
+          "term": "domus, domūs, f.",
+          "definition": "home"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "clārus, -a, -um",
+          "definition": "clear, bright, famous"
+        },
+        {
+          "term": "ingeniōsus, -a,-um",
+          "definition": "talented, clever"
+        },
+        {
+          "term": "celer, celeris, celere",
+          "definition": "quick"
+        },
+        {
+          "term": "breuis, -e",
+          "definition": "short"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "celeriter",
+          "definition": "quickly"
+        },
+        {
+          "term": "posteā",
+          "definition": "afterwards"
+        }
+      ]
+    },
+    "pronouns": {
+      "display_name": "Pronoun",
+      "cards": [
+        {
+          "term": "is . . . quī",
+          "definition": "the man who"
+        }
+      ]
+    }
+  }
+}

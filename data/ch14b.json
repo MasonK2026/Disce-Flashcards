@@ -1,0 +1,65 @@
+{
+  "chapter": "ch14b",
+  "chapter_title": "Chapter 14b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "cōgitō, -āre, cōgitāuī",
+          "definition": "I consider, think about"
+        },
+        {
+          "term": "mīlitō, -āre",
+          "definition": "I serve as a soldier"
+        },
+        {
+          "term": "caueō, -ēre, cāuī",
+          "definition": "I beware of"
+        },
+        {
+          "term": "prōuideō, prōuidēre, prōuīdī",
+          "definition": "I foresee"
+        },
+        {
+          "term": "referō, referre, rettulī",
+          "definition": "I carry back, report"
+        },
+        {
+          "term": "sinō, -ere, sīuī",
+          "definition": "I allow"
+        },
+        {
+          "term": "sūmo, -ere, sūmpsī",
+          "definition": "I take"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "mīles, mīlitis, m.",
+          "definition": "soldier"
+        },
+        {
+          "term": "uirtūs, uirtūtis, f.",
+          "definition": "manliness, courage, virtue"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "dignus, -a, -um + abl.",
+          "definition": "worthy (of)"
+        },
+        {
+          "term": "crūdēlis, crūdēle",
+          "definition": "cruel"
+        }
+      ]
+    }
+  }
+}

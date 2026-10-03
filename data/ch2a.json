@@ -1,0 +1,127 @@
+{
+  "chapter": "ch2a",
+  "chapter_title": "Chapter 2a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "festīnō, festīnāre, festīnāuī, festīnātum",
+          "definition": "I hasten"
+        },
+        {
+          "term": "maneō, manēre, mānsī, mānsum",
+          "definition": "I stay"
+        },
+        {
+          "term": "sedeō, sedēre, sēdī, sessum",
+          "definition": "I sit"
+        },
+        {
+          "term": "ascendō, ascendere, ascendī, ascēnsum",
+          "definition": "I climb"
+        },
+        {
+          "term": "cadō, cadere, cecidī, cāsum",
+          "definition": "I fall"
+        },
+        {
+          "term": "currō, currere, cucurrī, cursum",
+          "definition": "I run"
+        },
+        {
+          "term": "dūcō, dūcere, dūxī, ductum",
+          "definition": "I lead"
+        },
+        {
+          "term": "mittō, mittere, mīsī, missum",
+          "definition": "I send"
+        },
+        {
+          "term": "surgō, surgere, surrēxī, surrēctum",
+          "definition": "I rise, I get up"
+        },
+        {
+          "term": "it",
+          "definition": "he/she goes"
+        },
+        {
+          "term": "exit",
+          "definition": "he/she goes out"
+        },
+        {
+          "term": "redit",
+          "definition": "he/she goes back, returns"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "terra, terrae, f.",
+          "definition": "earth, land"
+        },
+        {
+          "term": "cibus, cibī, m.",
+          "definition": "food"
+        },
+        {
+          "term": "colōnus, colōnī, m.",
+          "definition": "farmer"
+        },
+        {
+          "term": "ager, agrī, m.",
+          "definition": "field"
+        },
+        {
+          "term": "puer, puerī, m.",
+          "definition": "boy, child"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "diū",
+          "definition": "for a long time"
+        },
+        {
+          "term": "tandem",
+          "definition": "at last"
+        },
+        {
+          "term": "subitō",
+          "definition": "suddenly"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Prepositions",
+      "cards": [
+        {
+          "term": "ā / ab",
+          "definition": "from"
+        },
+        {
+          "term": "ad",
+          "definition": "to"
+        },
+        {
+          "term": "ē / ex",
+          "definition": "out of"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "nam",
+          "definition": "for"
+        }
+      ]
+    }
+  }
+}

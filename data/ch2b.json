@@ -1,0 +1,71 @@
+{
+  "chapter": "ch2b",
+  "chapter_title": "Chapter 2b",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "faciō, facere, fēcī, factum",
+          "definition": "I make, do"
+        },
+        {
+          "term": "audiō, audīre, audīuī, audītum",
+          "definition": "I hear"
+        },
+        {
+          "term": "inquit",
+          "definition": "he/she says"
+        },
+        {
+          "term": "adsum, adesse, adfuī, adfutūrum",
+          "definition": "I am present, I am there"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Noun",
+      "cards": [
+        {
+          "term": "amīcus, amīcī, m.",
+          "definition": "friend"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "miser, misera, miserum",
+          "definition": "miserable"
+        },
+        {
+          "term": "multus, multa, multum",
+          "definition": "much, many"
+        },
+        {
+          "term": "alius, alia, aliud",
+          "definition": "other, another"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "iam",
+          "definition": "now, already"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "ubi",
+          "definition": "when"
+        }
+      ]
+    }
+  }
+}

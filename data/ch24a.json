@@ -1,0 +1,106 @@
+{
+  "chapter": "ch24a",
+  "chapter_title": "Chapter 24a",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "uītō, uītāre",
+          "definition": "I avoid"
+        },
+        {
+          "term": "canō, -ere, cecinī, cantum",
+          "definition": "I sing"
+        },
+        {
+          "term": "fruor, fruī, frūctus/fruitus sum + abl.",
+          "definition": "I enjoy"
+        },
+        {
+          "term": "queror, -ī, questus sum",
+          "definition": "I complain"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "auis, auis, f.",
+          "definition": "bird"
+        },
+        {
+          "term": "carmen, carminis, n.",
+          "definition": "song, poem"
+        },
+        {
+          "term": "gēns, gentis, f.",
+          "definition": "race, family, people"
+        },
+        {
+          "term": "laus, laudis, f.",
+          "definition": "praise"
+        },
+        {
+          "term": "līmen, līminis, n.",
+          "definition": "threshold"
+        },
+        {
+          "term": "ōtium, ōtiī, n.",
+          "definition": "leisure"
+        },
+        {
+          "term": "ouis, ouis, f.",
+          "definition": "sheep"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "ōtiōsus, -a, -um",
+          "definition": "at leisure, idle"
+        },
+        {
+          "term": "tantus, -a, -um",
+          "definition": "so great"
+        },
+        {
+          "term": "tot (indeclinable)",
+          "definition": "so many"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "tam",
+          "definition": "so (e.g. tam fortis so brave)"
+        },
+        {
+          "term": "tantopere",
+          "definition": "so greatly"
+        },
+        {
+          "term": "totiēns",
+          "definition": "so often"
+        },
+        {
+          "term": "adeō",
+          "definition": "so much"
+        },
+        {
+          "term": "paulātim",
+          "definition": "little by little"
+        },
+        {
+          "term": "modo . . . modo",
+          "definition": "now . . . now"
+        }
+      ]
+    }
+  }
+}

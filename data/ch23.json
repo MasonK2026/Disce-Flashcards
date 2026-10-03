@@ -1,0 +1,85 @@
+{
+  "chapter": "ch23",
+  "chapter_title": "Chapter 23",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "cūrō, -āre",
+          "definition": "I care for"
+        },
+        {
+          "term": "negō, negāre",
+          "definition": "I say that . . . not"
+        },
+        {
+          "term": "sciō, scīre, scīuī/sciī, scītum",
+          "definition": "I know"
+        },
+        {
+          "term": "scītō (imper.)",
+          "definition": "know!"
+        },
+        {
+          "term": "nesciō, -īre",
+          "definition": "I do not know"
+        },
+        {
+          "term": "occupō, -āre",
+          "definition": "I seize"
+        },
+        {
+          "term": "seruiō, -īre, seruiī, seruītum + dat.",
+          "definition": "I serve"
+        },
+        {
+          "term": "suscipiō, suscipere, suscēpī, susceptum",
+          "definition": "I undertake"
+        },
+        {
+          "term": "ūtor, ūtī, ūsus sum + abl.",
+          "definition": "I use"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "cūra, -ae, f.",
+          "definition": "care"
+        },
+        {
+          "term": "negōtium, negōtiī, n.",
+          "definition": "business"
+        },
+        {
+          "term": "somnium, somniī, n.",
+          "definition": "dream"
+        },
+        {
+          "term": "pānis, pānis, m.",
+          "definition": "bread"
+        },
+        {
+          "term": "collis, collis, m.",
+          "definition": "hill"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverbs",
+      "cards": [
+        {
+          "term": "quōmodo?",
+          "definition": "how?"
+        },
+        {
+          "term": "posthāc",
+          "definition": "after this, from now on"
+        }
+      ]
+    }
+  }
+}

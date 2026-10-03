@@ -1,0 +1,121 @@
+{
+  "chapter": "ch3",
+  "chapter_title": "Chapter 3",
+  "categories": {
+    "verbs": {
+      "display_name": "Verbs",
+      "cards": [
+        {
+          "term": "clāmō, -āre",
+          "definition": "I shout"
+        },
+        {
+          "term": "rogō, -āre",
+          "definition": "I ask"
+        },
+        {
+          "term": "respondeō, respondēre, respondī, respōnsum",
+          "definition": "I answer"
+        },
+        {
+          "term": "accēdō, accēdere, accessī, accessum",
+          "definition": "I approach"
+        },
+        {
+          "term": "dīcō, dīcere, dīxī, dictum",
+          "definition": "I say"
+        },
+        {
+          "term": "pōnō, pōnere, posuī, positum",
+          "definition": "I place, put"
+        },
+        {
+          "term": "expōnō, expōnere, exposuī, expositum",
+          "definition": "I put out"
+        }
+      ]
+    },
+    "nouns": {
+      "display_name": "Nouns",
+      "cards": [
+        {
+          "term": "forum, forī, n.",
+          "definition": "forum (town center)"
+        },
+        {
+          "term": "locus, locī, m.",
+          "definition": "place"
+        },
+        {
+          "term": "uir, uirī, m",
+          "definition": "man, husband"
+        }
+      ]
+    },
+    "adj": {
+      "display_name": "Adjectives",
+      "cards": [
+        {
+          "term": "bonus, -a, -um",
+          "definition": "good"
+        },
+        {
+          "term": "malus, -a, -um",
+          "definition": "bad"
+        },
+        {
+          "term": "ūnus, -a, -um",
+          "definition": "one"
+        }
+      ]
+    },
+    "adv": {
+      "display_name": "Adverb",
+      "cards": [
+        {
+          "term": "sīc",
+          "definition": "like that, thus"
+        }
+      ]
+    },
+    "prep": {
+      "display_name": "Prepositions",
+      "cards": [
+        {
+          "term": "in + acc.",
+          "definition": "into"
+        },
+        {
+          "term": "per + acc.",
+          "definition": "through"
+        },
+        {
+          "term": "cum + abl.",
+          "definition": "with"
+        }
+      ]
+    },
+    "conj": {
+      "display_name": "Conjunction",
+      "cards": [
+        {
+          "term": "quod",
+          "definition": "because"
+        }
+      ]
+    },
+    "pronouns": {
+      "display_name": "Pronouns",
+      "cards": [
+        {
+          "term": "quid?",
+          "definition": "what?"
+        },
+        {
+          "term": "quō?",
+          "definition": "where to?"
+        }
+      ]
+    }
+  }
+}
