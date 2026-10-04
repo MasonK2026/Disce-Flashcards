@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/Disce-Flashcards',
+  base: '/Disce-Flashcards/',
 })

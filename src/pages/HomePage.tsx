@@ -5,6 +5,7 @@ import { useDeckStore } from '../stores/deckStore';
 import { Link } from 'react-router-dom';
 import { Play, Star, BookOpen, Layers, Zap, Sparkles, PenTool } from 'lucide-react';
 import { ChapterGroup, groupChaptersByBase } from '../components/chapter/ChapterGroup';
+import { Logo } from '../components/common/Logo';
 
 const XP_PER_WORD = 10;
 
@@ -63,7 +64,7 @@ export function HomePage() {
       {/* Hero */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2 border-b">
         <div className="flex items-center space-x-4">
-          <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Disce! Logo" className="w-14 h-14 md:w-16 md:h-16 rounded-xl shadow-sm" />
+          <Logo className="w-14 h-14 md:w-16 md:h-16 shadow-sm shrink-0" />
           <div>
             <h1 className="text-4xl md:text-5xl font-black italic tracking-tight text-green-500">Disce!</h1>
             <p className="text-muted-foreground mt-1 text-base md:text-lg">
