@@ -25,9 +25,6 @@ export function HomePage() {
     }
   }, [chapters, isLoading, loadData]);
 
-  if (isLoading) return <div className="p-12 text-center text-muted-foreground">Loading Disce! vocabulary...</div>;
-  if (error) return <div className="p-12 text-center text-red-500">Error loading data: {error}</div>;
-
   const totalCards = allCards.length;
   const memorizedCount = Object.values(cardProgress).filter(p => p.memorized).length;
   const favoriteCount = Object.values(cardProgress).filter(p => p.favorite).length;
@@ -50,6 +47,9 @@ export function HomePage() {
 
     return { current, next, wordsNeeded, rankProgress, currentIdx };
   }, [memorizedCount]);
+
+  if (isLoading) return <div className="p-12 text-center text-muted-foreground">Loading Disce! vocabulary...</div>;
+  if (error) return <div className="p-12 text-center text-red-500">Error loading data: {error}</div>;
 
   return (
     <div className="space-y-8">
