@@ -19,13 +19,20 @@
 - Divided by grammatical category: **Verbs**, **Nouns**, **Adjectives**, **Adverbs**, **Prepositions**, **Conjunctions**, and **Pronouns**.
 - Full principal parts, declension, gender, and definition details preserved for each word.
 
-### 🎯 Universal Chapter & Subgroup Selector
-- Filter your active study pool to any combination of the 53 chapters at any time.
-- 1-click batch selection for:
-  - **Part I:** Chapters 1–16
-  - **Part II:** Chapters 17–32
-  - **Part III:** Chapters 33–53
-- Persists automatically to your active session and syncs to your account.
+### 🎯 Active Study Chapters
+- Select any combination of the 53 chapters to build your active study pool.
+- Your selection persists automatically across sessions and syncs to your cloud account.
+- Provides a unified study stream rather than disjointed flashcards.
+
+### ⚡ Gamified Vocabulary XP
+- Earn 10 XP for every word committed to memory.
+- Progress through completely vocabulary-focused milestone levels (Novice, Student, Reader, Scribe, Scholar, Word Collector, Word Vault).
+- Keep track of your growing mastery without complicated grammar hurdles.
+
+### ⭐ Dedicated Favorites & Customization
+- **Favorites Page:** Instantly access, manage, and study all your starred vocabulary words in one place.
+- Add to favorites straight from the global search dictionary.
+- Create completely custom vocabulary sets and words, optionally tagged with grammar metadata.
 
 ### 🔍 Quick Search & Filterable Dictionary
 - **Global Shortcut:** Press <kbd>Ctrl</kbd> + <kbd>K</kbd> (or <kbd>Cmd</kbd> + <kbd>K</kbd>) anywhere in the application to open the instant Quick Search modal.
@@ -51,10 +58,7 @@
   - Star cards as **Favorites** for targeted review.
 - **Direct Tagging:** Edit or correct grammar tags directly from the flashcard face.
 
-### 📦 Custom Decks & Custom Cards
-- Build and organize custom vocabulary decks tailored to upcoming exams or specific reading passages.
-- Add official words from the 53 chapters or create completely custom Latin cards with custom definitions, principal parts, declensions, and conjugation notes.
-- Flag custom cards as **Deponent** or **Irregular**.
+
 
 ### 🤝 Honor-System Community Grammar Overrides
 - Anyone can correct or enrich a word's classification (e.g. conjugation, declension, regularity) directly in the UI.
