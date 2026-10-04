@@ -1,21 +1,28 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useDataStore } from '../stores/dataStore';
 import { useUserStore } from '../stores/userStore';
 import { useDeckStore } from '../stores/deckStore';
 import { Flashcard } from '../components/flashcard/Flashcard';
-import { ArrowLeft, ArrowRight, Shuffle, Repeat } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Shuffle, Repeat, CheckCircle2 } from 'lucide-react';
 import type { Card } from '../types';
+import confetti from 'canvas-confetti';
 
 export function StudyPage() {
   const { source } = useParams();
+  const navigate = useNavigate();
   const { chapters, allCards, isLoading, searchStudyCardIds } = useDataStore();
-  const { settings, cardProgress, setDirection } = useUserStore();
+  const { settings, cardProgress, setDirection, setLastStudySession } = useUserStore();
   const { decks, customCards } = useDeckStore();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [isShuffled, setIsShuffled] = useState(false);
+
+  // Swipe logic
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
 
   // Derive the active pool of cards based on study source
   const { activeCards, sessionTitle, backPath } = useMemo(() => {
@@ -88,34 +95,52 @@ export function StudyPage() {
     return { activeCards: [], sessionTitle: 'Study Session', backPath: '/' };
   }, [chapters, allCards, isLoading, source, settings.activeChapters, cardProgress, decks, customCards, searchStudyCardIds]);
 
+  useEffect(() => {
+    if (source && sessionTitle && !isLoading && activeCards.length > 0) {
+      setLastStudySession({ source, label: sessionTitle });
+    }
+  }, [source, sessionTitle, isLoading, activeCards.length, setLastStudySession]);
+
   // Handle shuffling
   const displayCards = useMemo(() => {
     if (!isShuffled) return activeCards;
     return [...activeCards].sort(() => Math.random() - 0.5);
   }, [activeCards, isShuffled]);
 
-  const currentCard = displayCards[currentIndex];
+  const isComplete = currentIndex >= displayCards.length && displayCards.length > 0;
+
+  useEffect(() => {
+    if (isComplete) {
+      confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+    }
+  }, [isComplete]);
 
   const handleNext = useCallback(() => {
+    if (isComplete) return;
     setIsFlipped(false);
     setTimeout(() => {
-      setCurrentIndex(prev => (prev + 1) % displayCards.length);
+      setCurrentIndex(prev => prev + 1);
     }, 120);
-  }, [displayCards.length]);
+  }, [isComplete]);
 
   const handlePrev = useCallback(() => {
+    if (currentIndex === 0 || isComplete) return;
     setIsFlipped(false);
     setTimeout(() => {
-      setCurrentIndex(prev => (prev - 1 + displayCards.length) % displayCards.length);
+      setCurrentIndex(prev => prev - 1);
     }, 120);
-  }, [displayCards.length]);
+  }, [currentIndex, isComplete]);
 
   // Keyboard controls
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === 'Space') {
+      if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'ArrowDown') {
         e.preventDefault();
-        setIsFlipped(prev => !prev);
+        if (!isComplete) setIsFlipped(prev => !prev);
       } else if (e.code === 'ArrowRight') {
         handleNext();
       } else if (e.code === 'ArrowLeft') {
@@ -124,7 +149,28 @@ export function StudyPage() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleNext, handlePrev]);
+  }, [handleNext, handlePrev, isComplete]);
+
+  // Touch handlers for swipe
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  const onTouchEndHandler = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      handleNext();
+    }
+    if (isRightSwipe) {
+      handlePrev();
+    }
+  };
 
   if (isLoading) return <div className="text-center p-12 text-muted-foreground">Loading study cards...</div>;
   if (displayCards.length === 0) {
@@ -143,7 +189,37 @@ export function StudyPage() {
     );
   }
 
-  const progressPercent = Math.round(((currentIndex + 1) / displayCards.length) * 100);
+  if (isComplete) {
+    return (
+      <div className="max-w-md mx-auto text-center p-12 space-y-6 mt-12">
+        <CheckCircle2 className="w-24 h-24 mx-auto text-primary mb-4" />
+        <h2 className="text-4xl font-black italic text-primary">Optime!</h2>
+        <p className="text-muted-foreground">
+          You've completed this study session of <strong>{displayCards.length}</strong> cards.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-6">
+          <button 
+            onClick={() => {
+              setCurrentIndex(0);
+              setIsShuffled(true);
+            }}
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition shadow-sm"
+          >
+            Shuffle & Review Again
+          </button>
+          <button 
+            onClick={() => navigate('/')}
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-secondary text-secondary-foreground font-bold hover:bg-secondary/80 transition"
+          >
+            Return Home
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const currentCard = displayCards[currentIndex];
+  const progressPercent = Math.round((currentIndex / displayCards.length) * 100);
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
@@ -198,26 +274,39 @@ export function StudyPage() {
       </div>
 
       {/* Flashcard Area */}
-      <Flashcard 
-        card={currentCard} 
-        isFlipped={isFlipped} 
-        direction={settings.defaultDirection}
-        onFlip={() => setIsFlipped(!isFlipped)} 
-      />
+      <div 
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEndHandler}
+        className="touch-pan-y"
+      >
+        <Flashcard 
+          card={currentCard} 
+          isFlipped={isFlipped} 
+          direction={settings.defaultDirection}
+          onFlip={() => setIsFlipped(!isFlipped)} 
+        />
+      </div>
 
       {/* Bottom Controls */}
       <div className="flex justify-center items-center space-x-8 pt-4">
         <button 
           onClick={handlePrev}
-          className="p-3 rounded-full hover:bg-muted/60 border border-border/60 transition shadow-sm"
+          disabled={currentIndex === 0}
+          className="p-3 rounded-full hover:bg-muted/60 border border-border/60 transition shadow-sm disabled:opacity-30 disabled:hover:bg-transparent"
           title="Previous Card (Left Arrow)"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
 
-        <span className="text-xs text-muted-foreground select-none">
-          Space to flip · ← / → to navigate
-        </span>
+        <div className="flex flex-col items-center">
+          <span className="text-xs font-semibold text-muted-foreground select-none">
+            Space or ↑/↓ to flip
+          </span>
+          <span className="text-[10px] text-muted-foreground/70 select-none">
+            Swipe or ←/→ to navigate
+          </span>
+        </div>
 
         <button 
           onClick={handleNext}

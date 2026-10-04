@@ -4,8 +4,9 @@ import { useDeckStore } from '../stores/deckStore';
 import { useDataStore } from '../stores/dataStore';
 import { normalizeLatinSearch } from '../lib/latinNormalize';
 import { GrammarBadge } from '../components/grammar/GrammarBadge';
-import { ArrowLeft, Play, Plus, Trash2, Search, Sparkles } from 'lucide-react';
+import { ArrowLeft, Play, Plus, Trash2, Search, Sparkles, Layers } from 'lucide-react';
 import { CustomCardModal } from '../components/deck/CustomCardModal';
+import { BulkAddModal } from '../components/deck/BulkAddModal';
 import type { Card } from '../types';
 
 export function DeckDetailPage() {
@@ -15,6 +16,7 @@ export function DeckDetailPage() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [isCustomModalOpen, setIsCustomModalOpen] = useState(false);
+  const [isBulkAddModalOpen, setIsBulkAddModalOpen] = useState(false);
   const [isEditingName, setIsEditingName] = useState(false);
   const [deckName, setDeckName] = useState('');
 
@@ -105,7 +107,15 @@ export function DeckDetailPage() {
           </div>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-2 mt-4 sm:mt-0">
+          <button
+            onClick={() => setIsBulkAddModalOpen(true)}
+            className="flex items-center space-x-1.5 px-3 py-2 rounded-xl border border-primary/40 bg-background text-foreground font-semibold hover:bg-muted transition text-xs"
+          >
+            <Layers className="w-3.5 h-3.5" />
+            <span>Add from...</span>
+          </button>
+
           <button
             onClick={() => setIsCustomModalOpen(true)}
             className="flex items-center space-x-1.5 px-3 py-2 rounded-xl border border-primary/40 bg-primary/10 text-primary font-semibold hover:bg-primary/20 transition text-xs"
@@ -209,6 +219,12 @@ export function DeckDetailPage() {
       <CustomCardModal
         isOpen={isCustomModalOpen}
         onClose={() => setIsCustomModalOpen(false)}
+        targetDeckId={deck.id}
+      />
+
+      <BulkAddModal
+        isOpen={isBulkAddModalOpen}
+        onClose={() => setIsBulkAddModalOpen(false)}
         targetDeckId={deck.id}
       />
     </div>

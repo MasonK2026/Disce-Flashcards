@@ -6,7 +6,7 @@ import { CustomCardModal } from '../components/deck/CustomCardModal';
 import { GrammarBadge } from '../components/grammar/GrammarBadge';
 
 export function DecksPage() {
-  const { decks, customCards, createDeck, deleteDeck, deleteCustomCard } = useDeckStore();
+  const { decks, customCards, createDeck, deleteDeck, duplicateDeck, deleteCustomCard } = useDeckStore();
   const [isCreatingDeck, setIsCreatingDeck] = useState(false);
   const [newDeckName, setNewDeckName] = useState('');
   const [isCustomCardModalOpen, setIsCustomCardModalOpen] = useState(false);
@@ -93,13 +93,22 @@ export function DecksPage() {
                 <div>
                   <div className="flex items-start justify-between">
                     <h3 className="font-bold text-lg text-foreground truncate">{deck.name}</h3>
-                    <button
-                      onClick={() => deleteDeck(deck.id)}
-                      className="p-1 rounded text-muted-foreground/60 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 transition"
-                      title="Delete deck"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
+                    <div className="flex items-center space-x-1">
+                      <button
+                        onClick={() => duplicateDeck(deck.id)}
+                        className="p-1 rounded text-muted-foreground/60 hover:text-primary hover:bg-primary/10 transition"
+                        title="Duplicate deck"
+                      >
+                        <Layers className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={() => deleteDeck(deck.id)}
+                        className="p-1 rounded text-muted-foreground/60 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 transition"
+                        title="Delete deck"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
                   <p className="text-xs text-muted-foreground mt-1">
                     {deck.cardIds.length} {deck.cardIds.length === 1 ? 'card' : 'cards'}

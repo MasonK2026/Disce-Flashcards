@@ -6,7 +6,7 @@ import { Play, Star, CheckCircle, BookOpen, Layers, ArrowRight } from 'lucide-re
 
 export function HomePage() {
   const { chapters, allCards, isLoading, error, loadData } = useDataStore();
-  const { settings, cardProgress } = useUserStore();
+  const { settings, cardProgress, lastStudySession } = useUserStore();
 
   useEffect(() => {
     if (chapters.length === 0 && !isLoading) {
@@ -49,6 +49,16 @@ export function HomePage() {
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
+          {lastStudySession && (
+            <Link
+              to={`/study/${lastStudySession.source}`}
+              className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-primary/10 border border-primary/20 text-primary font-semibold hover:bg-primary/20 transition shadow-sm text-sm"
+            >
+              <Play className="w-4 h-4 fill-current" />
+              <span>Resume: {lastStudySession.label}</span>
+            </Link>
+          )}
+
           <Link
             to="/study/active"
             className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition shadow-sm text-sm"
