@@ -400,7 +400,7 @@ export function SearchPage() {
               onChange={(e) => setSelectedChapter(e.target.value)}
               className="w-full p-2 rounded-lg border bg-background font-medium focus:outline-none"
             >
-              <option value="all">All Chapters (53)</option>
+              <option value="all">All Chapters (31)</option>
               {chapters.length > 0 ? (
                 chapters.map(ch => (
                   <option key={ch.chapter} value={ch.chapter}>

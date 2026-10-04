@@ -23,7 +23,7 @@ export const useDeckStore = create<DeckState>()(
       decks: [
         {
           id: 'deck_verbs_part1',
-          name: 'Part I Verbs Focus',
+          name: 'Midterm Verbs Focus',
           cardIds: [],
         },
       ],

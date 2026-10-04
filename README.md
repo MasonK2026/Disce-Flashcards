@@ -8,19 +8,19 @@
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Supabase](https://img.shields.io/badge/Supabase-Database_%26_RPC-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
 
-*Disce!* is a fast, responsive, and feature-rich Latin vocabulary and grammar study application designed specifically for the ***Oxford Latin Course (College Edition)***. It covers all 53 chapters across Parts I, II, and III, featuring interactive study modes, smart search with orthographic normalization, custom deck creation, community-driven grammar tagging, and cross-device sync powered by a 6-digit PIN system.
+*Disce!* is a fast, responsive, and feature-rich Latin vocabulary and grammar study application designed specifically for the ***Oxford Latin Course (College Edition)***. It covers all 31 chapters, featuring interactive study modes, smart search with orthographic normalization, custom deck creation, community-driven grammar tagging, and cross-device sync powered by a 6-digit PIN system.
 
 ---
 
 ## ✨ Features
 
-### 📖 Complete 53-Chapter Vocabulary
-- Curated vocabulary directly mapped to Chapters 1 through 53 of the *Oxford Latin Course*.
+### 📖 Complete 31-Chapter Vocabulary
+- Curated vocabulary directly mapped to Chapters 1 through 31 of the *Oxford Latin Course*.
 - Divided by grammatical category: **Verbs**, **Nouns**, **Adjectives**, **Adverbs**, **Prepositions**, **Conjunctions**, and **Pronouns**.
 - Full principal parts, declension, gender, and definition details preserved for each word.
 
 ### 🎯 Active Study Chapters
-- Select any combination of the 53 chapters to build your active study pool.
+- Select any combination of the 31 chapters to build your active study pool.
 - Your selection persists automatically across sessions and syncs to your cloud account.
 - Provides a unified study stream rather than disjointed flashcards.
 
@@ -186,7 +186,7 @@ Disce-Flashcards/
 │   └── workflows/
 │       └── deploy.yml          # Automated CI/CD GitHub Pages deployment
 ├── public/
-│   └── data/                   # 53 JSON vocabulary files (ch1.json to ch53.json)
+│   └── data/                   # JSON vocabulary files
 ├── src/
 │   ├── assets/                 # App logos, illustrations, and static assets
 │   ├── components/
@@ -211,7 +211,7 @@ Disce-Flashcards/
 │   │   └── StudyPage.tsx       # Active flashcard study session
 │   ├── stores/
 │   │   ├── accountStore.ts     # PIN cloud sync & auto-push state
-│   │   ├── dataStore.ts        # 53-chapter data loader & community overrides
+│   │   ├── dataStore.ts        # Chapter data loader & community overrides
 │   │   ├── deckStore.ts        # Custom decks and cards with local persistence
 │   │   └── userStore.ts        # Study progress, favorites, and settings
 │   ├── types/
