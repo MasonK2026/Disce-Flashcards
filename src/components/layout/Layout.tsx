@@ -38,8 +38,8 @@ export function Layout() {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 max-w-screen-2xl items-center px-4">
-          <Link to="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-extrabold text-2xl italic tracking-tight text-primary">Disce!</span>
+          <Link to="/" className="mr-6 flex items-center hover:opacity-80 transition">
+            <img src="/favicon.svg" alt="Disce! Logo" className="w-8 h-8 rounded-lg shadow-sm" />
           </Link>
 
           <div className="flex flex-1 items-center space-x-3 justify-end">
