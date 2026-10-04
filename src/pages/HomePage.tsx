@@ -3,17 +3,19 @@ import { useDataStore } from '../stores/dataStore';
 import { useUserStore } from '../stores/userStore';
 import { useDeckStore } from '../stores/deckStore';
 import { Link } from 'react-router-dom';
-import { Play, Star, BookOpen, Layers, Award, Sparkles, PenTool } from 'lucide-react';
+import { Play, Star, BookOpen, Layers, Zap, Sparkles, PenTool } from 'lucide-react';
 import { ChapterGroup, groupChaptersByBase } from '../components/chapter/ChapterGroup';
 
+const XP_PER_WORD = 10;
+
 const RANKS = [
-  { name: 'Tiro', title: 'Recruit', min: 0, level: 'I', desc: 'Starting the Latin journey' },
-  { name: 'Discipulus', title: 'Student', min: 50, level: 'II', desc: 'Building fundamental vocabulary' },
-  { name: 'Scholasticus', title: 'Scholar', min: 150, level: 'III', desc: 'Expanding reading fluency' },
-  { name: 'Grammaticus', title: 'Grammarian', min: 300, level: 'IV', desc: 'Commanding forms and syntax' },
-  { name: 'Rhetor', title: 'Orator', min: 500, level: 'V', desc: 'Mastering classical prose' },
-  { name: 'Philosophus', title: 'Philosopher', min: 750, level: 'VI', desc: 'Deep literacy in Latin literature' },
-  { name: 'Magister Linguae', title: 'Master of Latin', min: 1000, level: 'VII', desc: 'Supreme mastery of the language' },
+  { name: 'Tiro', title: 'Novice', minWords: 0, level: 1, desc: 'Just started memorizing words' },
+  { name: 'Discipulus', title: 'Student', minWords: 50, level: 2, desc: '50 words memorized' },
+  { name: 'Lector', title: 'Reader', minWords: 150, level: 3, desc: '150 words memorized' },
+  { name: 'Notarius', title: 'Scribe', minWords: 300, level: 4, desc: '300 words memorized' },
+  { name: 'Eruditus', title: 'Scholar', minWords: 500, level: 5, desc: '500 words memorized' },
+  { name: 'Lexicon', title: 'Word Collector', minWords: 750, level: 6, desc: '750 words memorized' },
+  { name: 'Thesaurus', title: 'Word Vault', minWords: 1000, level: 7, desc: '1,000+ words memorized' },
 ];
 
 export function HomePage() {
@@ -30,24 +32,28 @@ export function HomePage() {
   const totalCards = allCards.length;
   const memorizedCount = Object.values(cardProgress).filter(p => p.memorized).length;
   const favoriteCount = Object.values(cardProgress).filter(p => p.favorite).length;
+  const totalXp = memorizedCount * XP_PER_WORD;
 
-  // Gamified Rank calculation
+  // Vocab XP and Rank calculation
   const rankInfo = useMemo(() => {
     let currentIdx = 0;
     for (let i = 0; i < RANKS.length; i++) {
-      if (memorizedCount >= RANKS[i].min) {
+      if (memorizedCount >= RANKS[i].minWords) {
         currentIdx = i;
       }
     }
     const current = RANKS[currentIdx];
     const next = RANKS[currentIdx + 1] || null;
-    const wordsNeeded = next ? next.min - memorizedCount : 0;
+    const wordsNeeded = next ? next.minWords - memorizedCount : 0;
+    const xpNeeded = wordsNeeded * XP_PER_WORD;
+    const currentBaseXp = current.minWords * XP_PER_WORD;
+    const nextBaseXp = next ? next.minWords * XP_PER_WORD : currentBaseXp;
     const rankProgress = next 
-      ? Math.min(100, Math.round(((memorizedCount - current.min) / (next.min - current.min)) * 100))
+      ? Math.min(100, Math.round(((totalXp - currentBaseXp) / (nextBaseXp - currentBaseXp)) * 100))
       : 100;
 
-    return { current, next, wordsNeeded, rankProgress, currentIdx };
-  }, [memorizedCount]);
+    return { current, next, wordsNeeded, xpNeeded, rankProgress, currentIdx };
+  }, [memorizedCount, totalXp]);
 
   if (isLoading) return <div className="p-12 text-center text-muted-foreground">Loading Disce! vocabulary...</div>;
   if (error) return <div className="p-12 text-center text-red-500">Error loading data: {error}</div>;
@@ -133,15 +139,15 @@ export function HomePage() {
         </Link>
       </div>
 
-      {/* Gamified Latin User Rank */}
+      {/* Gamified Vocab XP & Rank */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold tracking-tight flex items-center gap-2">
-            <Award className="w-5 h-5 text-amber-500" />
-            <span>Latin Mastery Rank</span>
+            <Zap className="w-5 h-5 text-amber-500 fill-amber-500" />
+            <span>Vocabulary Rank & XP</span>
           </h2>
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary">
-            Rank {rankInfo.current.level} • {memorizedCount} Memorized
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400">
+            {totalXp.toLocaleString()} XP • Level {rankInfo.current.level}
           </span>
         </div>
 
@@ -155,11 +161,11 @@ export function HomePage() {
                 <div className="flex items-center space-x-2">
                   <h3 className="text-2xl font-black tracking-tight">{rankInfo.current.name}</h3>
                   <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-secondary text-secondary-foreground">
-                    Rank {rankInfo.current.level}
+                    Level {rankInfo.current.level}
                   </span>
                 </div>
                 <p className="text-sm font-medium text-muted-foreground mt-0.5">
-                  {rankInfo.current.title} — {rankInfo.current.desc}
+                  {rankInfo.current.title} • {rankInfo.current.desc}
                 </p>
               </div>
             </div>
@@ -167,15 +173,15 @@ export function HomePage() {
             {rankInfo.next ? (
               <div className="sm:text-right">
                 <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Next Rank</span>
-                <p className="text-base font-bold text-foreground">{rankInfo.next.name} ({rankInfo.next.level})</p>
+                <p className="text-base font-bold text-foreground">{rankInfo.next.name} (Level {rankInfo.next.level})</p>
                 <p className="text-xs text-primary font-semibold mt-0.5">
-                  {rankInfo.wordsNeeded} more {rankInfo.wordsNeeded === 1 ? 'word' : 'words'} needed
+                  {rankInfo.wordsNeeded} more {rankInfo.wordsNeeded === 1 ? 'word' : 'words'} to unlock (+{rankInfo.xpNeeded} XP)
                 </p>
               </div>
             ) : (
               <div className="sm:text-right">
                 <span className="text-xs font-bold uppercase tracking-wider text-emerald-500">Max Rank Reached</span>
-                <p className="text-base font-bold text-foreground">Optime! Master of Latin</p>
+                <p className="text-base font-bold text-foreground">1,000+ words memorized</p>
               </div>
             )}
           </div>
@@ -183,8 +189,8 @@ export function HomePage() {
           {/* Progress bar to next rank */}
           <div className="space-y-2">
             <div className="flex justify-between text-xs font-medium text-muted-foreground">
-              <span>{rankInfo.current.name} ({rankInfo.current.min} words)</span>
-              <span>{rankInfo.next ? `${rankInfo.next.name} (${rankInfo.next.min} words)` : '100% Complete'}</span>
+              <span>{rankInfo.current.name} ({rankInfo.current.minWords * XP_PER_WORD} XP)</span>
+              <span>{rankInfo.next ? `${rankInfo.next.name} (${rankInfo.next.minWords * XP_PER_WORD} XP)` : 'Completed'}</span>
             </div>
             <div className="w-full bg-muted h-3 rounded-full overflow-hidden p-0.5">
               <div 
@@ -197,7 +203,7 @@ export function HomePage() {
           {/* Roadmap of Ranks */}
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 pt-2 border-t border-border/40">
             {RANKS.map((r) => {
-              const isAchieved = memorizedCount >= r.min;
+              const isAchieved = memorizedCount >= r.minWords;
               const isCurrent = r.name === rankInfo.current.name;
               return (
                 <div
@@ -210,9 +216,9 @@ export function HomePage() {
                       : 'border-border/40 bg-muted/20 opacity-50 text-muted-foreground'
                   }`}
                 >
-                  <span className="text-[10px] font-mono block opacity-70">Rank {r.level}</span>
+                  <span className="text-[10px] font-mono block opacity-70">Level {r.level}</span>
                   <span className="text-xs font-bold block truncate">{r.name}</span>
-                  <span className="text-[10px] text-muted-foreground block">{r.min}+ words</span>
+                  <span className="text-[10px] text-muted-foreground block">{r.minWords * XP_PER_WORD} XP</span>
                 </div>
               );
             })}
