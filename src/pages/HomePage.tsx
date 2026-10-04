@@ -63,9 +63,9 @@ export function HomePage() {
       {/* Hero */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2 border-b">
         <div className="flex items-center space-x-4">
-          <img src="/favicon.svg" alt="Disce! Logo" className="w-14 h-14 md:w-16 md:h-16 rounded-xl shadow-sm" />
+          <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="Disce! Logo" className="w-14 h-14 md:w-16 md:h-16 rounded-xl shadow-sm" />
           <div>
-            <h1 className="text-4xl md:text-5xl font-black italic tracking-tight text-green-500 drop-shadow-sm">Disce!</h1>
+            <h1 className="text-4xl md:text-5xl font-black italic tracking-tight text-green-500">Disce!</h1>
             <p className="text-muted-foreground mt-1 text-base md:text-lg">
               Oxford Latin Course Companion Study System
             </p>
