@@ -3,6 +3,7 @@ import { useDataStore, CHAPTER_PARTS } from '../stores/dataStore';
 import { useUserStore } from '../stores/userStore';
 import { Link } from 'react-router-dom';
 import { Play, Star, CheckCircle, BookOpen, Layers, ArrowRight } from 'lucide-react';
+import { ChapterGroup, groupChaptersByBase } from '../components/chapter/ChapterGroup';
 
 export function HomePage() {
   const { chapters, allCards, isLoading, error, loadData } = useDataStore();
@@ -69,11 +70,11 @@ export function HomePage() {
 
           {favoriteCount > 0 && (
             <Link
-              to="/study/favorites"
+              to="/favorites"
               className="flex items-center space-x-1.5 px-4 py-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-400 font-medium hover:bg-amber-500/20 transition text-sm"
             >
               <Star className="w-4 h-4 fill-current" />
-              <span>Favorites ({favoriteCount})</span>
+              <span>View Favorites ({favoriteCount})</span>
             </Link>
           )}
         </div>
@@ -102,14 +103,14 @@ export function HomePage() {
           <p className="text-xs text-muted-foreground mt-1">{overallPercent}% mastery</p>
         </div>
 
-        <div className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm">
+        <Link to="/favorites" className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm hover:border-amber-500/50 transition cursor-pointer group">
           <div className="flex items-center justify-between text-muted-foreground">
-            <span className="text-xs font-semibold uppercase tracking-wider">Favorites</span>
+            <span className="text-xs font-semibold uppercase tracking-wider group-hover:text-amber-600 transition">Favorites</span>
             <Star className="w-4 h-4 text-amber-500" />
           </div>
           <p className="text-3xl font-extrabold mt-2 text-amber-600 dark:text-amber-400">{favoriteCount}</p>
-          <p className="text-xs text-muted-foreground mt-1">Starred for review</p>
-        </div>
+          <p className="text-xs text-muted-foreground mt-1">Manage starred words</p>
+        </Link>
 
         <div className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm">
           <div className="flex items-center justify-between text-muted-foreground">
@@ -205,29 +206,14 @@ export function HomePage() {
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold tracking-tight">Browse All Chapters</h2>
           <Link to="/chapters" className="text-sm font-semibold text-primary hover:underline flex items-center">
-            View All 53 <ArrowRight className="w-4 h-4 ml-1" />
+            View Expanded <ArrowRight className="w-4 h-4 ml-1" />
           </Link>
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {chapters.slice(0, 8).map((ch) => {
-            const count = Object.values(ch.categories).reduce((sum, cat) => sum + cat.cards.length, 0);
-            return (
-              <Link
-                key={ch.chapter}
-                to={`/chapters/${ch.chapter}`}
-                className="group p-4 rounded-xl border bg-card hover:bg-muted/40 transition flex items-center justify-between"
-              >
-                <div>
-                  <h4 className="font-bold text-sm group-hover:text-primary transition">{ch.chapter_title}</h4>
-                  <span className="text-xs text-muted-foreground">{count} cards</span>
-                </div>
-                <span className="text-xs font-medium text-muted-foreground group-hover:text-primary transition">
-                  Open →
-                </span>
-              </Link>
-            );
-          })}
+          {groupChaptersByBase(chapters).map((group) => (
+            <ChapterGroup key={group.baseNumber} baseNumber={group.baseNumber} chapters={group.chapters} />
+          ))}
         </div>
       </div>
     </div>

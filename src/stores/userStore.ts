@@ -6,6 +6,7 @@ import { CHAPTER_SLUGS, CHAPTER_PARTS } from './dataStore';
 interface UserSession {
   source: string;
   label: string;
+  index: number;
 }
 
 interface UserState {
@@ -26,6 +27,7 @@ interface UserState {
   deselectAllChapters: () => void;
   togglePart: (part: 1 | 2 | 3) => void;
   setLastStudySession: (session: UserSession | null) => void;
+  updateStudySessionIndex: (index: number) => void;
 }
 
 export const useUserStore = create<UserState>()(
@@ -40,6 +42,11 @@ export const useUserStore = create<UserState>()(
       },
       cardProgress: {},
       setLastStudySession: (session) => set({ lastStudySession: session }),
+      updateStudySessionIndex: (index) => set((state) => ({
+        lastStudySession: state.lastStudySession 
+          ? { ...state.lastStudySession, index }
+          : null
+      })),
       toggleMemorized: (cardId) =>
         set((state) => ({
           cardProgress: {

@@ -12,10 +12,17 @@ export function StudyPage() {
   const { source } = useParams();
   const navigate = useNavigate();
   const { chapters, allCards, isLoading, searchStudyCardIds } = useDataStore();
-  const { settings, cardProgress, setDirection, setLastStudySession } = useUserStore();
+  const { settings, cardProgress, setDirection, setLastStudySession, updateStudySessionIndex, lastStudySession } = useUserStore();
   const { decks, customCards } = useDeckStore();
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(() => {
+    // If the source matches our last session, pick up where we left off
+    if (source && lastStudySession && lastStudySession.source === source) {
+      return lastStudySession.index;
+    }
+    return 0;
+  });
+  
   const [isFlipped, setIsFlipped] = useState(false);
   const [isShuffled, setIsShuffled] = useState(false);
 
@@ -97,9 +104,17 @@ export function StudyPage() {
 
   useEffect(() => {
     if (source && sessionTitle && !isLoading && activeCards.length > 0) {
-      setLastStudySession({ source, label: sessionTitle });
+      // Create a fresh session if it doesn't match the source, otherwise keep the existing one's index to avoid overwrite on first render
+      if (lastStudySession?.source !== source) {
+        setLastStudySession({ source, label: sessionTitle, index: 0 });
+      }
     }
-  }, [source, sessionTitle, isLoading, activeCards.length, setLastStudySession]);
+  }, [source, sessionTitle, isLoading, activeCards.length, setLastStudySession, lastStudySession?.source]);
+
+  // Sync index to store as we study
+  useEffect(() => {
+    updateStudySessionIndex(currentIndex);
+  }, [currentIndex, updateStudySessionIndex]);
 
   // Handle shuffling
   const displayCards = useMemo(() => {

@@ -50,15 +50,15 @@ export function Flashcard({ card, isFlipped, direction, onFlip }: FlashcardProps
               </button>
               <button 
                 onClick={(e) => { e.stopPropagation(); toggleFavorite(card.id); }}
-                className={`p-2 rounded-full hover:bg-muted/50 transition ${progress.favorite ? 'text-yellow-500' : 'text-muted-foreground'}`}
+                className={`p-2 rounded-full hover:bg-muted/50 transition ${progress.favorite ? 'text-amber-500' : 'text-muted-foreground'}`}
               >
                 <Star className="w-5 h-5" fill={progress.favorite ? "currentColor" : "none"} />
               </button>
               <button 
                 onClick={(e) => { e.stopPropagation(); toggleMemorized(card.id); }}
-                className={`p-2 rounded-full hover:bg-muted/50 transition ${progress.memorized ? 'text-green-500' : 'text-muted-foreground'}`}
+                className={`p-2 rounded-full hover:bg-muted/50 transition ${progress.memorized ? 'text-emerald-500' : 'text-muted-foreground'}`}
               >
-                <CheckCircle className="w-5 h-5" fill={progress.memorized ? "currentColor" : "none"} />
+                <CheckCircle className="w-5 h-5" fill={progress.memorized ? "currentColor" : "none"} stroke={progress.memorized ? "var(--color-card, white)" : "currentColor"} />
               </button>
             </div>
 
@@ -99,7 +99,7 @@ export function Flashcard({ card, isFlipped, direction, onFlip }: FlashcardProps
                     onClick={handleLinkClick}
                     className="flex items-center text-xs text-blue-500 hover:underline"
                   >
-                    Cactus2000 <ExternalLink className="w-3 h-3 ml-1" />
+                    Cactus 2000 <ExternalLink className="w-3 h-3 ml-1" />
                   </a>
                 )}
               </>
