@@ -39,12 +39,6 @@ export const CHAPTER_SLUGS = [
   "ch30a", "ch30b", "ch30c", "ch31"
 ];
 
-export const CHAPTER_PARTS: Record<number, string[]> = {
-  1: ["ch1", "ch2a", "ch2b", "ch2c", "ch3", "ch4", "ch5a", "ch5b", "ch6a", "ch6b", "ch7", "ch8a", "ch8b", "ch9"],
-  2: ["ch10a", "ch10b", "ch10c", "ch11", "ch12", "ch13", "ch14a", "ch14b", "ch15a", "ch15b", "ch16a", "ch16b", "ch17a", "ch17b", "ch17c", "ch18a", "ch18b", "ch18c", "ch19a", "ch19b", "ch20"],
-  3: ["ch21", "ch22a", "ch22b", "ch23", "ch24a", "ch24b", "ch25", "ch26", "ch27", "ch28a", "ch28b", "ch29a", "ch29b", "ch29c", "ch30a", "ch30b", "ch30c", "ch31"],
-};
-
 // Last successfully fetched community classifications, so the app still shows
 // them when the user is offline or Supabase is unreachable.
 const OVERRIDE_CACHE_KEY = 'disce-community-overrides-cache';

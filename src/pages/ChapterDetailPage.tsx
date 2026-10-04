@@ -5,7 +5,7 @@ import { useUserStore } from '../stores/userStore';
 import { GrammarBadge } from '../components/grammar/GrammarBadge';
 import { EditGrammarModal } from '../components/grammar/EditGrammarModal';
 import { generateVocabulaLink, generateLatinIsSimpleLink, generateCactusLink } from '../lib/latinNormalize';
-import { ArrowLeft, Play, Star, CheckCircle, ExternalLink, Tag } from 'lucide-react';
+import { ArrowLeft, Play, Star, CheckCircle, Check, ExternalLink, Tag } from 'lucide-react';
 import type { Card } from '../types';
 
 export function ChapterDetailPage() {
@@ -78,10 +78,16 @@ export function ChapterDetailPage() {
                           </button>
                           <button
                             onClick={() => toggleMemorized(card.id)}
-                            className={`p-1 rounded-md hover:bg-muted transition ${progress.memorized ? 'text-green-500' : 'text-muted-foreground/60'}`}
+                            className="p-1 rounded-md hover:bg-muted transition"
                             title={progress.memorized ? 'Memorized' : 'Mark as memorized'}
                           >
-                            <CheckCircle className="w-4 h-4" fill={progress.memorized ? 'currentColor' : 'none'} />
+                            {progress.memorized ? (
+                              <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center text-white shadow-xs">
+                                <Check className="w-3 h-3 stroke-[2.5]" />
+                              </div>
+                            ) : (
+                              <CheckCircle className="w-4 h-4 text-muted-foreground/60" />
+                            )}
                           </button>
                         </div>
                       </div>
@@ -110,7 +116,7 @@ export function ChapterDetailPage() {
                           className="text-emerald-500 hover:underline flex items-center"
                           title="Latin is Simple"
                         >
-                          LatinSimple <ExternalLink className="w-3 h-3 ml-0.5" />
+                          Latin is Simple <ExternalLink className="w-3 h-3 ml-0.5" />
                         </a>
                         {card.partOfSpeech === 'verb' && (
                           <a
@@ -118,9 +124,9 @@ export function ChapterDetailPage() {
                             target="_blank"
                             rel="noreferrer"
                             className="text-purple-500 hover:underline flex items-center"
-                            title="Cactus2000"
+                            title="Cactus 2000"
                           >
-                            Cactus <ExternalLink className="w-3 h-3 ml-0.5" />
+                            Cactus 2000 <ExternalLink className="w-3 h-3 ml-0.5" />
                           </a>
                         )}
                       </div>

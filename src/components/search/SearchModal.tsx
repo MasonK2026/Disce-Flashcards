@@ -182,7 +182,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         className="px-2 py-1 rounded text-xs font-medium text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 flex items-center transition"
                         title="Search Latin is Simple"
                       >
-                        LatinSimple <ExternalLink className="w-3 h-3 ml-1" />
+                        Latin is Simple <ExternalLink className="w-3 h-3 ml-1" />
                       </a>
 
                       {card.partOfSpeech === 'verb' && (
@@ -191,9 +191,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           target="_blank"
                           rel="noreferrer"
                           className="px-2 py-1 rounded text-xs font-medium text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950/50 flex items-center transition"
-                          title="Cactus2000 Conjugation Table"
+                          title="Cactus 2000 Conjugation Table"
                         >
-                          Cactus <ExternalLink className="w-3 h-3 ml-1" />
+                          Cactus 2000 <ExternalLink className="w-3 h-3 ml-1" />
                         </a>
                       )}
                     </div>

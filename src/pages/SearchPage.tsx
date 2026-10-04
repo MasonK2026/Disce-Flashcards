@@ -1,12 +1,12 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { useDataStore, CHAPTER_PARTS, CHAPTER_SLUGS } from '../stores/dataStore';
+import { useDataStore, CHAPTER_SLUGS } from '../stores/dataStore';
 import { useUserStore } from '../stores/userStore';
 import { useDeckStore } from '../stores/deckStore';
 import { normalizeLatinSearch, generateVocabulaLink, generateLatinIsSimpleLink, generateCactusLink } from '../lib/latinNormalize';
 import { GrammarBadge } from '../components/grammar/GrammarBadge';
 import { EditGrammarModal } from '../components/grammar/EditGrammarModal';
-import { Search, X, Filter, Play, Star, CheckCircle, ExternalLink, Tag, RotateCcw } from 'lucide-react';
+import { Search, X, Filter, Play, Star, CheckCircle, Check, ExternalLink, Tag, RotateCcw } from 'lucide-react';
 import type { Card } from '../types';
 
 export function SearchPage() {
@@ -33,7 +33,6 @@ export function SearchPage() {
   const [selectedDecl, setSelectedDecl] = useState('all');
   const [selectedGender, setSelectedGender] = useState('all');
   const [selectedAdjType, setSelectedAdjType] = useState('all');
-  const [selectedVolume, setSelectedVolume] = useState('all');
   const [selectedChapter, setSelectedChapter] = useState('all');
   const [selectedStatus, setSelectedStatus] = useState('all');
 
@@ -114,20 +113,13 @@ export function SearchPage() {
         if (!card.grammar?.adjectiveType?.includes(selectedAdjType)) return false;
       }
 
-      // 7. Volume / Textbook Part Filter
+      // 7. Specific Chapter Filter
       const cardChapterSlug = card.id.split('_')[0];
-      if (selectedVolume !== 'all') {
-        const volNum = Number(selectedVolume);
-        const partSlugs = CHAPTER_PARTS[volNum] || [];
-        if (!partSlugs.includes(cardChapterSlug)) return false;
-      }
-
-      // 8. Specific Chapter Filter
       if (selectedChapter !== 'all' && cardChapterSlug !== selectedChapter) {
         return false;
       }
 
-      // 9. Learning Status Filter
+      // 8. Learning Status Filter
       const progress = cardProgress[card.id];
       if (selectedStatus === 'memorized' && !progress?.memorized) return false;
       if (selectedStatus === 'unmemorized' && progress?.memorized) return false;
@@ -143,7 +135,6 @@ export function SearchPage() {
     selectedDecl,
     selectedGender,
     selectedAdjType,
-    selectedVolume,
     selectedChapter,
     selectedStatus,
     cardProgress,
@@ -172,7 +163,6 @@ export function SearchPage() {
     setSelectedDecl('all');
     setSelectedGender('all');
     setSelectedAdjType('all');
-    setSelectedVolume('all');
     setSelectedChapter('all');
     setSelectedStatus('all');
   };
@@ -184,7 +174,6 @@ export function SearchPage() {
     selectedDecl !== 'all',
     selectedGender !== 'all',
     selectedAdjType !== 'all',
-    selectedVolume !== 'all',
     selectedChapter !== 'all',
     selectedStatus !== 'all',
   ].filter(Boolean).length;
@@ -401,26 +390,6 @@ export function SearchPage() {
             </div>
           )}
 
-          {/* Volume */}
-          <div className="space-y-1">
-            <label className="text-muted-foreground font-semibold uppercase tracking-wider text-[10px]">
-              Volume / Part
-            </label>
-            <select
-              value={selectedVolume}
-              onChange={(e) => {
-                setSelectedVolume(e.target.value);
-                setSelectedChapter('all');
-              }}
-              className="w-full p-2 rounded-lg border bg-background font-medium focus:outline-none"
-            >
-              <option value="all">All Volumes</option>
-              <option value="1">Part I (Ch. 1–9)</option>
-              <option value="2">Part II (Ch. 10–20)</option>
-              <option value="3">Part III (Ch. 21–31)</option>
-            </select>
-          </div>
-
           {/* Specific Chapter */}
           <div className="space-y-1">
             <label className="text-muted-foreground font-semibold uppercase tracking-wider text-[10px]">
@@ -431,10 +400,18 @@ export function SearchPage() {
               onChange={(e) => setSelectedChapter(e.target.value)}
               className="w-full p-2 rounded-lg border bg-background font-medium focus:outline-none"
             >
-              <option value="all">All Chapters</option>
-              {CHAPTER_SLUGS.map(slug => (
-                <option key={slug} value={slug}>{slug.toUpperCase()}</option>
-              ))}
+              <option value="all">All Chapters (53)</option>
+              {chapters.length > 0 ? (
+                chapters.map(ch => (
+                  <option key={ch.chapter} value={ch.chapter}>
+                    {ch.chapter_title}
+                  </option>
+                ))
+              ) : (
+                CHAPTER_SLUGS.map(slug => (
+                  <option key={slug} value={slug}>{slug.toUpperCase()}</option>
+                ))
+              )}
             </select>
           </div>
 
@@ -575,10 +552,16 @@ export function SearchPage() {
                       </button>
                       <button
                         onClick={() => toggleMemorized(card.id)}
-                        className={`p-1 rounded-md hover:bg-muted transition ${progress.memorized ? 'text-green-500' : 'text-muted-foreground/60'}`}
+                        className="p-1 rounded-md hover:bg-muted transition"
                         title={progress.memorized ? 'Memorized' : 'Mark as memorized'}
                       >
-                        <CheckCircle className="w-4 h-4" fill={progress.memorized ? 'currentColor' : 'none'} />
+                        {progress.memorized ? (
+                          <div className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center text-white shadow-xs">
+                            <Check className="w-3 h-3 stroke-[2.5]" />
+                          </div>
+                        ) : (
+                          <CheckCircle className="w-4 h-4 text-muted-foreground/60" />
+                        )}
                       </button>
                     </div>
                   </div>
@@ -606,7 +589,7 @@ export function SearchPage() {
                       className="text-emerald-500 hover:underline flex items-center"
                       title="Latin is Simple"
                     >
-                      LatinSimple <ExternalLink className="w-3 h-3 ml-0.5" />
+                      Latin is Simple <ExternalLink className="w-3 h-3 ml-0.5" />
                     </a>
                     {card.partOfSpeech === 'verb' && (
                       <a
@@ -614,9 +597,9 @@ export function SearchPage() {
                         target="_blank"
                         rel="noreferrer"
                         className="text-purple-500 hover:underline flex items-center"
-                        title="Cactus2000"
+                        title="Cactus 2000"
                       >
-                        Cactus <ExternalLink className="w-3 h-3 ml-0.5" />
+                        Cactus 2000 <ExternalLink className="w-3 h-3 ml-0.5" />
                       </a>
                     )}
                   </div>

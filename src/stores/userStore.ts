@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { CardProgress } from '../types';
-import { CHAPTER_SLUGS, CHAPTER_PARTS } from './dataStore';
+import { CHAPTER_SLUGS } from './dataStore';
 
 interface UserSession {
   source: string;
@@ -25,7 +25,6 @@ interface UserState {
   setActiveChapters: (chapters: string[]) => void;
   selectAllChapters: () => void;
   deselectAllChapters: () => void;
-  togglePart: (part: 1 | 2 | 3) => void;
   setLastStudySession: (session: UserSession | null) => void;
   updateStudySessionIndex: (index: number) => void;
 }
@@ -82,16 +81,6 @@ export const useUserStore = create<UserState>()(
         set((state) => ({ settings: { ...state.settings, activeChapters: CHAPTER_SLUGS } })),
       deselectAllChapters: () =>
         set((state) => ({ settings: { ...state.settings, activeChapters: [] } })),
-      togglePart: (part) =>
-        set((state) => {
-          const partChapters = CHAPTER_PARTS[part] || [];
-          const current = state.settings.activeChapters;
-          const allPartActive = partChapters.every(c => current.includes(c));
-          const next = allPartActive
-            ? current.filter(c => !partChapters.includes(c))
-            : Array.from(new Set([...current, ...partChapters]));
-          return { settings: { ...state.settings, activeChapters: next } };
-        }),
     }),
     {
       name: 'disce-user-storage',

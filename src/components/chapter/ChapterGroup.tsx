@@ -18,7 +18,7 @@ export function ChapterGroup({ baseNumber, chapters }: ChapterGroupProps) {
     return (
       <Link
         to={`/chapters/${ch.chapter}`}
-        className="group p-4 rounded-xl border bg-card hover:bg-muted/40 transition flex items-center justify-between"
+        className="group p-4 rounded-xl border bg-card hover:bg-muted/40 transition flex items-center justify-between break-inside-avoid mb-3 shadow-xs"
       >
         <div>
           <h4 className="font-bold text-sm group-hover:text-primary transition">{ch.chapter_title}</h4>
@@ -37,7 +37,7 @@ export function ChapterGroup({ baseNumber, chapters }: ChapterGroupProps) {
   }, 0);
 
   return (
-    <div className="rounded-xl border bg-card overflow-hidden">
+    <div className="rounded-xl border bg-card overflow-hidden break-inside-avoid mb-3 shadow-xs">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full p-4 flex items-center justify-between hover:bg-muted/40 transition"

@@ -1,16 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import { Search, Layers, List, Filter, User } from 'lucide-react';
-import { useUserStore } from '../../stores/userStore';
+import { Search, Layers, List, User } from 'lucide-react';
 import { useAccountStore, startAutoSync } from '../../stores/accountStore';
-import { useDataStore, CHAPTER_SLUGS } from '../../stores/dataStore';
+import { useDataStore } from '../../stores/dataStore';
 import { SearchModal } from '../search/SearchModal';
-import { SubgroupSelectorModal } from '../chapter/SubgroupSelectorModal';
 
 export function Layout() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isSubgroupsOpen, setIsSubgroupsOpen] = useState(false);
-  const { settings } = useUserStore();
   const pin = useAccountStore(s => s.pin);
   const syncStatus = useAccountStore(s => s.status);
   const { chapters, isLoading, loadData } = useDataStore();
@@ -39,9 +35,6 @@ export function Layout() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const activeCount = settings.activeChapters.length;
-  const isAllActive = activeCount === CHAPTER_SLUGS.length;
-
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -52,23 +45,6 @@ export function Layout() {
 
           <div className="flex flex-1 items-center space-x-3 justify-end">
             <nav className="flex items-center space-x-2 sm:space-x-3">
-              {/* Universal Subgroup Filter Button */}
-              <button
-                onClick={() => setIsSubgroupsOpen(true)}
-                className={`flex items-center space-x-1.5 text-xs sm:text-sm font-medium px-2.5 py-1.5 rounded-lg border transition ${
-                  isAllActive
-                    ? 'border-border/60 hover:bg-muted text-muted-foreground hover:text-foreground'
-                    : 'border-primary/50 bg-primary/10 text-primary font-semibold'
-                }`}
-                title="Filter active chapters & study pool"
-              >
-                <Filter className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">Chapters:</span>
-                <span className="px-1.5 py-0.2 rounded-full bg-secondary text-secondary-foreground text-xs font-bold">
-                  {isAllActive ? 'All (53)' : `${activeCount}/53`}
-                </span>
-              </button>
-
               {/* Quick Search Button */}
               <button
                 onClick={() => setIsSearchOpen(true)}
@@ -118,7 +94,6 @@ export function Layout() {
 
       {/* Global Modals */}
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-      <SubgroupSelectorModal isOpen={isSubgroupsOpen} onClose={() => setIsSubgroupsOpen(false)} />
     </div>
   );
 }

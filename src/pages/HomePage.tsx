@@ -1,13 +1,23 @@
-import { useEffect } from 'react';
-import { useDataStore, CHAPTER_PARTS } from '../stores/dataStore';
+import { useEffect, useMemo } from 'react';
+import { useDataStore } from '../stores/dataStore';
 import { useUserStore } from '../stores/userStore';
 import { Link } from 'react-router-dom';
-import { Play, Star, CheckCircle, BookOpen, Layers, ArrowRight } from 'lucide-react';
+import { Play, Star, CheckCircle, BookOpen, Layers, Award, Sparkles } from 'lucide-react';
 import { ChapterGroup, groupChaptersByBase } from '../components/chapter/ChapterGroup';
+
+const RANKS = [
+  { name: 'Tiro', title: 'Recruit', min: 0, level: 'I', desc: 'Starting the Latin journey' },
+  { name: 'Discipulus', title: 'Student', min: 50, level: 'II', desc: 'Building fundamental vocabulary' },
+  { name: 'Scholasticus', title: 'Scholar', min: 150, level: 'III', desc: 'Expanding reading fluency' },
+  { name: 'Grammaticus', title: 'Grammarian', min: 300, level: 'IV', desc: 'Commanding forms and syntax' },
+  { name: 'Rhetor', title: 'Orator', min: 500, level: 'V', desc: 'Mastering classical prose' },
+  { name: 'Philosophus', title: 'Philosopher', min: 750, level: 'VI', desc: 'Deep literacy in Latin literature' },
+  { name: 'Magister Linguae', title: 'Master of Latin', min: 1000, level: 'VII', desc: 'Supreme mastery of the language' },
+];
 
 export function HomePage() {
   const { chapters, allCards, isLoading, error, loadData } = useDataStore();
-  const { settings, cardProgress, lastStudySession } = useUserStore();
+  const { cardProgress, lastStudySession } = useUserStore();
 
   useEffect(() => {
     if (chapters.length === 0 && !isLoading) {
@@ -19,24 +29,27 @@ export function HomePage() {
   if (error) return <div className="p-12 text-center text-red-500">Error loading data: {error}</div>;
 
   const totalCards = allCards.length;
-  const activeSlugs = settings.activeChapters;
-  const activeCards = allCards.filter(card => activeSlugs.includes(card.id.split('_')[0]));
-
   const memorizedCount = Object.values(cardProgress).filter(p => p.memorized).length;
   const favoriteCount = Object.values(cardProgress).filter(p => p.favorite).length;
   const overallPercent = totalCards > 0 ? Math.round((memorizedCount / totalCards) * 100) : 0;
 
-  // Calculate part stats
-  const getPartStats = (partChapters: string[]) => {
-    const partCards = allCards.filter(c => partChapters.includes(c.id.split('_')[0]));
-    const partMemorized = partCards.filter(c => cardProgress[c.id]?.memorized).length;
-    const percent = partCards.length > 0 ? Math.round((partMemorized / partCards.length) * 100) : 0;
-    return { total: partCards.length, memorized: partMemorized, percent };
-  };
+  // Gamified Rank calculation
+  const rankInfo = useMemo(() => {
+    let currentIdx = 0;
+    for (let i = 0; i < RANKS.length; i++) {
+      if (memorizedCount >= RANKS[i].min) {
+        currentIdx = i;
+      }
+    }
+    const current = RANKS[currentIdx];
+    const next = RANKS[currentIdx + 1] || null;
+    const wordsNeeded = next ? next.min - memorizedCount : 0;
+    const rankProgress = next 
+      ? Math.min(100, Math.round(((memorizedCount - current.min) / (next.min - current.min)) * 100))
+      : 100;
 
-  const part1 = getPartStats(CHAPTER_PARTS[1]);
-  const part2 = getPartStats(CHAPTER_PARTS[2]);
-  const part3 = getPartStats(CHAPTER_PARTS[3]);
+    return { current, next, wordsNeeded, rankProgress, currentIdx };
+  }, [memorizedCount]);
 
   return (
     <div className="space-y-8">
@@ -65,7 +78,7 @@ export function HomePage() {
             className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition shadow-sm text-sm"
           >
             <Play className="w-4 h-4 fill-current" />
-            <span>Study Selection ({activeCards.length} Words)</span>
+            <span>Study All Vocabulary ({totalCards} Words)</span>
           </Link>
 
           {favoriteCount > 0 && (
@@ -114,103 +127,111 @@ export function HomePage() {
 
         <div className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm">
           <div className="flex items-center justify-between text-muted-foreground">
-            <span className="text-xs font-semibold uppercase tracking-wider">Active Pool</span>
+            <span className="text-xs font-semibold uppercase tracking-wider">Chapters</span>
             <Layers className="w-4 h-4 text-primary" />
           </div>
-          <p className="text-3xl font-extrabold mt-2">{activeCards.length}</p>
-          <p className="text-xs text-muted-foreground mt-1">{activeSlugs.length} of 53 chapters</p>
+          <p className="text-3xl font-extrabold mt-2">{chapters.length}</p>
+          <p className="text-xs text-muted-foreground mt-1">Full Oxford Latin Course</p>
         </div>
       </div>
 
-      {/* Textbook Parts Progress */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-bold tracking-tight">Textbook Progress by Volume</h2>
-        
-        <div className="grid gap-4 md:grid-cols-3">
-          {/* Part I */}
-          <div className="rounded-2xl border bg-card p-5 space-y-3 shadow-sm flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Volume I</span>
-                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">
-                  Ch. 1 – 9
-                </span>
-              </div>
-              <h3 className="text-lg font-bold mt-1">Part I: Beginnings</h3>
-              <p className="text-xs text-muted-foreground">{part1.total} words total</p>
-            </div>
-
-            <div className="space-y-1.5 pt-2">
-              <div className="flex justify-between text-xs font-medium">
-                <span>{part1.memorized} memorized</span>
-                <span>{part1.percent}%</span>
-              </div>
-              <div className="w-full bg-muted h-2 rounded-full overflow-hidden">
-                <div className="bg-primary h-full rounded-full transition-all duration-300" style={{ width: `${part1.percent}%` }} />
-              </div>
-            </div>
-          </div>
-
-          {/* Part II */}
-          <div className="rounded-2xl border bg-card p-5 space-y-3 shadow-sm flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Volume II</span>
-                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300">
-                  Ch. 10 – 20
-                </span>
-              </div>
-              <h3 className="text-lg font-bold mt-1">Part II: Intermediate</h3>
-              <p className="text-xs text-muted-foreground">{part2.total} words total</p>
-            </div>
-
-            <div className="space-y-1.5 pt-2">
-              <div className="flex justify-between text-xs font-medium">
-                <span>{part2.memorized} memorized</span>
-                <span>{part2.percent}%</span>
-              </div>
-              <div className="w-full bg-muted h-2 rounded-full overflow-hidden">
-                <div className="bg-primary h-full rounded-full transition-all duration-300" style={{ width: `${part2.percent}%` }} />
-              </div>
-            </div>
-          </div>
-
-          {/* Part III */}
-          <div className="rounded-2xl border bg-card p-5 space-y-3 shadow-sm flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Volume III</span>
-                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">
-                  Ch. 21 – 31
-                </span>
-              </div>
-              <h3 className="text-lg font-bold mt-1">Part III: Advanced</h3>
-              <p className="text-xs text-muted-foreground">{part3.total} words total</p>
-            </div>
-
-            <div className="space-y-1.5 pt-2">
-              <div className="flex justify-between text-xs font-medium">
-                <span>{part3.memorized} memorized</span>
-                <span>{part3.percent}%</span>
-              </div>
-              <div className="w-full bg-muted h-2 rounded-full overflow-hidden">
-                <div className="bg-primary h-full rounded-full transition-all duration-300" style={{ width: `${part3.percent}%` }} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Quick Chapter Access */}
+      {/* Gamified Latin User Rank */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold tracking-tight">Browse All Chapters</h2>
-          <Link to="/chapters" className="text-sm font-semibold text-primary hover:underline flex items-center">
-            View Expanded <ArrowRight className="w-4 h-4 ml-1" />
-          </Link>
+          <h2 className="text-xl font-bold tracking-tight flex items-center gap-2">
+            <Award className="w-5 h-5 text-amber-500" />
+            <span>Latin Mastery Rank</span>
+          </h2>
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary">
+            Rank {rankInfo.current.level} • {memorizedCount} Memorized
+          </span>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="rounded-2xl border bg-card p-6 shadow-sm space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center space-x-4">
+              <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                <Sparkles className="w-7 h-7" />
+              </div>
+              <div>
+                <div className="flex items-center space-x-2">
+                  <h3 className="text-2xl font-black tracking-tight">{rankInfo.current.name}</h3>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-secondary text-secondary-foreground">
+                    Rank {rankInfo.current.level}
+                  </span>
+                </div>
+                <p className="text-sm font-medium text-muted-foreground mt-0.5">
+                  {rankInfo.current.title} — {rankInfo.current.desc}
+                </p>
+              </div>
+            </div>
+
+            {rankInfo.next ? (
+              <div className="sm:text-right">
+                <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Next Rank</span>
+                <p className="text-base font-bold text-foreground">{rankInfo.next.name} ({rankInfo.next.level})</p>
+                <p className="text-xs text-primary font-semibold mt-0.5">
+                  {rankInfo.wordsNeeded} more {rankInfo.wordsNeeded === 1 ? 'word' : 'words'} needed
+                </p>
+              </div>
+            ) : (
+              <div className="sm:text-right">
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-500">Max Rank Reached</span>
+                <p className="text-base font-bold text-foreground">Optime! Master of Latin</p>
+              </div>
+            )}
+          </div>
+
+          {/* Progress bar to next rank */}
+          <div className="space-y-2">
+            <div className="flex justify-between text-xs font-medium text-muted-foreground">
+              <span>{rankInfo.current.name} ({rankInfo.current.min} words)</span>
+              <span>{rankInfo.next ? `${rankInfo.next.name} (${rankInfo.next.min} words)` : '100% Complete'}</span>
+            </div>
+            <div className="w-full bg-muted h-3 rounded-full overflow-hidden p-0.5">
+              <div 
+                className="bg-amber-500 h-full rounded-full transition-all duration-500 shadow-xs" 
+                style={{ width: `${rankInfo.rankProgress}%` }} 
+              />
+            </div>
+          </div>
+
+          {/* Roadmap of Ranks */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 pt-2 border-t border-border/40">
+            {RANKS.map((r) => {
+              const isAchieved = memorizedCount >= r.min;
+              const isCurrent = r.name === rankInfo.current.name;
+              return (
+                <div
+                  key={r.name}
+                  className={`p-2.5 rounded-xl border text-center transition ${
+                    isCurrent
+                      ? 'border-amber-500 bg-amber-500/10 font-bold'
+                      : isAchieved
+                      ? 'border-emerald-500/30 bg-emerald-500/5 text-muted-foreground'
+                      : 'border-border/40 bg-muted/20 opacity-50 text-muted-foreground'
+                  }`}
+                >
+                  <span className="text-[10px] font-mono block opacity-70">Rank {r.level}</span>
+                  <span className="text-xs font-bold block truncate">{r.name}</span>
+                  <span className="text-[10px] text-muted-foreground block">{r.min}+ words</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Browse All Chapters */}
+      <div className="space-y-4">
+        <div>
+          <h2 className="text-xl font-bold tracking-tight">Browse All Chapters</h2>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            Click on any chapter or expand subsections to study specific readings.
+          </p>
+        </div>
+
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-3">
           {groupChaptersByBase(chapters).map((group) => (
             <ChapterGroup key={group.baseNumber} baseNumber={group.baseNumber} chapters={group.chapters} />
           ))}

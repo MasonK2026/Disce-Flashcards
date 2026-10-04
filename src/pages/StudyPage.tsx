@@ -11,20 +11,20 @@ import confetti from 'canvas-confetti';
 export function StudyPage() {
   const { source } = useParams();
   const navigate = useNavigate();
-  const { chapters, allCards, isLoading, searchStudyCardIds } = useDataStore();
+  const { chapters, allCards, isLoading, loadData, searchStudyCardIds } = useDataStore();
   const { settings, cardProgress, setDirection, setLastStudySession, updateStudySessionIndex, lastStudySession } = useUserStore();
   const { decks, customCards } = useDeckStore();
 
-  const [currentIndex, setCurrentIndex] = useState(() => {
-    // If the source matches our last session, pick up where we left off
-    if (source && lastStudySession && lastStudySession.source === source) {
-      return lastStudySession.index;
-    }
-    return 0;
-  });
-  
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [isShuffled, setIsShuffled] = useState(false);
+
+  // Ensure vocabulary data is loaded
+  useEffect(() => {
+    if (chapters.length === 0 && !isLoading) {
+      loadData();
+    }
+  }, [chapters, isLoading, loadData]);
 
   // Swipe logic
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -44,18 +44,19 @@ export function StudyPage() {
         return activeSlugs.includes(slug);
       });
       return {
-        activeCards: pool,
-        sessionTitle: `Active Selection (${activeSlugs.length} chapters)`,
+        activeCards: pool.length > 0 ? pool : allCards,
+        sessionTitle: `Vocabulary Study (${pool.length > 0 ? pool.length : allCards.length} words)`,
         backPath: '/',
       };
     }
 
     if (source === 'favorites') {
-      const pool = allCards.filter(card => cardProgress[card.id]?.favorite);
+      const combined = [...allCards, ...customCards];
+      const pool = combined.filter(card => cardProgress[card.id]?.favorite);
       return {
         activeCards: pool,
         sessionTitle: 'Starred Favorites',
-        backPath: '/',
+        backPath: '/favorites',
       };
     }
 
@@ -102,19 +103,36 @@ export function StudyPage() {
     return { activeCards: [], sessionTitle: 'Study Session', backPath: '/' };
   }, [chapters, allCards, isLoading, source, settings.activeChapters, cardProgress, decks, customCards, searchStudyCardIds]);
 
+  // Synchronize index when source or activeCards load/change
+  useEffect(() => {
+    if (activeCards.length === 0) return;
+
+    if (source && lastStudySession && lastStudySession.source === source) {
+      if (lastStudySession.index >= 0 && lastStudySession.index < activeCards.length) {
+        setCurrentIndex(lastStudySession.index);
+      } else {
+        setCurrentIndex(0);
+      }
+    } else {
+      setCurrentIndex(0);
+    }
+    setIsFlipped(false);
+  }, [source, activeCards.length]);
+
   useEffect(() => {
     if (source && sessionTitle && !isLoading && activeCards.length > 0) {
-      // Create a fresh session if it doesn't match the source, otherwise keep the existing one's index to avoid overwrite on first render
       if (lastStudySession?.source !== source) {
         setLastStudySession({ source, label: sessionTitle, index: 0 });
       }
     }
   }, [source, sessionTitle, isLoading, activeCards.length, setLastStudySession, lastStudySession?.source]);
 
-  // Sync index to store as we study
+  // Sync index to store as we study (only while session is actively in progress)
   useEffect(() => {
-    updateStudySessionIndex(currentIndex);
-  }, [currentIndex, updateStudySessionIndex]);
+    if (activeCards.length > 0 && currentIndex < activeCards.length) {
+      updateStudySessionIndex(currentIndex);
+    }
+  }, [currentIndex, activeCards.length, updateStudySessionIndex]);
 
   // Handle shuffling
   const displayCards = useMemo(() => {

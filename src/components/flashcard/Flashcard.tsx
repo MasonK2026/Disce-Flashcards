@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import type { Card } from '../../types';
 import { useState } from 'react';
 import { generateVocabulaLink, generateLatinIsSimpleLink, generateCactusLink } from '../../lib/latinNormalize';
-import { ExternalLink, Star, CheckCircle, Tag } from 'lucide-react';
+import { ExternalLink, Star, CheckCircle, Check, Tag } from 'lucide-react';
 import { useUserStore } from '../../stores/userStore';
 import { GrammarBadge } from '../grammar/GrammarBadge';
 import { EditGrammarModal } from '../grammar/EditGrammarModal';
@@ -56,9 +56,16 @@ export function Flashcard({ card, isFlipped, direction, onFlip }: FlashcardProps
               </button>
               <button 
                 onClick={(e) => { e.stopPropagation(); toggleMemorized(card.id); }}
-                className={`p-2 rounded-full hover:bg-muted/50 transition ${progress.memorized ? 'text-emerald-500' : 'text-muted-foreground'}`}
+                className="p-2 rounded-full hover:bg-muted/50 transition"
+                title={progress.memorized ? 'Memorized' : 'Mark as memorized'}
               >
-                <CheckCircle className="w-5 h-5" fill={progress.memorized ? "currentColor" : "none"} stroke={progress.memorized ? "var(--color-card, white)" : "currentColor"} />
+                {progress.memorized ? (
+                  <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white shadow-xs">
+                    <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                  </div>
+                ) : (
+                  <CheckCircle className="w-5 h-5 text-muted-foreground" />
+                )}
               </button>
             </div>
 
