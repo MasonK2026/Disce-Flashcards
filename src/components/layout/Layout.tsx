@@ -40,7 +40,7 @@ export function Layout() {
       <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 max-w-screen-2xl items-center px-4">
           <Link to="/" className="mr-6 flex items-center hover:opacity-80 transition" aria-label="Disce! Home">
-            <Logo className="w-8 h-8 shadow-sm" />
+            <Logo className="w-8 h-8" />
           </Link>
 
           <div className="flex flex-1 items-center space-x-3 justify-end">
