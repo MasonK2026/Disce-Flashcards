@@ -1,8 +1,9 @@
 import { useEffect, useMemo } from 'react';
 import { useDataStore } from '../stores/dataStore';
 import { useUserStore } from '../stores/userStore';
+import { useDeckStore } from '../stores/deckStore';
 import { Link } from 'react-router-dom';
-import { Play, Star, CheckCircle, BookOpen, Layers, Award, Sparkles } from 'lucide-react';
+import { Play, Star, BookOpen, Layers, Award, Sparkles, PenTool } from 'lucide-react';
 import { ChapterGroup, groupChaptersByBase } from '../components/chapter/ChapterGroup';
 
 const RANKS = [
@@ -17,7 +18,8 @@ const RANKS = [
 
 export function HomePage() {
   const { chapters, allCards, isLoading, error, loadData } = useDataStore();
-  const { cardProgress, lastStudySession } = useUserStore();
+  const { cardProgress, lastStudySession, settings } = useUserStore();
+  const { decks, customCards } = useDeckStore();
 
   useEffect(() => {
     if (chapters.length === 0 && !isLoading) {
@@ -28,7 +30,13 @@ export function HomePage() {
   const totalCards = allCards.length;
   const memorizedCount = Object.values(cardProgress).filter(p => p.memorized).length;
   const favoriteCount = Object.values(cardProgress).filter(p => p.favorite).length;
-  const overallPercent = totalCards > 0 ? Math.round((memorizedCount / totalCards) * 100) : 0;
+
+  const activeStudyCardsCount = useMemo(() => {
+    return allCards.filter(card => {
+      const slug = card.id.split('_')[0];
+      return settings.activeChapters.includes(slug);
+    }).length;
+  }, [allCards, settings.activeChapters]);
 
   // Gamified Rank calculation
   const rankInfo = useMemo(() => {
@@ -95,26 +103,23 @@ export function HomePage() {
 
       {/* KPI Stats Grid */}
       <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
-        <div className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm">
+        <Link to="/study/active" className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm hover:border-primary/50 transition cursor-pointer group">
           <div className="flex items-center justify-between text-muted-foreground">
-            <span className="text-xs font-semibold uppercase tracking-wider">Total Words</span>
-            <BookOpen className="w-4 h-4" />
+            <span className="text-xs font-semibold uppercase tracking-wider group-hover:text-primary transition">Study Pool</span>
+            <BookOpen className="w-4 h-4 text-primary" />
           </div>
-          <p className="text-3xl font-extrabold mt-2">{totalCards}</p>
-          <p className="text-xs text-muted-foreground mt-1">Across 53 chapters</p>
-        </div>
+          <p className="text-3xl font-extrabold mt-2 text-primary">{activeStudyCardsCount}</p>
+          <p className="text-xs text-muted-foreground mt-1">From {settings.activeChapters.length} active chapters</p>
+        </Link>
 
-        <div className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm">
+        <Link to="/decks" className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm hover:border-indigo-500/50 transition cursor-pointer group">
           <div className="flex items-center justify-between text-muted-foreground">
-            <span className="text-xs font-semibold uppercase tracking-wider">Memorized</span>
-            <CheckCircle className="w-4 h-4 text-emerald-500" />
+            <span className="text-xs font-semibold uppercase tracking-wider group-hover:text-indigo-500 transition">Custom Decks</span>
+            <Layers className="w-4 h-4 text-indigo-500" />
           </div>
-          <p className="text-3xl font-extrabold mt-2 text-emerald-600 dark:text-emerald-400">{memorizedCount}</p>
-          <div className="w-full bg-muted h-1.5 rounded-full mt-2 overflow-hidden">
-            <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${overallPercent}%` }} />
-          </div>
-          <p className="text-xs text-muted-foreground mt-1">{overallPercent}% mastery</p>
-        </div>
+          <p className="text-3xl font-extrabold mt-2 text-indigo-600 dark:text-indigo-400">{decks.length}</p>
+          <p className="text-xs text-muted-foreground mt-1">Personalized vocabulary sets</p>
+        </Link>
 
         <Link to="/favorites" className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm hover:border-amber-500/50 transition cursor-pointer group">
           <div className="flex items-center justify-between text-muted-foreground">
@@ -125,14 +130,14 @@ export function HomePage() {
           <p className="text-xs text-muted-foreground mt-1">Manage starred words</p>
         </Link>
 
-        <div className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm">
+        <Link to="/search" className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm hover:border-emerald-500/50 transition cursor-pointer group">
           <div className="flex items-center justify-between text-muted-foreground">
-            <span className="text-xs font-semibold uppercase tracking-wider">Chapters</span>
-            <Layers className="w-4 h-4 text-primary" />
+            <span className="text-xs font-semibold uppercase tracking-wider group-hover:text-emerald-500 transition">Custom Words</span>
+            <PenTool className="w-4 h-4 text-emerald-500" />
           </div>
-          <p className="text-3xl font-extrabold mt-2">{chapters.length}</p>
-          <p className="text-xs text-muted-foreground mt-1">Full Oxford Latin Course</p>
-        </div>
+          <p className="text-3xl font-extrabold mt-2 text-emerald-600 dark:text-emerald-400">{customCards.length}</p>
+          <p className="text-xs text-muted-foreground mt-1">Words added manually</p>
+        </Link>
       </div>
 
       {/* Gamified Latin User Rank */}
