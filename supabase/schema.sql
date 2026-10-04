@@ -42,8 +42,12 @@ create table if not exists public.user_profiles (
 
 alter table public.user_profiles enable row level security;
 
--- Create an account: generates a unique random 6-digit PIN server-side.
-create or replace function public.create_profile(p_data jsonb default '{}'::jsonb)
+-- Create an account. If p_pin is given, the user chose their own PIN;
+-- otherwise a unique random 6-digit PIN is generated server-side.
+-- (The old one-argument version is dropped so the two can't conflict.)
+drop function if exists public.create_profile(jsonb);
+
+create or replace function public.create_profile(p_data jsonb default '{}'::jsonb, p_pin text default null)
 returns jsonb
 language plpgsql
 security definer
@@ -54,6 +58,22 @@ declare
   v_ts    timestamptz;
   v_tries int := 0;
 begin
+  -- User-chosen PIN
+  if p_pin is not null then
+    if p_pin !~ '^[0-9]{6}$' then
+      raise exception 'A PIN must be exactly 6 digits.';
+    end if;
+    begin
+      insert into public.user_profiles (pin, data)
+      values (p_pin, coalesce(p_data, '{}'::jsonb))
+      returning updated_at into v_ts;
+    exception when unique_violation then
+      raise exception 'That PIN is already taken. Please choose a different one.';
+    end;
+    return jsonb_build_object('pin', p_pin, 'updated_at', v_ts);
+  end if;
+
+  -- Random PIN
   loop
     v_pin := lpad(floor(random() * 1000000)::int::text, 6, '0');
     begin
@@ -105,9 +125,12 @@ begin
 end;
 $$;
 
-revoke all on function public.create_profile(jsonb)      from public;
-revoke all on function public.get_profile(text)          from public;
-revoke all on function public.save_profile(text, jsonb)  from public;
-grant execute on function public.create_profile(jsonb)     to anon, authenticated;
-grant execute on function public.get_profile(text)         to anon, authenticated;
-grant execute on function public.save_profile(text, jsonb) to anon, authenticated;
+revoke all on function public.create_profile(jsonb, text)  from public;
+revoke all on function public.get_profile(text)            from public;
+revoke all on function public.save_profile(text, jsonb)    from public;
+grant execute on function public.create_profile(jsonb, text) to anon, authenticated;
+grant execute on function public.get_profile(text)           to anon, authenticated;
+grant execute on function public.save_profile(text, jsonb)   to anon, authenticated;
+
+-- Make the API pick up the changed function signature immediately.
+notify pgrst, 'reload schema';

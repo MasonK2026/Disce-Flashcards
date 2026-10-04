@@ -29,7 +29,8 @@ interface AccountState {
   dirty: boolean;
   status: SyncStatus;
   error: string | null;
-  createAccount: () => Promise<boolean>;
+  /** Creates an account with the given 6-digit PIN, or a random one if omitted. */
+  createAccount: (chosenPin?: string) => Promise<boolean>;
   login: (pin: string) => Promise<boolean>;
   logout: () => Promise<boolean>;
   syncFromCloud: () => Promise<void>;
@@ -110,9 +111,16 @@ export const useAccountStore = create<AccountState>()(
       status: 'idle',
       error: null,
 
-      createAccount: async () => {
+      createAccount: async (chosenPin) => {
+        const pin = chosenPin?.trim();
+        if (pin !== undefined && pin !== '' && !PIN_RE.test(pin)) {
+          set({ status: 'error', error: 'A PIN is exactly 6 digits.' });
+          return false;
+        }
         set({ status: 'syncing', error: null });
-        const { data, error } = await supabase.rpc('create_profile', { p_data: snapshotProfile() });
+        const args: { p_data: ProfileData; p_pin?: string } = { p_data: snapshotProfile() };
+        if (pin) args.p_pin = pin;
+        const { data, error } = await supabase.rpc('create_profile', args);
         if (error || !data) {
           set({ status: 'error', error: error ? msg(error) : 'Could not create account.' });
           return false;

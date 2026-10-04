@@ -4,6 +4,13 @@ import { useAccountStore } from '../stores/accountStore';
 import { useUserStore } from '../stores/userStore';
 import { useDeckStore } from '../stores/deckStore';
 
+/** Repeated digits (111111), straight runs (123456 / 654321) and a few classics. */
+function isWeakPin(pin: string): boolean {
+  if (/^(\d)\1{5}$/.test(pin)) return true;
+  if ('0123456789'.includes(pin) || '9876543210'.includes(pin)) return true;
+  return ['121212', '112233', '123123', '696969', '420420'].includes(pin);
+}
+
 export function AccountPage() {
   const { pin, status, error, lastSyncedAt, dirty, createAccount, login, logout, syncFromCloud, pushToCloud } =
     useAccountStore();
@@ -11,6 +18,8 @@ export function AccountPage() {
   const [reveal, setReveal] = useState(false);
   const [copied, setCopied] = useState(false);
   const [justCreated, setJustCreated] = useState(false);
+  const [newPin, setNewPin] = useState('');
+  const [confirmPin, setConfirmPin] = useState('');
 
   const busy = status === 'syncing';
 
@@ -30,8 +39,19 @@ export function AccountPage() {
     }
   };
 
-  const handleCreate = async () => {
+  const handleCreateRandom = async () => {
     if (await createAccount()) {
+      setJustCreated(true);
+      setReveal(true);
+    }
+  };
+
+  const handleCreateChosen = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (newPin.length !== 6 || newPin !== confirmPin) return;
+    if (await createAccount(newPin)) {
+      setNewPin('');
+      setConfirmPin('');
       setJustCreated(true);
       setReveal(true);
     }
@@ -81,22 +101,60 @@ export function AccountPage() {
 
       {!pin ? (
         <div className="space-y-4">
-          <div className="p-5 rounded-2xl border bg-card space-y-3">
+          <form onSubmit={handleCreateChosen} className="p-5 rounded-2xl border bg-card space-y-3">
             <div className="flex items-center space-x-2 font-bold">
               <UserPlus className="w-5 h-5 text-primary" />
               <span>Create an account</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              We'll generate a PIN for you and upload what's currently on this device.
+              Pick your own 6-digit PIN. What's currently on this device will be uploaded to it.
             </p>
-            <button
-              onClick={handleCreate}
-              disabled={busy}
-              className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition disabled:opacity-60"
-            >
-              {busy ? 'Working…' : 'Generate my PIN'}
-            </button>
-          </div>
+            <div className="grid grid-cols-2 gap-2">
+              <input
+                inputMode="numeric"
+                autoComplete="off"
+                maxLength={6}
+                placeholder="Choose PIN"
+                value={newPin}
+                onChange={(e) => setNewPin(e.target.value.replace(/\D/g, ''))}
+                className="px-3 py-2 rounded-lg border bg-background font-mono tracking-[0.3em] text-lg focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:tracking-normal placeholder:text-sm"
+              />
+              <input
+                inputMode="numeric"
+                autoComplete="off"
+                maxLength={6}
+                placeholder="Confirm PIN"
+                value={confirmPin}
+                onChange={(e) => setConfirmPin(e.target.value.replace(/\D/g, ''))}
+                className="px-3 py-2 rounded-lg border bg-background font-mono tracking-[0.3em] text-lg focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:tracking-normal placeholder:text-sm"
+              />
+            </div>
+            {confirmPin.length === 6 && newPin !== confirmPin && (
+              <p className="text-xs text-red-600 dark:text-red-400">The PINs don't match.</p>
+            )}
+            {newPin.length === 6 && isWeakPin(newPin) && (
+              <p className="text-xs text-amber-700 dark:text-amber-300">
+                That PIN is very easy to guess, and anyone who guesses it can open your account. Consider something less obvious.
+              </p>
+            )}
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                type="submit"
+                disabled={busy || newPin.length !== 6 || newPin !== confirmPin}
+                className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition disabled:opacity-60"
+              >
+                {busy ? 'Working…' : 'Create account'}
+              </button>
+              <button
+                type="button"
+                onClick={handleCreateRandom}
+                disabled={busy}
+                className="text-sm text-muted-foreground hover:text-primary underline-offset-2 hover:underline disabled:opacity-60"
+              >
+                or generate a random PIN for me
+              </button>
+            </div>
+          </form>
 
           <form onSubmit={handleLogin} className="p-5 rounded-2xl border bg-card space-y-3">
             <div className="flex items-center space-x-2 font-bold">
