@@ -1,10 +1,16 @@
 import { create } from 'zustand';
 import type { Chapter, Card, GrammarInfo } from '../types';
 import { parseGrammar } from '../lib/grammarParser';
+import { supabase } from '../lib/supabase';
 
 interface CardOverride {
   pos: string;
   grammar: GrammarInfo;
+}
+
+export interface SaveResult {
+  ok: boolean;
+  error?: string;
 }
 
 interface DataState {
@@ -15,8 +21,7 @@ interface DataState {
   isLoading: boolean;
   error: string | null;
   loadData: () => Promise<void>;
-  setCardGrammarOverride: (cardId: string, pos: string, grammar: GrammarInfo) => void;
-  exportOverridesJson: () => string;
+  setCardGrammarOverride: (cardId: string, pos: string, grammar: GrammarInfo) => Promise<SaveResult>;
   setSearchStudyPool: (cardIds: string[]) => void;
 }
 
@@ -40,6 +45,36 @@ export const CHAPTER_PARTS: Record<number, string[]> = {
   3: ["ch21", "ch22a", "ch22b", "ch23", "ch24a", "ch24b", "ch25", "ch26", "ch27", "ch28a", "ch28b", "ch29a", "ch29b", "ch29c", "ch30a", "ch30b", "ch30c", "ch31"],
 };
 
+// Last successfully fetched community classifications, so the app still shows
+// them when the user is offline or Supabase is unreachable.
+const OVERRIDE_CACHE_KEY = 'disce-community-overrides-cache';
+
+async function fetchCommunityOverrides(): Promise<Record<string, CardOverride>> {
+  try {
+    const { data, error } = await supabase
+      .from('community_classifications')
+      .select('card_id, pos, grammar');
+    if (error) throw error;
+
+    const map: Record<string, CardOverride> = {};
+    (data ?? []).forEach((row) => {
+      map[row.card_id] = { pos: row.pos, grammar: (row.grammar ?? {}) as GrammarInfo };
+    });
+    try {
+      localStorage.setItem(OVERRIDE_CACHE_KEY, JSON.stringify(map));
+    } catch { /* storage full / disabled: not fatal */ }
+    return map;
+  } catch (e) {
+    console.warn('Could not load community classifications, using cached copy.', e);
+    try {
+      const cached = localStorage.getItem(OVERRIDE_CACHE_KEY);
+      return cached ? JSON.parse(cached) : {};
+    } catch {
+      return {};
+    }
+  }
+}
+
 export const useDataStore = create<DataState>((set, get) => ({
   chapters: [],
   allCards: [],
@@ -47,45 +82,36 @@ export const useDataStore = create<DataState>((set, get) => ({
   searchStudyCardIds: [],
   isLoading: false,
   error: null,
+
   loadData: async () => {
     set({ isLoading: true, error: null });
     try {
-      // 1. Load community overrides from public file (if exists) & localStorage
-      let initialOverrides: Record<string, CardOverride> = {};
-      try {
-        const local = localStorage.getItem('disce-grammar-overrides');
-        if (local) {
-          initialOverrides = JSON.parse(local);
-        }
-      } catch (e) {
-        console.error('Failed to load local overrides', e);
-      }
+      // The old, device-only override store is replaced by the shared database.
+      localStorage.removeItem('disce-grammar-overrides');
 
-      try {
-        const resp = await fetch('./data/grammar-overrides.json');
-        if (resp.ok) {
-          const remoteOverrides = await resp.json();
-          initialOverrides = { ...remoteOverrides, ...initialOverrides };
-        }
-      } catch {
-        // file may not exist yet, that's fine
-      }
+      const overridesPromise = fetchCommunityOverrides();
+
+      const chapterResults = await Promise.all(
+        CHAPTER_SLUGS.map(async (slug) => {
+          const response = await fetch(`./data/${slug}.json`);
+          if (!response.ok) throw new Error(`Failed to load ${slug}`);
+          const data: Chapter = await response.json();
+          return { slug, data };
+        })
+      );
+      const overrides = await overridesPromise;
 
       const cardsAccumulator: Card[] = [];
-      const chapterPromises = CHAPTER_SLUGS.map(async (slug) => {
-        const response = await fetch(`./data/${slug}.json`);
-        if (!response.ok) throw new Error(`Failed to load ${slug}`);
-        const data: Chapter = await response.json();
-        
+      chapterResults.forEach(({ slug, data }) => {
         Object.entries(data.categories).forEach(([catSlug, cat]) => {
           cat.cards.forEach((card, index) => {
             const cardId = `${slug}_${catSlug}_${index}`;
             card.id = cardId;
 
-            // Check if manual override exists
-            if (initialOverrides[cardId]) {
-              card.partOfSpeech = initialOverrides[cardId].pos;
-              card.grammar = initialOverrides[cardId].grammar;
+            const override = overrides[cardId];
+            if (override) {
+              card.partOfSpeech = override.pos;
+              card.grammar = override.grammar;
             } else {
               const { pos, grammar } = parseGrammar(card.term, catSlug);
               card.partOfSpeech = pos;
@@ -94,63 +120,54 @@ export const useDataStore = create<DataState>((set, get) => ({
             cardsAccumulator.push(card);
           });
         });
-        return data;
       });
-      const chaptersData = await Promise.all(chapterPromises);
-      set({ 
-        chapters: chaptersData, 
-        allCards: cardsAccumulator, 
-        grammarOverrides: initialOverrides,
-        isLoading: false 
+
+      set({
+        chapters: chapterResults.map((r) => r.data),
+        allCards: cardsAccumulator,
+        grammarOverrides: overrides,
+        isLoading: false,
       });
-    } catch (err: any) {
-      set({ error: err.message || 'Failed to load data', isLoading: false });
+    } catch (err: unknown) {
+      set({ error: err instanceof Error ? err.message : 'Failed to load data', isLoading: false });
     }
   },
 
-  setCardGrammarOverride: (cardId: string, pos: string, grammar: GrammarInfo) => {
-    const currentOverrides = { ...get().grammarOverrides, [cardId]: { pos, grammar } };
-    
-    // Persist to local storage
-    try {
-      localStorage.setItem('disce-grammar-overrides', JSON.stringify(currentOverrides));
-    } catch (e) {
-      console.error('Failed to save override to localStorage', e);
+  // Writes to the shared database first, so "Save for Everyone" is only
+  // reported as successful if it really was saved for everyone.
+  setCardGrammarOverride: async (cardId, pos, grammar) => {
+    const { error } = await supabase
+      .from('community_classifications')
+      .upsert(
+        { card_id: cardId, pos, grammar, updated_at: new Date().toISOString() },
+        { onConflict: 'card_id' }
+      );
+    if (error) {
+      return { ok: false, error: error.message };
     }
 
-    // Update in-memory cards
-    const updatedCards = get().allCards.map(c => {
-      if (c.id === cardId) {
-        return { ...c, partOfSpeech: pos, grammar };
-      }
-      return c;
-    });
-
-    const updatedChapters = get().chapters.map(ch => {
-      const updatedCategories = { ...ch.categories };
-      Object.keys(updatedCategories).forEach(catKey => {
-        updatedCategories[catKey] = {
-          ...updatedCategories[catKey],
-          cards: updatedCategories[catKey].cards.map(c => {
-            if (c.id === cardId) {
-              return { ...c, partOfSpeech: pos, grammar };
-            }
-            return c;
-          }),
-        };
-      });
-      return { ...ch, categories: updatedCategories };
-    });
+    const overrides = { ...get().grammarOverrides, [cardId]: { pos, grammar } };
+    const patch = (c: Card): Card => (c.id === cardId ? { ...c, partOfSpeech: pos, grammar } : c);
 
     set({
-      grammarOverrides: currentOverrides,
-      allCards: updatedCards,
-      chapters: updatedChapters,
+      grammarOverrides: overrides,
+      allCards: get().allCards.map(patch),
+      chapters: get().chapters.map((ch) => ({
+        ...ch,
+        categories: Object.fromEntries(
+          Object.entries(ch.categories).map(([key, cat]) => [
+            key,
+            { ...cat, cards: cat.cards.map(patch) },
+          ])
+        ),
+      })),
     });
-  },
 
-  exportOverridesJson: () => {
-    return JSON.stringify(get().grammarOverrides, null, 2);
+    try {
+      localStorage.setItem(OVERRIDE_CACHE_KEY, JSON.stringify(overrides));
+    } catch { /* not fatal */ }
+
+    return { ok: true };
   },
 
   setSearchStudyPool: (cardIds: string[]) => {

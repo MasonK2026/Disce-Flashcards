@@ -7,6 +7,7 @@ import { StudyPage } from './pages/StudyPage';
 import { DecksPage } from './pages/DecksPage';
 import { DeckDetailPage } from './pages/DeckDetailPage';
 import { SearchPage } from './pages/SearchPage';
+import { AccountPage } from './pages/AccountPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="decks" element={<DecksPage />} />
           <Route path="decks/:id" element={<DeckDetailPage />} />
           <Route path="search" element={<SearchPage />} />
+          <Route path="account" element={<AccountPage />} />
         </Route>
       </Routes>
     </HashRouter>

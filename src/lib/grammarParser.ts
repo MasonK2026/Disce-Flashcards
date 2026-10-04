@@ -7,9 +7,23 @@ export function parseGrammar(term: string, categorySlug: string = ''): { pos: st
   const normParts = normTerm.split(',').map(p => p.trim());
   const grammar: GrammarInfo = {};
 
-  const isVerbCategory = categorySlug.toLowerCase().includes('verb');
-  const isNounCategory = categorySlug.toLowerCase().includes('noun');
-  const isAdjCategory = categorySlug.toLowerCase().includes('adj');
+  const slug = categorySlug.toLowerCase();
+  const isVerbCategory = slug.startsWith('verb');
+  const isNounCategory = slug.startsWith('noun');
+  const isAdjCategory = slug.startsWith('adj');
+
+  // The category in the source JSON is authoritative for the non-inflected /
+  // closed-class parts of speech. Decide these immediately so the text
+  // heuristics below (which look for things like "n." or "re" inside the term)
+  // can never reclassify them as verbs or nouns.
+  const categoryPos = slug.startsWith('pron') ? 'pronoun'
+    : slug.startsWith('adv') ? 'adverb'
+    : slug.startsWith('prep') ? 'preposition'
+    : slug.startsWith('con') ? 'conjunction'
+    : null;
+  if (categoryPos) {
+    return { pos: categoryPos, grammar };
+  }
 
   // Tokenize into words for exact token matching
   const words = normTerm.split(/[\s,()+\.]+/).filter(Boolean);

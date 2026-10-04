@@ -11,6 +11,7 @@ interface DeckState {
   addCardToDeck: (deckId: string, cardId: string) => void;
   removeCardFromDeck: (deckId: string, cardId: string) => void;
   createCustomCard: (card: Omit<Card, 'id'>) => Card;
+  updateCustomCard: (cardId: string, patch: Partial<Card>) => void;
   deleteCustomCard: (cardId: string) => void;
 }
 
@@ -75,6 +76,12 @@ export const useDeckStore = create<DeckState>()(
         };
         set((state) => ({ customCards: [...state.customCards, newCard] }));
         return newCard;
+      },
+
+      updateCustomCard: (cardId: string, patch: Partial<Card>) => {
+        set((state) => ({
+          customCards: state.customCards.map(c => c.id === cardId ? { ...c, ...patch, id: c.id } : c),
+        }));
       },
 
       deleteCustomCard: (cardId: string) => {

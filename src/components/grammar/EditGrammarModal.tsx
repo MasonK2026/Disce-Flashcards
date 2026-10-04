@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDataStore } from '../../stores/dataStore';
-import { X, Check, Download, Tag } from 'lucide-react';
+import { useDeckStore } from '../../stores/deckStore';
+import { X, Check, Tag } from 'lucide-react';
 import type { Card, GrammarInfo } from '../../types';
 
 interface EditGrammarModalProps {
@@ -9,8 +10,11 @@ interface EditGrammarModalProps {
   card: Card | null;
 }
 
+const ORDINALS: Record<number, string> = { 1: '1st', 2: '2nd', 3: '3rd', 4: '4th', 5: '5th' };
+
 export function EditGrammarModal({ isOpen, onClose, card }: EditGrammarModalProps) {
-  const { setCardGrammarOverride, exportOverridesJson, grammarOverrides } = useDataStore();
+  const { setCardGrammarOverride, grammarOverrides } = useDataStore();
+  const { updateCustomCard } = useDeckStore();
 
   const [pos, setPos] = useState('verb');
   const [conjugation, setConjugation] = useState<number | undefined>(1);
@@ -19,6 +23,8 @@ export function EditGrammarModal({ isOpen, onClose, card }: EditGrammarModalProp
   const [declension, setDeclension] = useState<number | undefined>(1);
   const [gender, setGender] = useState('f.');
   const [adjectiveType, setAdjectiveType] = useState('1st/2nd Decl.');
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   useEffect(() => {
     if (card) {
@@ -29,24 +35,25 @@ export function EditGrammarModal({ isOpen, onClose, card }: EditGrammarModalProp
       setDeclension(card.grammar?.declension || 1);
       setGender(card.grammar?.gender || 'f.');
       setAdjectiveType(card.grammar?.adjectiveType || '1st/2nd Decl.');
+      setSaveError(null);
     }
   }, [card]);
 
   if (!isOpen || !card) return null;
 
-  const isOverridden = !!grammarOverrides[card.id];
+  const isCustom = card.id.startsWith('custom_');
+  const isOverridden = !isCustom && !!grammarOverrides[card.id];
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
 
     let grammarInfo: GrammarInfo = {};
 
     if (pos === 'verb') {
-      let conjLabel = isIrregular ? 'Irregular' : `${conjugation}st Conj.`;
-      if (conjugation === 2) conjLabel = '2nd Conj.';
-      if (conjugation === 3) conjLabel = '3rd Conj.';
-      if (conjugation === 4) conjLabel = '4th Conj.';
-      if (isDeponent) conjLabel = `${conjugation} Deponent`;
+      const conjOrdinal = ORDINALS[conjugation ?? 1];
+      let conjLabel = `${conjOrdinal} Conj.`;
+      if (isIrregular) conjLabel = 'Irregular';
+      else if (isDeponent) conjLabel = `${conjOrdinal} Deponent`;
 
       grammarInfo = {
         conjugation: isIrregular ? undefined : conjugation,
@@ -55,15 +62,11 @@ export function EditGrammarModal({ isOpen, onClose, card }: EditGrammarModalProp
         isIrregular,
       };
     } else if (pos === 'noun') {
-      let declLabel = `${declension}st Decl.`;
-      if (declension === 2) declLabel = '2nd Decl.';
-      if (declension === 3) declLabel = '3rd Decl.';
-      if (declension === 4) declLabel = '4th Decl.';
-      if (declension === 5) declLabel = '5th Decl.';
+      const declLabel = `${ORDINALS[declension ?? 1]} Decl.`;
 
       let genderLabel = 'feminine';
-      if (gender === 'm.') genderLabel = 'masculine';
-      if (gender === 'n.') genderLabel = 'neuter';
+      if (gender.startsWith('m')) genderLabel = 'masculine';
+      if (gender.startsWith('n')) genderLabel = 'neuter';
       if (gender.includes('pl')) genderLabel += ' plural';
 
       grammarInfo = {
@@ -78,19 +81,24 @@ export function EditGrammarModal({ isOpen, onClose, card }: EditGrammarModalProp
       };
     }
 
-    setCardGrammarOverride(card.id, pos, grammarInfo);
-    onClose();
-  };
+    setSaveError(null);
 
-  const handleDownloadOverrides = () => {
-    const jsonStr = exportOverridesJson();
-    const blob = new Blob([jsonStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'grammar-overrides.json';
-    a.click();
-    URL.revokeObjectURL(url);
+    // Custom cards only exist on this device, so they're edited locally.
+    if (isCustom) {
+      updateCustomCard(card.id, { partOfSpeech: pos, grammar: grammarInfo });
+      onClose();
+      return;
+    }
+
+    setIsSaving(true);
+    const result = await setCardGrammarOverride(card.id, pos, grammarInfo);
+    setIsSaving(false);
+
+    if (result.ok) {
+      onClose();
+    } else {
+      setSaveError(result.error ?? 'Could not save. Check your connection and try again.');
+    }
   };
 
   return (
@@ -262,39 +270,36 @@ export function EditGrammarModal({ isOpen, onClose, card }: EditGrammarModalProp
 
           {/* Honor System Info Banner */}
           <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/60 text-xs text-blue-700 dark:text-blue-300 space-y-1">
-            <p className="font-semibold">🤝 Honor System Community Overrides</p>
+            <p className="font-semibold">🤝 Honor System</p>
             <p>
-              Your changes apply instantly. To ship these classifications to all users on GitHub Pages, click <strong>"Download Overrides"</strong> and place the downloaded <code className="font-mono bg-blue-100 dark:bg-blue-900/60 px-1 py-0.5 rounded">grammar-overrides.json</code> in your repository's <code className="font-mono bg-blue-100 dark:bg-blue-900/60 px-1 py-0.5 rounded">public/data/</code> folder.
+              {isCustom
+                ? 'This is one of your custom cards, so this change is saved on this device only.'
+                : 'Saved to the shared database: everyone will see this change. Please only correct genuine mistakes.'}
             </p>
           </div>
 
-          <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t">
+          {saveError && (
+            <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/60 text-xs text-red-700 dark:text-red-300">
+              {saveError}
+            </div>
+          )}
+
+          <div className="pt-2 flex items-center justify-end gap-2 border-t">
             <button
               type="button"
-              onClick={handleDownloadOverrides}
-              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-border/80 text-xs font-medium hover:bg-muted transition"
-              title="Download grammar-overrides.json for GitHub"
+              onClick={onClose}
+              className="px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-muted transition"
             >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download Overrides</span>
+              Cancel
             </button>
-
-            <div className="flex items-center space-x-2">
-              <button
-                type="button"
-                onClick={onClose}
-                className="px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-muted transition"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="flex items-center space-x-1.5 px-4 py-1.5 rounded-lg bg-primary text-primary-foreground font-semibold text-xs hover:bg-primary/90 transition shadow-sm"
-              >
-                <Check className="w-3.5 h-3.5" />
-                <span>Save for Everyone</span>
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={isSaving}
+              className="flex items-center space-x-1.5 px-4 py-1.5 rounded-lg bg-primary text-primary-foreground font-semibold text-xs hover:bg-primary/90 transition shadow-sm disabled:opacity-60"
+            >
+              <Check className="w-3.5 h-3.5" />
+              <span>{isSaving ? 'Saving…' : isCustom ? 'Save' : 'Save for Everyone'}</span>
+            </button>
           </div>
         </form>
       </div>
