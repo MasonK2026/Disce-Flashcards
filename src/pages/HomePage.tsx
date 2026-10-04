@@ -18,7 +18,7 @@ const RANKS = [
 
 export function HomePage() {
   const { chapters, allCards, isLoading, error, loadData } = useDataStore();
-  const { cardProgress, lastStudySession, settings } = useUserStore();
+  const { cardProgress, lastStudySession } = useUserStore();
   const { decks, customCards } = useDeckStore();
 
   useEffect(() => {
@@ -30,13 +30,6 @@ export function HomePage() {
   const totalCards = allCards.length;
   const memorizedCount = Object.values(cardProgress).filter(p => p.memorized).length;
   const favoriteCount = Object.values(cardProgress).filter(p => p.favorite).length;
-
-  const activeStudyCardsCount = useMemo(() => {
-    return allCards.filter(card => {
-      const slug = card.id.split('_')[0];
-      return settings.activeChapters.includes(slug);
-    }).length;
-  }, [allCards, settings.activeChapters]);
 
   // Gamified Rank calculation
   const rankInfo = useMemo(() => {
@@ -103,14 +96,14 @@ export function HomePage() {
 
       {/* KPI Stats Grid */}
       <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
-        <Link to="/study/active" className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm hover:border-primary/50 transition cursor-pointer group">
+        <div className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm">
           <div className="flex items-center justify-between text-muted-foreground">
-            <span className="text-xs font-semibold uppercase tracking-wider group-hover:text-primary transition">Study Pool</span>
+            <span className="text-xs font-semibold uppercase tracking-wider">Total Words</span>
             <BookOpen className="w-4 h-4 text-primary" />
           </div>
-          <p className="text-3xl font-extrabold mt-2 text-primary">{activeStudyCardsCount}</p>
-          <p className="text-xs text-muted-foreground mt-1">From {settings.activeChapters.length} active chapters</p>
-        </Link>
+          <p className="text-3xl font-extrabold mt-2 text-primary">{totalCards + customCards.length}</p>
+          <p className="text-xs text-muted-foreground mt-1">Oxford & user created</p>
+        </div>
 
         <Link to="/decks" className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm hover:border-indigo-500/50 transition cursor-pointer group">
           <div className="flex items-center justify-between text-muted-foreground">
@@ -130,7 +123,7 @@ export function HomePage() {
           <p className="text-xs text-muted-foreground mt-1">Manage starred words</p>
         </Link>
 
-        <Link to="/search" className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm hover:border-emerald-500/50 transition cursor-pointer group">
+        <Link to="/decks" className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm hover:border-emerald-500/50 transition cursor-pointer group">
           <div className="flex items-center justify-between text-muted-foreground">
             <span className="text-xs font-semibold uppercase tracking-wider group-hover:text-emerald-500 transition">Custom Words</span>
             <PenTool className="w-4 h-4 text-emerald-500" />

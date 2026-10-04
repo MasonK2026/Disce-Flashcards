@@ -8,7 +8,6 @@ import { SearchModal } from '../search/SearchModal';
 export function Layout() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const pin = useAccountStore(s => s.pin);
-  const syncStatus = useAccountStore(s => s.status);
   const { chapters, isLoading, loadData } = useDataStore();
 
   // Start cloud sync (pull on boot, debounced push on changes) once
@@ -62,26 +61,14 @@ export function Layout() {
                 <span className="hidden sm:inline-block">Chapters</span>
               </Link>
 
-              <Link to="/search" className="flex items-center space-x-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors px-2 py-1">
-                <Search className="h-4 w-4" />
-                <span className="hidden sm:inline-block">Dictionary & Filters</span>
-              </Link>
-
               <Link to="/decks" className="flex items-center space-x-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors px-2 py-1">
                 <Layers className="h-4 w-4" />
                 <span className="hidden sm:inline-block">Decks</span>
               </Link>
 
-              <Link to="/account" className="relative flex items-center space-x-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors px-2 py-1" title={pin ? 'Account (signed in)' : 'Account'}>
+              <Link to="/account" className="flex items-center space-x-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors px-2 py-1" title={pin ? 'Account (signed in)' : 'Account'}>
                 <User className="h-4 w-4" />
                 <span className="hidden sm:inline-block">{pin ? 'Account' : 'Sign in'}</span>
-                {pin && (
-                  <span
-                    className={`absolute top-0.5 right-0.5 w-2 h-2 rounded-full ${
-                      syncStatus === 'error' ? 'bg-red-500' : syncStatus === 'syncing' ? 'bg-amber-400' : 'bg-green-500'
-                    }`}
-                  />
-                )}
               </Link>
             </nav>
           </div>
