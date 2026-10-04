@@ -1,4 +1,4 @@
-# *Disce!* — Oxford Latin Study Companion
+# *Disce!* | Oxford Latin Study Companion
 
 [![Deploy to GitHub Pages](https://github.com/MasonK2026/Disce-Flashcards/actions/workflows/deploy.yml/badge.svg)](https://github.com/MasonK2026/Disce-Flashcards/actions/workflows/deploy.yml)
 [![Live Demo](https://img.shields.io/badge/Live_Site-GitHub_Pages-blue?style=flat&logo=github)](https://masonk2026.github.io/Disce-Flashcards/)
