@@ -122,8 +122,21 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               <p>Type any word in Latin (no macrons needed, u/v & i/j interchangeable) or English.</p>
             </div>
           ) : results.length === 0 ? (
-            <div className="p-8 text-center text-muted-foreground text-sm">
-              No vocabulary cards found for <span className="font-semibold text-foreground">"{query}"</span>.
+            <div className="p-8 text-center text-muted-foreground text-sm space-y-4">
+              <p>
+                No vocabulary cards found for <span className="font-semibold text-foreground">"{query}"</span>.
+              </p>
+              <div className="flex justify-center">
+                <a
+                  href={generateVocabulaLink(query)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 font-semibold text-xs transition shadow-xs"
+                >
+                  <span>Search for "{query.trim()}" on Vocabula</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           ) : (
             results.map((card) => {

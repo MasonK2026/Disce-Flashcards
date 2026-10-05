@@ -498,6 +498,18 @@ export function SearchPage() {
               <span>No words in the library match all of your selected filters simultaneously.</span>
             )}
           </p>
+
+          <div className="pt-1">
+            <a
+              href={query.trim() ? generateVocabulaLink(query) : 'https://www.vocabula.lat/'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 font-semibold text-xs transition shadow-xs"
+            >
+              <span>{query.trim() ? `Search for "${query.trim()}" on Vocabula` : 'Search on Vocabula'}</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
           <div className="flex justify-center gap-2 pt-1">
             {query.trim() && (
               <button

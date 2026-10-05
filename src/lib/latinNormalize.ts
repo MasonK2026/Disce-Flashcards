@@ -74,11 +74,16 @@ export function getVerbSecondPrincipalPart(term: string): string {
 }
 
 export function generateVocabulaLink(term: string): string {
-  const parts = term.split(',').map(p => p.trim());
-  let query = parts[0];
-  // Remove trailing info like " (minōris)"
-  query = query.split(' ')[0];
-  return `https://www.vocabula.lat/?q=${normalizeLatinSearch(query)}`;
+  if (!term || !term.trim()) return 'https://www.vocabula.lat/';
+  let query = term.trim();
+  if (query.includes(',')) {
+    query = query.split(',')[0].trim();
+  }
+  if (query.includes(' -')) {
+    query = query.split(' -')[0].trim();
+  }
+  query = query.replace(/\s*\(.*?\)\s*/g, ' ').trim();
+  return `https://www.vocabula.lat/?q=${encodeURIComponent(normalizeLatinSearch(query))}`;
 }
 
 export function generateLatinIsSimpleLink(term: string): string {
