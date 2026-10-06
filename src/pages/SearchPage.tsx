@@ -4,9 +4,10 @@ import { useDataStore, CHAPTER_SLUGS } from '../stores/dataStore';
 import { useUserStore } from '../stores/userStore';
 import { useDeckStore } from '../stores/deckStore';
 import { normalizeLatinSearch, generateVocabulaLink, generateLatinIsSimpleLink, generateCactusLink } from '../lib/latinNormalize';
+import { searchWhitakers } from '../lib/whitakers';
 import { GrammarBadge } from '../components/grammar/GrammarBadge';
 import { EditGrammarModal } from '../components/grammar/EditGrammarModal';
-import { Search, X, Filter, Play, Star, CheckCircle, Check, ExternalLink, Tag, RotateCcw } from 'lucide-react';
+import { Search, X, Filter, Play, Star, CheckCircle, Check, ExternalLink, Tag, RotateCcw, Save, Library } from 'lucide-react';
 import type { Card } from '../types';
 
 export function SearchPage() {
@@ -39,6 +40,9 @@ export function SearchPage() {
   const [editingCard, setEditingCard] = useState<Card | null>(null);
   const [targetDeckId, setTargetDeckId] = useState('');
   const [addedBatchNotice, setAddedBatchNotice] = useState('');
+  
+  const [whitakerResults, setWhitakerResults] = useState<Card[]>([]);
+  const [isSearchingWhitakers, setIsSearchingWhitakers] = useState(false);
 
   // Keep URL search params in sync with query
   useEffect(() => {
@@ -48,6 +52,32 @@ export function SearchPage() {
       setSearchParams({}, { replace: true });
     }
   }, [query, setSearchParams]);
+
+  // Fetch Whitaker's words
+  useEffect(() => {
+    let active = true;
+    if (!query.trim()) {
+      setWhitakerResults([]);
+      return;
+    }
+    
+    const timeout = setTimeout(async () => {
+      setIsSearchingWhitakers(true);
+      try {
+        const res = await searchWhitakers(query.trim());
+        if (active) setWhitakerResults(res);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        if (active) setIsSearchingWhitakers(false);
+      }
+    }, 400);
+    
+    return () => {
+      active = false;
+      clearTimeout(timeout);
+    };
+  }, [query]);
 
   // Combined card pool (official + user custom)
   const combinedCards = useMemo(() => {
@@ -138,7 +168,20 @@ export function SearchPage() {
     selectedChapter,
     selectedStatus,
     cardProgress,
-  ]);
+  ],);
+
+  const filteredWhitaker = useMemo(() => {
+    return whitakerResults.filter(w => {
+      const wNorm = normalizeLatinSearch(w.term);
+      return !filteredCards.some(r => normalizeLatinSearch(r.term) === wNorm);
+    });
+  }, [whitakerResults, filteredCards]);
+
+  const handleSaveWhitaker = (card: Card) => {
+    const { id, ...cardData } = card;
+    useDeckStore.getState().createCustomCard(cardData);
+    setWhitakerResults(prev => prev.filter(c => c.id !== card.id));
+  };
 
   // Handle Study Filtered Results
   const handleStudyFiltered = () => {
@@ -488,7 +531,8 @@ export function SearchPage() {
       </div>
 
       {/* Results Grid */}
-      {filteredCards.length === 0 ? (
+      {/* Results Grid */}
+      {filteredCards.length === 0 && filteredWhitaker.length === 0 ? (
         <div className="p-16 text-center rounded-2xl border border-dashed text-muted-foreground text-sm space-y-3">
           <p className="font-semibold text-foreground text-base">No words matched your search criteria.</p>
           <p className="text-xs max-w-md mx-auto">
@@ -498,18 +542,27 @@ export function SearchPage() {
               <span>No words in the library match all of your selected filters simultaneously.</span>
             )}
           </p>
+          
+          {isSearchingWhitakers && (
+            <div className="animate-pulse text-muted-foreground flex justify-center items-center space-x-2 pt-2">
+              <Library className="w-4 h-4" />
+              <span>Checking Whitaker's WORDS...</span>
+            </div>
+          )}
 
-          <div className="pt-1">
-            <a
-              href={query.trim() ? generateVocabulaLink(query) : 'https://www.vocabula.lat/'}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 font-semibold text-xs transition shadow-xs"
-            >
-              <span>{query.trim() ? `Search for "${query.trim()}" on Vocabula` : 'Search on Vocabula'}</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-          </div>
+          {!isSearchingWhitakers && (
+            <div className="pt-1">
+              <a
+                href={query.trim() ? generateVocabulaLink(query) : 'https://www.vocabula.lat/'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 font-semibold text-xs transition shadow-xs"
+              >
+                <span>{query.trim() ? `Search for "${query.trim()}" on Vocabula` : 'Search on Vocabula'}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          )}
           <div className="flex justify-center gap-2 pt-1">
             {query.trim() && (
               <button
@@ -619,6 +672,53 @@ export function SearchPage() {
               </div>
             );
           })}
+          
+          {filteredWhitaker.map((card) => (
+            <div
+              key={card.id}
+              className="p-4 rounded-xl border border-purple-500/30 bg-purple-500/5 hover:bg-purple-500/10 transition flex flex-col justify-between space-y-3"
+            >
+              <div>
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <div className="font-bold text-base text-purple-900 dark:text-purple-100 leading-snug">{card.term}</div>
+                    <span className="inline-flex items-center space-x-1 mt-1 text-[10px] font-semibold px-2 py-0.5 rounded bg-purple-500/20 text-purple-700 dark:text-purple-300 uppercase tracking-wider">
+                      <Library className="w-3 h-3" />
+                      <span>Whitaker's WORDS</span>
+                    </span>
+                  </div>
+
+                  <div className="flex items-center space-x-1 shrink-0">
+                    <button
+                      onClick={() => handleSaveWhitaker(card)}
+                      className="px-2 py-1 rounded-md bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold flex items-center space-x-1 transition shadow-sm"
+                    >
+                      <Save className="w-3.5 h-3.5" />
+                      <span>Save</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="text-sm text-purple-800/80 dark:text-purple-200/80 mt-2">{card.definition}</div>
+              </div>
+
+              <div className="pt-2 border-t border-purple-500/20 flex flex-wrap items-center justify-between gap-2 opacity-90">
+                <GrammarBadge grammar={card.grammar} partOfSpeech={card.partOfSpeech} />
+
+                <div className="flex items-center space-x-2 text-xs">
+                  <a
+                    href={generateVocabulaLink(card.term)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-blue-500 hover:underline flex items-center"
+                    title="Vocabula.lat"
+                  >
+                    Vocabula <ExternalLink className="w-3 h-3 ml-0.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       )}
 
