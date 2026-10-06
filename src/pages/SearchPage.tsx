@@ -179,7 +179,7 @@ export function SearchPage() {
 
   const handleSaveWhitaker = (card: Card) => {
     const { id, ...cardData } = card;
-    useDeckStore.getState().createCustomCard(cardData);
+    useDeckStore.getState().createCustomCard({ ...cardData, source: 'whitakers' });
     setWhitakerResults(prev => prev.filter(c => c.id !== card.id));
   };
 
@@ -691,10 +691,10 @@ export function SearchPage() {
                   <div className="flex items-center space-x-1 shrink-0">
                     <button
                       onClick={() => handleSaveWhitaker(card)}
-                      className="px-2 py-1 rounded-md bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold flex items-center space-x-1 transition shadow-sm"
+                      className="px-2.5 py-1.5 rounded-md bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold flex items-center space-x-1.5 transition shadow-sm"
                     >
                       <Save className="w-3.5 h-3.5" />
-                      <span>Save</span>
+                      <span>Save to Custom Words</span>
                     </button>
                   </div>
                 </div>

@@ -117,7 +117,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
   const handleSaveWhitaker = (card: Card) => {
     const { id, ...cardData } = card;
-    createCustomCard(cardData);
+    createCustomCard({ ...cardData, source: 'whitakers' });
     setWhitakerResults(prev => prev.filter(c => c.id !== card.id));
   };
 
@@ -287,7 +287,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       className="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold flex items-center space-x-1.5 transition shadow-sm"
                     >
                       <Save className="w-3.5 h-3.5" />
-                      <span>Save Word</span>
+                      <span>Save to Custom Words</span>
                     </button>
                     <div className="flex items-center space-x-1 pl-2 border-l border-purple-500/30">
                       <a

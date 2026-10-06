@@ -90,6 +90,7 @@ function mapToCard(result: ParseResult, inputWord: string): Card {
     partOfSpeech,
     grammar,
     searchForms: [inputWord],
+    source: 'whitakers',
   };
 }
 

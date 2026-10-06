@@ -30,6 +30,7 @@ export function HomePage() {
   }, [chapters, isLoading, loadData]);
 
   const totalCards = allCards.length;
+  const whitakersCount = customCards.filter(c => c.source === 'whitakers').length;
   const memorizedCount = Object.values(cardProgress).filter(p => p.memorized).length;
   const favoriteCount = Object.values(cardProgress).filter(p => p.favorite).length;
   const totalXp = memorizedCount * XP_PER_WORD;
@@ -109,6 +110,10 @@ export function HomePage() {
           </div>
           <p className="text-3xl font-extrabold mt-2 text-primary">{totalCards + customCards.length}</p>
           <p className="text-xs text-muted-foreground mt-1">Oxford & user created</p>
+          <p className="text-xs font-medium text-purple-600 dark:text-purple-400 mt-1.5 flex items-center gap-1.5">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+            <span>{whitakersCount} from Whitaker's WORDS</span>
+          </p>
         </div>
 
         <Link to="/decks" className="rounded-2xl border bg-card text-card-foreground p-5 shadow-sm hover:border-indigo-500/50 transition cursor-pointer group">

@@ -98,6 +98,7 @@ export const useDeckStore = create<DeckState>()(
 
       createCustomCard: (cardData: Omit<Card, 'id'>) => {
         const newCard: Card = {
+          source: cardData.source || 'manual',
           ...cardData,
           id: `custom_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
         };

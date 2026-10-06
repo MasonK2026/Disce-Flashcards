@@ -6,6 +6,7 @@ export interface Card {
   grammar?: GrammarInfo;
   searchForms?: string[];
   vocabulaQuery?: string;
+  source?: 'oxford' | 'whitakers' | 'manual';
 }
 
 export interface GrammarInfo {
