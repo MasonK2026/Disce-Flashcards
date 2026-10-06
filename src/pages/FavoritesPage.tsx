@@ -4,7 +4,7 @@ import { useDataStore } from '../stores/dataStore';
 import { useUserStore } from '../stores/userStore';
 import { useDeckStore } from '../stores/deckStore';
 import { normalizeLatinSearch } from '../lib/latinNormalize';
-import { ArrowLeft, Play, Search, Trash2, StarOff, Star, X } from 'lucide-react';
+import { ArrowLeft, Play, Search, Trash2, StarOff, Star, X, HelpCircle } from 'lucide-react';
 import { GrammarBadge } from '../components/grammar/GrammarBadge';
 import type { Card } from '../types';
 
@@ -77,14 +77,26 @@ export function FavoritesPage() {
         <div className="flex items-center space-x-2">
           <Link
             to="/study/favorites"
-            className={`flex items-center space-x-1.5 px-5 py-2.5 rounded-xl text-sm font-semibold transition shadow-sm ${
+            className={`flex items-center space-x-1.5 px-4 py-2.5 rounded-xl text-sm font-semibold transition shadow-sm ${
               favoriteCards.length > 0
                 ? 'bg-amber-500 text-white hover:bg-amber-600'
                 : 'bg-muted text-muted-foreground/50 pointer-events-none'
             }`}
           >
             <Play className="w-4 h-4 fill-current" />
-            <span>Study Favorites ({favoriteCards.length})</span>
+            <span>Study ({favoriteCards.length})</span>
+          </Link>
+
+          <Link
+            to="/quiz/favorites"
+            className={`flex items-center space-x-1.5 px-4 py-2.5 rounded-xl text-sm font-semibold transition shadow-sm ${
+              favoriteCards.length > 0
+                ? 'bg-purple-600 text-white hover:bg-purple-700'
+                : 'bg-muted text-muted-foreground/50 pointer-events-none'
+            }`}
+          >
+            <HelpCircle className="w-4 h-4" />
+            <span>Quiz Favorites</span>
           </Link>
         </div>
       </div>

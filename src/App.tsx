@@ -9,6 +9,7 @@ import { DeckDetailPage } from './pages/DeckDetailPage';
 import { SearchPage } from './pages/SearchPage';
 import { AccountPage } from './pages/AccountPage';
 import { FavoritesPage } from './pages/FavoritesPage';
+import { QuizPage } from './pages/QuizPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="chapters" element={<ChaptersPage />} />
           <Route path="chapters/:slug" element={<ChapterDetailPage />} />
           <Route path="study/:source" element={<StudyPage />} />
+          <Route path="quiz/:source" element={<QuizPage />} />
           <Route path="decks" element={<DecksPage />} />
           <Route path="decks/:id" element={<DeckDetailPage />} />
           <Route path="search" element={<SearchPage />} />

@@ -7,7 +7,7 @@ import { normalizeLatinSearch, generateVocabulaLink, generateLatinIsSimpleLink, 
 import { searchWhitakers } from '../lib/whitakers';
 import { GrammarBadge } from '../components/grammar/GrammarBadge';
 import { EditGrammarModal } from '../components/grammar/EditGrammarModal';
-import { Search, X, Filter, Play, Star, CheckCircle, Check, ExternalLink, Tag, RotateCcw, Save, Library } from 'lucide-react';
+import { Search, X, Filter, Play, Star, CheckCircle, Check, ExternalLink, Tag, RotateCcw, Save, Library, HelpCircle } from 'lucide-react';
 import type { Card } from '../types';
 
 export function SearchPage() {
@@ -190,6 +190,13 @@ export function SearchPage() {
     navigate('/study/search');
   };
 
+  // Handle Quiz Filtered Results
+  const handleQuizFiltered = () => {
+    const ids = filteredCards.map(c => c.id);
+    setSearchStudyPool(ids);
+    navigate('/quiz/search');
+  };
+
   // Handle Add All to Deck
   const handleAddAllToDeck = () => {
     if (!targetDeckId || filteredCards.length === 0) return;
@@ -243,13 +250,23 @@ export function SearchPage() {
 
         <div className="flex items-center space-x-2">
           {filteredCards.length > 0 && (
-            <button
-              onClick={handleStudyFiltered}
-              className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition text-sm shadow-sm"
-            >
-              <Play className="w-4 h-4 fill-current" />
-              <span>Study Results ({filteredCards.length})</span>
-            </button>
+            <>
+              <button
+                onClick={handleStudyFiltered}
+                className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition text-sm shadow-sm"
+              >
+                <Play className="w-4 h-4 fill-current" />
+                <span>Study ({filteredCards.length})</span>
+              </button>
+
+              <button
+                onClick={handleQuizFiltered}
+                className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-purple-600 text-white font-semibold hover:bg-purple-700 transition text-sm shadow-sm"
+              >
+                <HelpCircle className="w-4 h-4" />
+                <span>Quiz Results</span>
+              </button>
+            </>
           )}
         </div>
       </div>

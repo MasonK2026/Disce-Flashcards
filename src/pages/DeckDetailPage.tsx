@@ -4,7 +4,7 @@ import { useDeckStore } from '../stores/deckStore';
 import { useDataStore } from '../stores/dataStore';
 import { normalizeLatinSearch } from '../lib/latinNormalize';
 import { GrammarBadge } from '../components/grammar/GrammarBadge';
-import { ArrowLeft, Play, Plus, Trash2, Search, Sparkles, Layers } from 'lucide-react';
+import { ArrowLeft, Play, Plus, Trash2, Search, Sparkles, Layers, HelpCircle } from 'lucide-react';
 import { CustomCardModal } from '../components/deck/CustomCardModal';
 import { BulkAddModal } from '../components/deck/BulkAddModal';
 import type { Card } from '../types';
@@ -133,7 +133,19 @@ export function DeckDetailPage() {
             }`}
           >
             <Play className="w-4 h-4 fill-current" />
-            <span>Study Deck ({deckCards.length})</span>
+            <span>Study ({deckCards.length})</span>
+          </Link>
+
+          <Link
+            to={`/quiz/${deck.id}`}
+            className={`flex items-center space-x-1.5 px-4 py-2 rounded-xl text-xs font-semibold transition shadow-sm ${
+              deckCards.length > 0
+                ? 'bg-purple-600 text-white hover:bg-purple-700'
+                : 'bg-muted text-muted-foreground/50 pointer-events-none'
+            }`}
+          >
+            <HelpCircle className="w-4 h-4" />
+            <span>Quiz Deck</span>
           </Link>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { useDataStore } from '../stores/dataStore';
 import { useUserStore } from '../stores/userStore';
 import { useDeckStore } from '../stores/deckStore';
 import { Link } from 'react-router-dom';
-import { Play, Star, BookOpen, Layers, Zap, Sparkles, PenTool } from 'lucide-react';
+import { Play, Star, BookOpen, Layers, Zap, Sparkles, PenTool, HelpCircle } from 'lucide-react';
 import { ChapterGroup, groupChaptersByBase } from '../components/chapter/ChapterGroup';
 
 const XP_PER_WORD = 10;
@@ -86,7 +86,15 @@ export function HomePage() {
             className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition shadow-sm text-sm"
           >
             <Play className="w-4 h-4 fill-current" />
-            <span>Study All Vocabulary ({totalCards} Words)</span>
+            <span>Study All ({totalCards} Words)</span>
+          </Link>
+
+          <Link
+            to="/quiz/active"
+            className="flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-purple-600 text-white font-semibold hover:bg-purple-700 transition shadow-sm text-sm"
+          >
+            <HelpCircle className="w-4 h-4" />
+            <span>Quiz Vocabulary</span>
           </Link>
 
           {favoriteCount > 0 && (

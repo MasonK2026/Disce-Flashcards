@@ -5,7 +5,7 @@ import { useUserStore } from '../stores/userStore';
 import { GrammarBadge } from '../components/grammar/GrammarBadge';
 import { EditGrammarModal } from '../components/grammar/EditGrammarModal';
 import { generateVocabulaLink, generateLatinIsSimpleLink, generateCactusLink } from '../lib/latinNormalize';
-import { ArrowLeft, Play, Star, CheckCircle, Check, ExternalLink, Tag } from 'lucide-react';
+import { ArrowLeft, Play, Star, CheckCircle, Check, ExternalLink, Tag, HelpCircle } from 'lucide-react';
 import type { Card } from '../types';
 
 export function ChapterDetailPage() {
@@ -35,13 +35,23 @@ export function ChapterDetailPage() {
           </div>
         </div>
 
-        <Link 
-          to={`/study/${chapter.chapter}`} 
-          className="flex items-center space-x-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl font-semibold hover:bg-primary/90 transition shadow-sm text-sm self-start sm:self-center"
-        >
-          <Play className="w-4 h-4 fill-current" />
-          <span>Study Chapter ({totalCards})</span>
-        </Link>
+        <div className="flex items-center space-x-2 self-start sm:self-center">
+          <Link 
+            to={`/study/${chapter.chapter}`} 
+            className="flex items-center space-x-2 bg-primary text-primary-foreground px-4 py-2.5 rounded-xl font-semibold hover:bg-primary/90 transition shadow-sm text-sm"
+          >
+            <Play className="w-4 h-4 fill-current" />
+            <span>Study ({totalCards})</span>
+          </Link>
+
+          <Link 
+            to={`/quiz/${chapter.chapter}`} 
+            className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2.5 rounded-xl font-semibold hover:bg-purple-700 transition shadow-sm text-sm"
+          >
+            <HelpCircle className="w-4 h-4" />
+            <span>Quiz Chapter</span>
+          </Link>
+        </div>
       </div>
       
       <div className="space-y-8">
