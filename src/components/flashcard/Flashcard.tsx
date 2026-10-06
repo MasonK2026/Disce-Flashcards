@@ -80,38 +80,44 @@ export function Flashcard({ card, isFlipped, direction, onFlip }: FlashcardProps
             </div>
           )}
 
-          <div className="absolute bottom-6 flex space-x-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            {direction === 'LA-EN' && (
-              <>
+          {direction === 'LA-EN' && (
+            <div 
+              className="absolute bottom-7 left-0 right-0 flex flex-wrap items-center justify-center gap-2 px-3 z-20 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
+              onClick={(e) => e.stopPropagation()}
+              onTouchStart={(e) => e.stopPropagation()}
+              onTouchEnd={(e) => e.stopPropagation()}
+            >
+              <a 
+                href={generateVocabulaLink(card.term)} 
+                target="_blank" 
+                rel="noreferrer" 
+                onClick={handleLinkClick}
+                className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold text-primary bg-primary/10 hover:bg-primary/20 border border-primary/20 transition active:scale-95"
+              >
+                Vocabula <ExternalLink className="w-3 h-3 ml-1" />
+              </a>
+              <a 
+                href={generateLatinIsSimpleLink(card.term)} 
+                target="_blank" 
+                rel="noreferrer" 
+                onClick={handleLinkClick}
+                className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold text-primary bg-primary/10 hover:bg-primary/20 border border-primary/20 transition active:scale-95"
+              >
+                Latin is Simple <ExternalLink className="w-3 h-3 ml-1" />
+              </a>
+              {card.partOfSpeech === 'verb' && (
                 <a 
-                  href={generateVocabulaLink(card.term)} 
-                  target="_blank" rel="noreferrer" 
+                  href={generateCactusLink(card.term)} 
+                  target="_blank" 
+                  rel="noreferrer" 
                   onClick={handleLinkClick}
-                  className="flex items-center text-xs text-blue-500 hover:underline"
+                  className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold text-primary bg-primary/10 hover:bg-primary/20 border border-primary/20 transition active:scale-95"
                 >
-                  Vocabula <ExternalLink className="w-3 h-3 ml-1" />
+                  Cactus 2000 <ExternalLink className="w-3 h-3 ml-1" />
                 </a>
-                <a 
-                  href={generateLatinIsSimpleLink(card.term)} 
-                  target="_blank" rel="noreferrer" 
-                  onClick={handleLinkClick}
-                  className="flex items-center text-xs text-blue-500 hover:underline"
-                >
-                  Latin is Simple <ExternalLink className="w-3 h-3 ml-1" />
-                </a>
-                {card.partOfSpeech === 'verb' && (
-                  <a 
-                    href={generateCactusLink(card.term)} 
-                    target="_blank" rel="noreferrer" 
-                    onClick={handleLinkClick}
-                    className="flex items-center text-xs text-blue-500 hover:underline"
-                  >
-                    Cactus 2000 <ExternalLink className="w-3 h-3 ml-1" />
-                  </a>
-                )}
-              </>
-            )}
-          </div>
+              )}
+            </div>
+          )}
           
           <div className="absolute bottom-2 text-xs text-muted-foreground/50">
             Tap or Space to flip
@@ -124,6 +130,45 @@ export function Flashcard({ card, isFlipped, direction, onFlip }: FlashcardProps
             {direction === 'LA-EN' ? 'English' : 'Latin'}
           </span>
           <h2 className="text-2xl md:text-4xl font-bold">{backText}</h2>
+
+          {direction === 'EN-LA' && (
+            <div 
+              className="absolute bottom-7 left-0 right-0 flex flex-wrap items-center justify-center gap-2 px-3 z-20 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
+              onClick={(e) => e.stopPropagation()}
+              onTouchStart={(e) => e.stopPropagation()}
+              onTouchEnd={(e) => e.stopPropagation()}
+            >
+              <a 
+                href={generateVocabulaLink(card.term)} 
+                target="_blank" 
+                rel="noreferrer" 
+                onClick={handleLinkClick}
+                className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold text-primary bg-primary/10 hover:bg-primary/20 border border-primary/20 transition active:scale-95"
+              >
+                Vocabula <ExternalLink className="w-3 h-3 ml-1" />
+              </a>
+              <a 
+                href={generateLatinIsSimpleLink(card.term)} 
+                target="_blank" 
+                rel="noreferrer" 
+                onClick={handleLinkClick}
+                className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold text-primary bg-primary/10 hover:bg-primary/20 border border-primary/20 transition active:scale-95"
+              >
+                Latin is Simple <ExternalLink className="w-3 h-3 ml-1" />
+              </a>
+              {card.partOfSpeech === 'verb' && (
+                <a 
+                  href={generateCactusLink(card.term)} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  onClick={handleLinkClick}
+                  className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold text-primary bg-primary/10 hover:bg-primary/20 border border-primary/20 transition active:scale-95"
+                >
+                  Cactus 2000 <ExternalLink className="w-3 h-3 ml-1" />
+                </a>
+              )}
+            </div>
+          )}
         </div>
       </motion.div>
     </div>
