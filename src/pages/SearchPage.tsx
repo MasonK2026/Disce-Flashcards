@@ -681,7 +681,7 @@ export function SearchPage() {
               <div>
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <div className="font-bold text-base text-purple-900 dark:text-purple-100 leading-snug">{card.term}</div>
+                    <div className="font-bold text-base text-foreground leading-snug">{card.term}</div>
                     <span className="inline-flex items-center space-x-1 mt-1 text-[10px] font-semibold px-2 py-0.5 rounded bg-purple-500/20 text-purple-700 dark:text-purple-300 uppercase tracking-wider">
                       <Library className="w-3 h-3" />
                       <span>Whitaker's WORDS</span>
@@ -699,7 +699,7 @@ export function SearchPage() {
                   </div>
                 </div>
 
-                <div className="text-sm text-purple-800/80 dark:text-purple-200/80 mt-2">{card.definition}</div>
+                <div className="text-sm text-muted-foreground mt-2">{card.definition}</div>
               </div>
 
               <div className="pt-2 border-t border-purple-500/20 flex flex-wrap items-center justify-between gap-2 opacity-90">

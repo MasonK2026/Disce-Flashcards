@@ -269,13 +269,13 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 <div key={card.id} className="pt-3 first:pt-0 flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-2 rounded-xl bg-purple-500/5 hover:bg-purple-500/10 border border-purple-500/20 transition">
                   <div className="space-y-1">
                     <div className="flex items-center space-x-2">
-                      <span className="font-bold text-base text-purple-900 dark:text-purple-100">{card.term}</span>
+                      <span className="font-bold text-base text-foreground">{card.term}</span>
                       <span className="text-xs px-2 py-0.5 rounded bg-purple-500/20 text-purple-700 dark:text-purple-300 font-semibold uppercase tracking-wider flex items-center space-x-1">
                         <Library className="w-3 h-3" />
                         <span>Whitaker's WORDS</span>
                       </span>
                     </div>
-                    <p className="text-sm text-purple-800/80 dark:text-purple-200/80">{card.definition}</p>
+                    <p className="text-sm text-muted-foreground">{card.definition}</p>
                     <div className="pt-1 opacity-90">
                       <GrammarBadge grammar={card.grammar} partOfSpeech={card.partOfSpeech} />
                     </div>

@@ -1,4 +1,4 @@
-import { WordsEngine } from 'whitakers-words';
+import { WordsEngine, dictionaryForm } from 'whitakers-words';
 import type { ParseResult, WordsEngineData } from 'whitakers-words';
 import type { Card, GrammarInfo } from '../types';
 
@@ -78,7 +78,9 @@ function mapToCard(result: ParseResult, inputWord: string): Card {
     partOfSpeech = 'pronoun';
   }
 
-  const term = de.stems.filter(s => s !== 'zzz').join(', ') || inputWord;
+  const fullDictForm = dictionaryForm(de);
+  const lemmaParts = fullDictForm.split('  ')[0];
+  const term = lemmaParts || de.stems.filter(s => s !== 'zzz').join(', ') || inputWord;
   const definition = formatDefinition(de.mean);
 
   return {
